@@ -105,5 +105,4 @@ publishing:
     enableTaskNotes: true
     enablePrettyLinks: true
     searchMode: search
-    assetsPrefix: /pks-publish
-    siteUrl: https://b2sdev.github.io
+    siteUrl: https://b2sdev-pks.netlify.app

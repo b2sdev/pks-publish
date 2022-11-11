@@ -1,20 +1,23 @@
 {
   "name": "dendron",
   "version": "1.0.0",
-  "description": "",
+  "description": "- https://b2sdev.github.io/pks-publish/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b2sdev/pkb-publish.git"
+    "url": "git+https://github.com/b2sdev/pks-publish.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/b2sdev/pkb-publish/issues"
+    "url": "https://github.com/b2sdev/pks-publish/issues"
   },
-  "homepage": "https://github.com/b2sdev/pkb-publish#readme"
+  "homepage": "https://github.com/b2sdev/pks-publish#readme",
+  "dependencies": {
+    "@dendronhq/dendron-cli": "^0.117.0"
+  }
 }

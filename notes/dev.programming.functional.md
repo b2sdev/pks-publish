@@ -1,8 +1,8 @@
 ---
 id: 0dgdfinbj1n0ojsgy5glg9w
-title: Functional
+title: Functional Programming
 desc: ''
-updated: 1668218694666
+updated: 1668238458749
 created: 1530669965000
 ---
 

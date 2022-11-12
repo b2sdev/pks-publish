@@ -2,7 +2,7 @@
 id: qptxqzkp75o2e7tlp0qdweg
 title: Spring Boot
 desc: ''
-updated: 1668223419974
+updated: 1668237890694
 created: 1531917700000
 ---
 
@@ -11,7 +11,6 @@ created: 1531917700000
 - Java 진영에서 웹 애플리케이션 서버 구축를 위한 프레임워크로 Spring이란 넘이 있는데 그 넘의 lite 버전으로 이해해도 무방
 - Java 언어로 REST Service API를 개발 가능
 - Service API는 Tomcat 서버에 올려서 서비스 (HTTP 통신을 위해)
-- 실습
 - 참고로, 웹 애플리케이션 서버 구축을 위한 프레임워크로는 아래와 같은 것들이 있음; 역시 각각의 기술이 책 한 권 분량; 기술 간에 장단점이 있으나 경험과 지식이 없으니 일단 가장 익숙한 언어로 시작해도 무방 
   - 전통 강자인 PHP
   - Spring - Java 

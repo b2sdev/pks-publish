@@ -1,8 +1,8 @@
 ---
 id: fiz4kqdcmvllh0152ftb82s
-title: Prod
+title: Math
 desc: ''
-updated: 1667046443331
+updated: 1668238414769
 created: 1667046443331
 ---
 

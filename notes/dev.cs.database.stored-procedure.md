@@ -2,7 +2,7 @@
 id: waxuyf1zmofwmcuej10vnyh
 title: Stored Procedure
 desc: ''
-updated: 1668459565547
+updated: 1669209865357
 created: 1668459386225
 ---
 
@@ -19,3 +19,14 @@ created: 1668459386225
     - `CREATE PROCEDURE ~`
 - 호출 (~ 커피 뽑기)
     - `CALL ~`
+    - `EXEC ~`
+
+## Example
+
+```sql
+CREATE PROCEDURE dbo.sp_getCustomerInfo @CustomerID int
+AS
+BEGIN
+	SELECT * FROM dbo.customer WHERE CustomerID = @CustomerID
+END
+```

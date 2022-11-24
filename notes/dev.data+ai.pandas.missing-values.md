@@ -2,11 +2,16 @@
 id: n0z812p7gv3z73gmdxw9ph8
 title: 결측치 확인 및 처리
 desc: ''
-updated: 1668456130138
+updated: 1669268347239
 created: 1668455357760
 ---
 
-## 결측치 확인 (TBD)
+## 결측치 확인
+
+```python
+df.info()
+df.isnull().sum()
+```
 
 ## 결측치 제거
 

@@ -1,8 +1,8 @@
 ---
 id: lyuotykr3e47c5bt119iyb5
-title: Seabor
+title: Seaborn
 desc: ''
-updated: 1669269147500
+updated: 1669269893295
 created: 1669268978751
 ---
 

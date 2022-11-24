@@ -2,7 +2,7 @@
 id: c0cwsuu2pvu4r5oci5pnzun
 title: Graph
 desc: ''
-updated: 1668242780977
+updated: 1669269373703
 created: 1542634080000
 ---
 
@@ -27,7 +27,7 @@ Edge 리스트를 이용한 표현
 	
 용어
 vertex
-하나의 개체를 표현
+하나의 개체를 표현~~~~
 edge
 vertex와 verte의 1:1 관계 -> (0, 1)
 path

@@ -2,7 +2,7 @@
 id: sfeu6c5r2tcv2mgr2xpo696
 title: Dataframe
 desc: ''
-updated: 1667042550960
+updated: 1669272945943
 created: 1667042550960
 ---
 
@@ -15,6 +15,16 @@ df = spark.createDataFrame([
   ('03', 'gcp')
 ], ())
 df.show()
+```
+
+### from Python Dictionary
+
+```python
+data = [
+  {'id': 10, 'name': 'Gildong', 'address': 'Seoul'},
+  ...
+]
+df = spark.createDataFrame([data])
 ```
 
 ## 데이터 읽기

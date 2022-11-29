@@ -2,7 +2,7 @@
 id: amhbge9cv2vmha17e12isfu
 title: Spark Overview
 desc: ''
-updated: 1669276780387
+updated: 1669432220730
 created: 1669210433558
 ---
 
@@ -31,6 +31,11 @@ created: 1669210433558
             - 각 partition에서 계산해야 하는 데이터들이 여러 머신에 나누어져 있기 때문에
             - shuffle이 완료된 후에 이후 연산이 시작됨
             - `정렬`은 단순히 각 파티션에서만 정렬되는 것이 아니라 모든 레코드들이 정의된 순서에 따라 정렬되어 있어야 하므로 narrow transformation으로는 해결할 수 없음
+            
+            ![](https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/dbbdd8e6-5f2a-45f5-a232-825dca3fa816/Narrow+Transformation.png?format=500w) | ![](https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/282af54b-d7d1-427e-b602-fdb3effc59a4/Wide+Transformation.png?format=500w)
+            ---|---
+            Narrow Transformation|Wide Transformation
+            filter()<br>contains()<br>|orderBy()<br>repartition()
         - transformation은 자신에게 의존하는 action이 호출되기 전까지는 실행되지 않음
     - action(액션)
         - RDD 내용을 바탕으로 더이상 데이터를 가공하지 않고 원하는 결과를 얻는 조작
@@ -41,6 +46,7 @@ created: 1669210433558
 
 - 스파크 클러스터 매니저
     - 스파크 애플리케이션에서 설정한 parameter에 따라 분산 시스템에 executor들을 실행하고 분산해 주는 역할
+    - Executors are launched by the cluster manager on behalf of the driver.
 
 - 스파크 실행 엔진
     - 연산을 위해 executor들에게 데이터를 분산해 주고 실행을 요청
@@ -64,12 +70,19 @@ created: 1669210433558
 ![](/assets/images/spark_application.png)
     - 분산 시스템에서 스파크 애플리케이션 시작하기
 
+![](https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/57966b9e-d905-4bb0-95c8-d2ca5def572d/Spark+Execution+Hierarchy.png?format=2500w)
+    - Job - Stage - Task
+
 - RDD 영속화(persistent)
     - executor는 task 처리를 끝낼 때, 처리 과정에서 생성된 partition 인스턴스를 영속화하는 경우가 있음
     - Case#1 : 셔플이 발생하는 transformation을 실행하기 직전의 RDD
     - Case#2 : 사용자에 의해서 명시적으로 영속화가 선언된 RDD
 
 
+- Broadcast variables
+    - Broadcast variables are shared, immutable variables that are cached on every machine in the cluster instead of serialized with every single task
+
 ## References
 - 하이 퍼포먼스 스파크
 - 아파치 스파크 입문
+- https://www.advancinganalytics.co.uk/blog/2022/6/8/tips-for-the-databricks-certified-associate-developer-for-apache-spark-30

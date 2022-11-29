@@ -2,7 +2,7 @@
 id: 4xe29kkjyqwkmi5d80du7c9
 title: Cluster
 desc: ''
-updated: 1668241527019
+updated: 1669726349101
 created: 1626531060000
 ---
 
@@ -11,6 +11,7 @@ created: 1626531060000
 There are two types of clusters:
 - All-Purpose clusters can be shared by multiple users. There are typically used to run notebooks. All-Purpose clusters remain active until you terminate them.
 - Job clusters run a job. You create a job cluster when you create a job. Such clusters are terminated automatically after the job is completed.
+    - ex) An automated workflow needs to be run every 30 minutes.
 
 ## Cluster 상태
 

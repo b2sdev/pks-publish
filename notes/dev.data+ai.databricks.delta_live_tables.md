@@ -2,9 +2,34 @@
 id: hvd8818q6qo5xxfok5lhye7
 title: Delta Live Tables
 desc: ''
-updated: 1669728364246
+updated: 1669885370504
 created: 1669724994686
 ---
+
+## What
+- Automated data pipelines for Delta Lake
+- [[dev.data+ai.databricks.delta_table]] + [[dev.data+ai.spark.structured_streaming]]
+
+* 입력 소스
+  - Cloud storage에 있는 data: `Auto Loader`를 사용하여 데이터가 업로드될 때마다 Delta Live Table이 ingest
+  
+```python
+spark.readStream.format('cloudFiles') # enables the use of Auto Loader
+     .option("cloudFiles.format", "csv")
+     .load("path/to/customers")
+```
+
+  - `Append-only` 속성을 가지는 다른 delta table: `SQL STREAM()` function을 사용하여 ingest
+
+
+
+* Delta live table 생성
+
+```sql
+CREATE LIVE TABLE customers
+AS SELECT * FROM cloud_files(...)
+```
+
 
 ## Streaming data processing
 
@@ -70,6 +95,7 @@ AS SELECT count(*) FROM LIVE.streaming_silver GROUP BY user_id
 
 ## Medalion Structures
 
+![](https://www.databricks.com/wp-content/uploads/2022/03/delta-lake-medallion-architecture-2.jpeg)
 - Data source > Bronze
     - A job that ingests raw data from a streaming source into the Lakehouse
 - Bronze > Silver
@@ -79,8 +105,4 @@ AS SELECT count(*) FROM LIVE.streaming_silver GROUP BY user_id
     - A job that develops a feature set for a machine learning application
     - A job that aggregates cleaned data to create standard summary statistics
 
-
-
-
-    
-
+- https://www.databricks.com/glossary/medallion-architecture

@@ -2,7 +2,7 @@
 id: amhbge9cv2vmha17e12isfu
 title: Spark Overview
 desc: ''
-updated: 1669432220730
+updated: 1669856239739
 created: 1669210433558
 ---
 
@@ -35,7 +35,7 @@ created: 1669210433558
             ![](https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/dbbdd8e6-5f2a-45f5-a232-825dca3fa816/Narrow+Transformation.png?format=500w) | ![](https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/282af54b-d7d1-427e-b602-fdb3effc59a4/Wide+Transformation.png?format=500w)
             ---|---
             Narrow Transformation|Wide Transformation
-            filter()<br>contains()<br>|orderBy()<br>repartition()
+            filter()<br>contains()<br>map()<br>flatMap()<br>MapPartition()<br>sample()<br>union()<br>coalesce() --> when numPartitions is reduced<br>drop()<br>cache()|orderBy()<br>repartition()<br>distinct()<br>collect()<br>cartesian()<br>intersection()<br>reduceByKey()<br>groupByKey()<br>groupBy()<br>join()
         - transformation은 자신에게 의존하는 action이 호출되기 전까지는 실행되지 않음
     - action(액션)
         - RDD 내용을 바탕으로 더이상 데이터를 가공하지 않고 원하는 결과를 얻는 조작

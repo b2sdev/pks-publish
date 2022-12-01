@@ -2,9 +2,13 @@
 id: sfeu6c5r2tcv2mgr2xpo696
 title: Dataframe
 desc: ''
-updated: 1669432909764
+updated: 1669884802443
 created: 1667042550960
 ---
+
+## Spark SQL
+
+> Spark SQL은 옵티마이저에 의해 제어되며 사용자가 제어권을 포기
 
 ## Dataframe 생성
 
@@ -74,6 +78,18 @@ df.coalease(1).write.format().mode('overwrite').option('header', 'true').save(pa
 ```python
 # division으로 partitioning 후 저장
 df.write.partitionBy("division").parquet(filePath)
+```
+
+```python
+# 데이터 추가를 위해 저장 모드 지정
+def writeAppend(input: DataFrame):
+  input.write.mode("append").save("output/")
+```
+
+```python
+# 우편번호로 파티션해서 저장
+def writeOutByZip(input: DataFrame):
+  input.write.partitionBy("zipcode").format("json").save("output/")
 ```
 
 ## 컬럼 조작
@@ -195,6 +211,10 @@ storedDF.withColumn("openTimestamp", col("openDate").cast("Timestamp")) \
 ```
 
 ## Join
+
+> 스파크의 기본 join 구현은 `shuffled hash join`
+  - 양쪽 RDD에서 같은 해시값의 키들이 같은 파티션에 모이도록 데이터를 이동(shuffle)
+
 `df1.join(df2, joinExpression, joinType)`
 
 ```python
@@ -208,12 +228,16 @@ storesDF.join(employeesDF, "storeID", "outer")
 # multiple keys
 storesDF.join(employeesDF, ["storeId", "employeeId"])
 ```
+> Join은 일상적으로 쓰이는 스파크의 연산 중 가장 비싼 축에 속한다. Join을 수행하기 전에 필터링을 적용하여 데이터의 크기를 최대한 줄여 놓으면 더 빠르게 join할 수 있다.
+
 
 ## Broadcast join
 
-```python
-transactionDf.join(broadcast(itemsDf), "transactionId", "left_semi")
-```
+- Join하려는 두 테이블 중 하나가 다른 쪽보다 작은 경우 작은 쪽의 RDD를 큰 쪽의 worker node에 복사 --> join 시 발생하는 shuffle이 일어나지 않도록 하여 join 속도를 올림
+  ```python
+  transactionDf.join(broadcast(itemsDf), "transactionId", "left_semi")
+  ```
+- [[dev.data+ai.spark.config]]의 `spark.sql.autoBroadcastJoinThreshold` 설정으로 테이블을 자동으로 브로드캐스팅할수도 있음
 
 ## Explode
 

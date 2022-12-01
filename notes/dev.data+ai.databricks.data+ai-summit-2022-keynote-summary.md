@@ -1,14 +1,14 @@
 ---
 id: 0wwj1byxg3uhkh6el05q2o9
-title: Data+AI Summit 2022 키보트 주요 어나운스먼트 요약
+title: Data+AI Summit 2022 키노트 주요 어나운스먼트 요약
 desc: ''
-updated: 1668241762838
+updated: 1669900626710
 created: 1667314080000
 ---
 
 1. Delta Lake 2.0
     - Storage layer 역할
-    - Delta lake 오픈소스화
+    - [[dev.data+ai.databricks.delta_lake]] 오픈소스화
     - github에서 2.0.0 확인 가능
     - 데이터브릭스 플랫폼에서만 제공하던 기능을 오픈
     - 성능과 관리 퍈의성을 획기적으로 개선
@@ -21,10 +21,10 @@ created: 1667314080000
     - 씬 클라이언트에서도 Spark 사용 가능
  
 3. Project Lightspeed
-    - 차세대 Spark Structured Streaming 
+    - 차세대 Spark [[dev.data+ai.spark.structured_streaming]] 
     - 더 빠르고 심플한 스트림 프로세싱
  
-4. Delta Live Tables
+4. [[dev.data+ai.databricks.delta_live_tables]]
     - ETL Framework 서비스
     - Enzyme 옵티마이저 -> 증분 ETL 작업
  

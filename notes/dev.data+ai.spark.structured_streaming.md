@@ -1,8 +1,8 @@
 ---
 id: cmfutyhgtl88lr1sike6zta
-title: Structured streaming
+title: Structured Streaming
 desc: ''
-updated: 1669727554488
+updated: 1670590991623
 created: 1669722226613
 ---
 

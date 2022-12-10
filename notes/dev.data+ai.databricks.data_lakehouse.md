@@ -2,7 +2,7 @@
 id: 2b76tsb8q0aqabl8uww9at1
 title: Data Lakehouse
 desc: ''
-updated: 1669901272287
+updated: 1670634608645
 created: 1669725901082
 ---
 
@@ -38,7 +38,7 @@ created: 1669725901082
     - 단일 서비스가 모든 것을 할 수는 없습니다. 핵심 Lakehouse 사용 사례의 일부가 아닌 새로운 또는 추가 사용 사례가 항상 있을 것입니다. 이러한 신규 또는 추가 사용 사례에는 전문 서비스나 도구가 필요한 경우가 많습니다. 이것이 바로 선별된 데이터 레이크, 기본 컴퓨팅 계층, 기타 서비스 및 도구 간의 손쉬운 통합이 핵심 요구 사항인 이유입니다.
 
 
-## Data lakehouse의 장점
+## Data Lakehouse의 장점
 - A data lakehouse enables both batch and streaming analytrics.
 - A data lakehouse stores unstructured data and is ACID-compliant.
 
@@ -58,6 +58,9 @@ created: 1669725901082
 - Bronze 테이블은 다양한 소스(JSON files, RDBMS data, IoT data등)에서 수집한 원본 데이터를 저장
 - Silver 테이블은 우리 데이터에 좀더 정제된 view를 제공. 다양한 bronze 테이블과 조인하거나 불필요한 정보의 제거, 업데이트 등을 수행
 - Gold 테이블은 주로 리포트나 대시보드에서 사용되는 비지니스 수준의 aggregation을 수행한 뷰를 제공 (예: 일간 사용자수나 상품별 매출 등의 뷰)
+
+## Lakehouse Architecture 도입 사례
+- [[dev.cloud.aws.lakehouse]]
 
 ## Reference
 - https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html

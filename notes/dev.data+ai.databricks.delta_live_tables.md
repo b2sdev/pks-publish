@@ -2,38 +2,40 @@
 id: hvd8818q6qo5xxfok5lhye7
 title: Delta Live Tables
 desc: ''
-updated: 1669885370504
+updated: 1670635956880
 created: 1669724994686
 ---
 
 ## What
-- Automated data pipelines for Delta Lake
-- [[dev.data+ai.databricks.delta_table]] + [[dev.data+ai.spark.structured_streaming]]
+- Automated data pipelines for Delta Lake <-- [[dev.data+ai.databricks.delta_table]] + [[dev.data+ai.spark.structured_streaming]]
+- 데이터 처리 파이프라인을 빌드하기 위한 프레임워크
+- 사용자는 데이터에 대해 수행할 변환을 정의하고, DLT는 작업 오케스트레이션, 클러스터 관리, 모니터링, 데이터 품질 및 오류 처리를 관리
+- 여러 Spark 작업을 사용하여 데이터 파이프라인을 정의하는 대신 DLT는 각 처리 단계에 대해 사용자가 정의하는 대상 스키마를 기반으로 데이터를 변화하는 방법을 관리
+- DLT는 기대치를 사용하여 데이터 품질을 적용할 수도 있음
+  - 예상 데이터 품질을 정의하고 이러한 기대에 실패한 레코드를 처리하는 방법을 지정할 수 있음 ([[dev.data+ai.data_ingestion.constraint]])
 
-* 입력 소스
+## How
+
+### Data Ingestion
   - Cloud storage에 있는 data: `Auto Loader`를 사용하여 데이터가 업로드될 때마다 Delta Live Table이 ingest
-  
-```python
+  ```python
 spark.readStream.format('cloudFiles') # enables the use of Auto Loader
      .option("cloudFiles.format", "csv")
      .load("path/to/customers")
-```
+  ```
 
   - `Append-only` 속성을 가지는 다른 delta table: `SQL STREAM()` function을 사용하여 ingest
 
-
-
-* Delta live table 생성
-
+### Delta live table 생성
 ```sql
 CREATE LIVE TABLE customers
 AS SELECT * FROM cloud_files(...)
 ```
 
 
-## Streaming data processing
+### Streaming data processing
 
-### Python
+#### Python
 ```python
 @dlt.table
 def streaming_bronze():
@@ -57,7 +59,7 @@ def live_gold():
   return dlt.read("streaming_silver").groupBy("user_id").count()
 ```
 
-### SQL
+#### SQL
 ```sql
 CREATE OR REFRESH STREAMING LIVE TABLE streaming_bronze
 AS SELECT * FROM cloud_files(

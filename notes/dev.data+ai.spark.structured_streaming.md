@@ -2,7 +2,7 @@
 id: cmfutyhgtl88lr1sike6zta
 title: Structured Streaming
 desc: ''
-updated: 1670590991623
+updated: 1670895881441
 created: 1669722226613
 ---
 
@@ -54,5 +54,16 @@ query = (
 )
 ```
 
+## Trigger
+
+### 시간 기반 트리거 간격 지정
+- Structured Streaming의 시간 기반 trigger는 기본적으로 500ms의 고정 간격 micro-batches
+- `processTime` 키워드를 사용하여 기간(예: `.trigger(processingTime='10 seconds'))`을 문자열로 지정
+
+## 증분 일괄 처리 구성
+- 원본 디렉터리의 모든 새 데이터를 단일 micro-batch로 처리하려면 `.trigger(once=True)` 옵션을 사용
+- 스트리밍 입력 크기가 큰 경우 `.trigger(availableNow=True)` 옵션 사용
+
 ## Reference
 - https://learn.microsoft.com/en-us/azure/databricks/getting-started/streaming
+- https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/triggers

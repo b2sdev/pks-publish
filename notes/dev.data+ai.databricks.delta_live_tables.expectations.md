@@ -2,12 +2,12 @@
 id: jgxvkvj6ety2k8jdh6ia3un
 title: Expectations
 desc: ''
-updated: 1670636773372
+updated: 1670641866298
 created: 1670636250667
 ---
 
 ## What
-[[dev.data+ai.databricks.delta_live_tables]]에서는 -데이터셋의 컨텐츠에 대해- 데이터 품질 제약조건(constraint)을 지정하여 데이터 유효성(expectation)을 확보할 수 있음
+[[dev.data+ai.databricks.delta_live_tables]]에서는 -데이터셋의 컨텐츠에 대해- 데이터 품질 제약조건([[dev.data+ai.data_ingestion.constraint]])을 지정하여 데이터 유효성(expectation)을 확보할 수 있음
 
 ## How
 **Expectation** | **기대 동작**

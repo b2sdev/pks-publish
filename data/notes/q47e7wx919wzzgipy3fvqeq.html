@@ -1,0 +1,10 @@
+<h1 id="gcd">GCD<a aria-hidden="true" class="anchor-heading icon-link" href="#gcd"></a></h1>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">while</span> b <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        a <span class="token operator">=</span> a <span class="token operator">%</span> b
+        a<span class="token punctuation">,</span> b <span class="token operator">=</span> b<span class="token punctuation">,</span> a
+    <span class="token keyword">return</span> a
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>gcd<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 6</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>gcd<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 6</span>
+</code></pre>

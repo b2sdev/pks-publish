@@ -1,0 +1,36 @@
+<h1 id="acid-트랜잭션">ACID 트랜잭션<a aria-hidden="true" class="anchor-heading icon-link" href="#acid-트랜잭션"></a></h1>
+<h2 id="transaction">Transaction<a aria-hidden="true" class="anchor-heading icon-link" href="#transaction"></a></h2>
+<ul>
+<li>데이터베이스에서 데이터에 대한 하나의 논리적 실행 단계<br>
+ㄴ 예) 은행에서의 계좌 이체 : 계좌 이체의 구현은 내부적으로 여러 단계로 이루어질 수 있지만 전체적으로는 '송신자 계좌의 금액 감소'와 '수신자 계좌의 금액 증가'가 한 동작으로 이루어져야 함</li>
+</ul>
+<h2 id="acid">ACID<a aria-hidden="true" class="anchor-heading icon-link" href="#acid"></a></h2>
+<ul>
+<li><code>Atomicity</code> (원자성)<br>
+: transaction과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력</li>
+<li><code>Consistency</code> (일관성)<br>
+: transaction이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것</li>
+<li><code>Isolation</code> (독립성)<br>
+: transaction을 수행 시 다른 transaction의 연산 작업이 끼어들지 않도록 보장하는 것</li>
+<li><code>Durability</code> (지속성)<br>
+: 성공적으로 수행된 transaction은 영원히 반영되어야 함</li>
+</ul>
+<p>cf)</p>
+<ul>
+<li>ACID stands for atomicity, consistency, isolation, and durability.</li>
+<li><code>Atomicity</code> means that all transactions either succeed or fail completely.</li>
+<li><code>Consistency</code> guarantees relate to how a given state of the data is observed by simultaneous operations.</li>
+<li><code>Isolation</code> refers to how simultaneous operations potentially conflict with one another.</li>
+<li><code>Durability</code> means that committed changes are permanent.</li>
+</ul>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/ACID">https://ko.wikipedia.org/wiki/ACID</a></li>
+<li><a href="https://docs.databricks.com/lakehouse/acid.html">https://docs.databricks.com/lakehouse/acid.html</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/2b76tsb8q0aqabl8uww9at1">Data Lakehouse</a></li>
+<li><a href="/pks-publish/notes/f5ta5qp6kvcp8x23oxfjwi2">Delta Lake</a></li>
+</ul>

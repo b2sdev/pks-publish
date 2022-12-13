@@ -1,0 +1,22 @@
+<h1 id="constraint">Constraint<a aria-hidden="true" class="anchor-heading icon-link" href="#constraint"></a></h1>
+<h2 id="유효-기대값을-벗어나는-데이터-인입-처리">유효 기대값을 벗어나는 데이터 인입 처리<a aria-hidden="true" class="anchor-heading icon-link" href="#유효-기대값을-벗어나는-데이터-인입-처리"></a></h2>
+<blockquote>
+<p>How to handle records that violates expectations?</p>
+<ul>
+<li><b>Track</b> number of bad records</li>
+<li><b>Drop</b> bad records</li>
+<li><b>Abort</b> processing for a single bad record</li>
+</ul>
+</blockquote>
+<ul>
+<li>Databricks의 <code>Delta Live Tables</code>에서는 아래와 같이 <a href="/pks-publish/notes/jgxvkvj6ety2k8jdh6ia3un">Expectations</a> clause를 정의하면, 기대값을 벗어나는 데이터는 target dataset에 추가됨과 동시에 event log에 invalid로 기록이 됨
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CONSTRAINT</span> valid_timestamp EXPECT <span class="token punctuation">(</span><span class="token keyword">timestamp</span> <span class="token operator">></span> <span class="token string">'2022-01-01'</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/hvd8818q6qo5xxfok5lhye7">Delta Live Tables</a></li>
+<li><a href="/pks-publish/notes/jgxvkvj6ety2k8jdh6ia3un">Expectations</a></li>
+</ul>

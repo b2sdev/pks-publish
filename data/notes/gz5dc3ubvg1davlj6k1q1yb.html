@@ -1,0 +1,67 @@
+<h1 id="cluster">Cluster<a aria-hidden="true" class="anchor-heading icon-link" href="#cluster"></a></h1>
+<h2 id="rancher로-클러스터-설정하기">Rancher로 클러스터 설정하기<a aria-hidden="true" class="anchor-heading icon-link" href="#rancher로-클러스터-설정하기"></a></h2>
+<h3 id="멀티-노드를-가진-단일-클러스터">멀티 노드를 가진 단일 클러스터<a aria-hidden="true" class="anchor-heading icon-link" href="#멀티-노드를-가진-단일-클러스터"></a></h3>
+<ul>
+<li>Master node</li>
+</ul>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># Master node</span>
+$ <span class="token builtin class-name">cd</span> ~
+$ <span class="token function">sudo</span> <span class="token function">apt</span> updated
+
+$ <span class="token function">curl</span> -sfL https://get.k3s.io <span class="token operator">|</span> <span class="token assign-left variable">INSTALL_K3S_EXEC</span><span class="token operator">=</span><span class="token string">" \
+server --cluster-init \
+--disable traefik \
+--disable metricks-server \
+--node-name master1 --docker"</span> <span class="token punctuation">\</span>
+<span class="token assign-left variable">INSTALL_K3S_VERSION</span><span class="token operator">=</span><span class="token string">"v1.20.0-rc4+k3s1"</span> <span class="token function">sh</span> -s -
+
+<span class="token comment"># node-token과 IP 확인</span>
+$ <span class="token function">sudo</span> <span class="token function">cat</span> /var/lib/rancher/k3s/server/node-token
+$ kubectl get <span class="token function">node</span> master1 -ojsonpath<span class="token operator">=</span><span class="token string">"{.status.addresses[0].address}"</span>
+
+<span class="token comment"># Worker node</span>
+<span class="token assign-left variable">NODE_TOKEN</span><span class="token operator">=</span><span class="token punctuation">..</span>. 
+<span class="token assign-left variable">MASTER_IP</span><span class="token operator">=</span><span class="token punctuation">..</span>.
+
+$ <span class="token function">curl</span> -sfL https://get.k3s.io <span class="token operator">|</span> <span class="token assign-left variable">K3S_URL</span><span class="token operator">=</span>https://<span class="token variable">$MASTER_IP</span>:6443 <span class="token punctuation">\</span>
+<span class="token assign-left variable">K3S_TOKEN</span><span class="token operator">=</span><span class="token variable">$NODE_TOKEN</span> <span class="token punctuation">\</span>
+<span class="token assign-left variable">INSTALL_K3S_EXEC</span><span class="token operator">=</span><span class="token string">"--node-name m1-worker1 --docker"</span> <span class="token punctuation">\</span>
+<span class="token assign-left variable">INSTALL_K3S_VERSION</span><span class="token operator">=</span><span class="token string">"v1.20.0-rc4+k3s1"</span> <span class="token function">sh</span> -s -
+</code></pre>
+<ul>
+<li>kubectl 명령을 사용하기 위한 환경 설정</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ <span class="token function">mkdir</span> ~/.kube
+$ <span class="token function">sudo</span> <span class="token function">cp</span> /etc/rancher/k3s/k3s.yaml ~/.kube/confifg
+$ <span class="token function">sudo</span> <span class="token function">chown</span> -R <span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -u<span class="token variable">)</span></span><span class="token builtin class-name">:</span><span class="token variable"><span class="token variable">$(</span><span class="token function">id</span> -g<span class="token variable">)</span></span> ~/.kube
+$ <span class="token builtin class-name">echo</span> <span class="token string">"export KUBECONFIG=~/.kube/config"</span> <span class="token operator">>></span> ~/.bashrc
+$ <span class="token builtin class-name">source</span> ~/.bashrc
+</code></pre>
+<ul>
+<li>클러스터 확인</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ kubectl cluster-info
+$ kubectl get <span class="token function">node</span> -o wide
+</code></pre>
+<ul>
+<li>클러스터 환경 삭제</li>
+</ul>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># Master</span>
+$ /usr/local/bin/k3s-uninstall.sh
+
+<span class="token comment"># Workers</span>
+$ /usr/local/bin/k3s-agent-uninstall.sh
+</code></pre>
+<h3 id="another-master-node">Another master node<a aria-hidden="true" class="anchor-heading icon-link" href="#another-master-node"></a></h3>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># Master node의 token과 IP</span>
+$ <span class="token assign-left variable">NODE_TOKEN</span><span class="token operator">=</span><span class="token punctuation">..</span>. 
+$ <span class="token assign-left variable">MASTER_IP</span><span class="token operator">=</span><span class="token punctuation">..</span>.
+
+$ <span class="token function">curl</span> -sfL https://get.k3s.io <span class="token operator">|</span> <span class="token assign-left variable">K3S_TOKEN</span><span class="token operator">=</span><span class="token variable">$NODE_TOKEN</span> <span class="token punctuation">\</span>
+<span class="token assign-left variable">INSTALL_K3S_EXEC</span><span class="token operator">=</span><span class="token string">" \
+server --server https://<span class="token variable">$MASTER_IP</span>:6443 \
+--disable traefik \
+--disable metrics-server \
+--node-name master2 --docker"</span> <span class="token punctuation">\</span>
+<span class="token assign-left variable">INSTALL_K3S_VERSION</span><span class="token operator">=</span><span class="token string">"v1.20.0-rc4+k4s1"</span> <span class="token function">sh</span> -s -
+</code></pre>

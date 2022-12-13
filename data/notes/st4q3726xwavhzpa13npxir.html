@@ -1,0 +1,13 @@
+<h1 id="datetime">Datetime<a aria-hidden="true" class="anchor-heading icon-link" href="#datetime"></a></h1>
+<h2 id="날짜에서-년월일-추출">날짜에서 년/월/일 추출<a aria-hidden="true" class="anchor-heading icon-link" href="#날짜에서-년월일-추출"></a></h2>
+<ul>
+<li>Accessor <code>dt</code> 사용</li>
+</ul>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">[</span><span class="token string">'year'</span><span class="token punctuation">]</span> <span class="token operator">=</span> dt<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>year
+df<span class="token punctuation">[</span><span class="token string">'month'</span><span class="token punctuation">]</span> <span class="token operator">=</span> dt<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>month
+df<span class="token punctuation">[</span><span class="token string">'day'</span><span class="token punctuation">]</span> <span class="token operator">=</span> dt<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>dt<span class="token punctuation">.</span>day
+</code></pre>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/series.html#api-series-dt">https://pandas.pydata.org/pandas-docs/stable/reference/series.html#api-series-dt</a></li>
+</ul>

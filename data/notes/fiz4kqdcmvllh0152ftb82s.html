@@ -1,0 +1,14 @@
+<h1 id="math">Math<a aria-hidden="true" class="anchor-heading icon-link" href="#math"></a></h1>
+<p><code>math.prod</code> is a new function (from Python 3.8).</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> math
+
+numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span>prod<span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>If you want to have a more compatible code, you should use the old way:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> <span class="token builtin">reduce</span>
+<span class="token keyword">import</span> operator
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">reduce</span><span class="token punctuation">(</span>operator<span class="token punctuation">.</span>mul<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>

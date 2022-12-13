@@ -1,0 +1,37 @@
+<h1 id="number-of-enclaves">Number of Enclaves<a aria-hidden="true" class="anchor-heading icon-link" href="#number-of-enclaves"></a></h1>
+<pre class="language-python"><code class="language-python"><span class="token comment"># https://leetcode.com/problems/number-of-enclaves/</span>
+
+<span class="token keyword">def</span> <span class="token function">numEnclaves</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> grid<span class="token punctuation">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+  <span class="token triple-quoted-string string">"""
+  경계에 있는 cell이 1인 넘과 그넘 친구들을 0으로 변환 후,
+  grid에 남아있는 cell의 개수를 카운트한다.
+  """</span>
+  <span class="token keyword">def</span> <span class="token function">out_of_grid</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> r <span class="token operator">&#x3C;</span> <span class="token number">0</span> <span class="token keyword">or</span> r <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span> <span class="token keyword">or</span> c <span class="token operator">&#x3C;</span> <span class="token number">0</span> <span class="token keyword">or</span> c <span class="token operator">>=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> out_of_grid<span class="token punctuation">(</span>r<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span>
+
+    <span class="token keyword">if</span> grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+      <span class="token keyword">return</span>
+
+    grid<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    direction <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+      direction <span class="token operator">=</span> <span class="token punctuation">(</span>direction<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">-</span>direction<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+      nr<span class="token punctuation">,</span> nc <span class="token operator">=</span> r <span class="token operator">+</span> direction<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> c <span class="token operator">+</span> direction<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+      dfs<span class="token punctuation">(</span>nr<span class="token punctuation">,</span> nc<span class="token punctuation">)</span>
+
+  m<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  ans <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">for</span> r <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    dfs<span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    dfs<span class="token punctuation">(</span>r<span class="token punctuation">,</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">for</span> c <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    dfs<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+    dfs<span class="token punctuation">(</span>m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">sum</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> grid<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>

@@ -1,0 +1,20 @@
+<h1 id="logger-tbd">Logger (TBD)<a aria-hidden="true" class="anchor-heading icon-link" href="#logger-tbd"></a></h1>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> logging
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+<span class="token comment"># 로그 레벨 확인</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span>getEffectiveLevel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span>isEnabledFor<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>WARNING<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span>isEnabledFor<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># False</span>
+
+<span class="token comment"># 로그 레벨 변경</span>
+logger<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span>getEffectiveLevel<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span>isEnabledFor<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>DEBUG<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># True</span>
+
+<span class="token comment"># Literal 사용</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>logging<span class="token punctuation">.</span>getLevelName<span class="token punctuation">(</span><span class="token string">"DEBUG"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+logger<span class="token punctuation">.</span>setLevel<span class="token punctuation">(</span><span class="token string">"INFO"</span><span class="token punctuation">)</span>
+
+</code></pre>

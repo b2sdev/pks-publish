@@ -1,0 +1,18 @@
+<h1 id="event-vs-message">Event Vs Message<a aria-hidden="true" class="anchor-heading icon-link" href="#event-vs-message"></a></h1>
+<p>이벤트와 메시지의 차이는 무엇일까?</p>
+<h2 id="이벤트">이벤트<a aria-hidden="true" class="anchor-heading icon-link" href="#이벤트"></a></h2>
+<ul>
+<li>조건 또는 상태 변경에 대한 경량의 알림 </li>
+<li>이벤트 게시자는 이벤트 소비자가 이벤트를 어떻게 처리하는지에 대해 관심이 없음 </li>
+<li>예) 스토리지에 파일이 업로드되면 알림 (이때 파일에 대한 일반 정보를 포함할 수 있지만 파일 자체는 포함하지 않음) </li>
+</ul>
+<h2 id="메시지">메시지<a aria-hidden="true" class="anchor-heading icon-link" href="#메시지"></a></h2>
+<ul>
+<li>다른 서비스에서 소비하거나 저장할 목적으로 생성된 원시 데이터 </li>
+<li>메시지 게시자는 소비자가 메시지를 어떻게 처리할지에 대해 관심이 있음; 즉, 양측 사이에 계약이 존재 </li>
+<li>예) 게시자는 원시 데이터가 포함된 메시지를 보내고 소비자가 이 데이터로부터 파일을 만들고 작업이 완료되면 응답을 보낼 것으로 기대</li>
+</ul>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/ko-kr/azure/event-grid/compare-messaging-services">https://learn.microsoft.com/ko-kr/azure/event-grid/compare-messaging-services</a></li>
+</ul>

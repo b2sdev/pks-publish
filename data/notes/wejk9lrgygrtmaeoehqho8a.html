@@ -1,0 +1,43 @@
+<h1 id="jquery">jQuery<a aria-hidden="true" class="anchor-heading icon-link" href="#jquery"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<ul>
+<li>JavaScript library
+<ul>
+<li>HTML document traversal and maniupulation</li>
+<li>event handling</li>
+<li>animation</li>
+<li>Ajax
+<ul>
+<li>simplifies JavaScript programming</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="function-사용법">Function 사용법<a aria-hidden="true" class="anchor-heading icon-link" href="#function-사용법"></a></h2>
+<pre class="language-js"><code class="language-js"><span class="token comment">// [1] </span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token dom variable">document</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token spread operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">-</span><span class="token operator">></span> <span class="token dom variable">window</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>과 같은 기능
+
+<span class="token comment">// [2]</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token spread operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">-</span><span class="token operator">></span> 그냥 함수를 실행하라는 의미
+
+<span class="token comment">// [3] </span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">$</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token spread operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>jQuery<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">-</span><span class="token operator">></span> jQuery를 사용할 때 $의 의미를 jQuery에서 사용하겠다는 의미<span class="token punctuation">;</span> 함수로 $를 매개변수로 넘기는 것<span class="token punctuation">.</span>
+</code></pre>
+<h2 id="etc">Etc<a aria-hidden="true" class="anchor-heading icon-link" href="#etc"></a></h2>
+<ul>
+<li>크롬 개발자모드 콘솔에서 jQuery 사용하는 방법
+<ul>
+<li><a href="https://gomcine.tistory.com/entry/%ED%81%AC%EB%A1%AC-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%AA%A8%EB%93%9C-%EC%BD%98%EC%86%94%EC%97%90%EC%84%9C-jQuery-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95">https://gomcine.tistory.com/entry/%ED%81%AC%EB%A1%AC-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%AA%A8%EB%93%9C-%EC%BD%98%EC%86%94%EC%97%90%EC%84%9C-jQuery-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95</a></li>
+</ul>
+</li>
+</ul>

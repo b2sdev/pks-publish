@@ -1,0 +1,25 @@
+<h1 id="troubleshooting">Troubleshooting<a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a></h1>
+<h2 id="error-occurred-during-initialization-of-vm">Error occurred during initialization of VM<a aria-hidden="true" class="anchor-heading icon-link" href="#error-occurred-during-initialization-of-vm"></a></h2>
+<ul>
+<li>자바가 32비트일 경우 램을 1기가까지만 할당 가능하다!</li>
+<li><a href="https://kin.naver.com/qna/detail.nhn?d1id=2&#x26;dirId=20411&#x26;docId=344517490">https://kin.naver.com/qna/detail.nhn?d1id=2&#x26;dirId=20411&#x26;docId=344517490</a></li>
+</ul>
+<h2 id="determining-whether-a-java-installation-is-32-bit-or-64-bit">Determining whether a Java installation is 32 bit or 64 bit<a aria-hidden="true" class="anchor-heading icon-link" href="#determining-whether-a-java-installation-is-32-bit-or-64-bit"></a></h2>
+<p>$ java –version</p>
+<ul>
+<li>If 64 bit is running you’ll get a message like:</li>
+</ul>
+<pre><code>java version "1.6.0_18" 
+Java(TM) SE Runtime Environment (build 1.6.0_18-b07) 
+Java HotSpot(TM) 64-Bit Server VM (build 16.0-b13, mixed mode)
+</code></pre>
+<ul>
+<li>For 32 bit, the message is:</li>
+</ul>
+<pre><code>java version "1.6.0_21" 
+Java(TM) SE Runtime Environment (build 1.6.0_21-b07) 
+Java HotSpot(TM) Client VM (build 17.0-b17, mixed mode, sharing)
+</code></pre>
+<ul>
+<li><a href="https://wiki.scn.sap.com/wiki/display/SCM/Determining+whether+a+Java+installation+is+32+bit+or+64+bit">https://wiki.scn.sap.com/wiki/display/SCM/Determining+whether+a+Java+installation+is+32+bit+or+64+bit</a></li>
+</ul>

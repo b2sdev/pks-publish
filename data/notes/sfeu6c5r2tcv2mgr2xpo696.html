@@ -1,0 +1,309 @@
+<h1 id="dataframe">Dataframe<a aria-hidden="true" class="anchor-heading icon-link" href="#dataframe"></a></h1>
+<h2 id="spark-sql">Spark SQL<a aria-hidden="true" class="anchor-heading icon-link" href="#spark-sql"></a></h2>
+<blockquote>
+<p>Spark SQL은 옵티마이저에 의해 제어되며 사용자가 제어권을 포기</p>
+</blockquote>
+<h2 id="dataframe-생성">Dataframe 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#dataframe-생성"></a></h2>
+<pre class="language-python"><code class="language-python">df <span class="token operator">=</span> spark<span class="token punctuation">.</span>createDataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token punctuation">(</span><span class="token string">'01'</span><span class="token punctuation">,</span> <span class="token string">'aws'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">'02'</span><span class="token punctuation">,</span> <span class="token string">'azure'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">'03'</span><span class="token punctuation">,</span> <span class="token string">'gcp'</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python">spark<span class="token punctuation">.</span>createDataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">"summer"</span><span class="token punctuation">,</span> <span class="token number">4.5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">"winter"</span><span class="token punctuation">,</span> <span class="token number">7.5</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"season"</span><span class="token punctuation">,</span> <span class="token string">"wind_speed_ms"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="from-python-dictionary">from Python Dictionary<a aria-hidden="true" class="anchor-heading icon-link" href="#from-python-dictionary"></a></h3>
+<pre class="language-python"><code class="language-python">data <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span><span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Gildong'</span><span class="token punctuation">,</span> <span class="token string">'address'</span><span class="token punctuation">:</span> <span class="token string">'Seoul'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">]</span>
+df <span class="token operator">=</span> spark<span class="token punctuation">.</span>createDataFrame<span class="token punctuation">(</span><span class="token punctuation">[</span>data<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="데이터-읽기">데이터 읽기<a aria-hidden="true" class="anchor-heading icon-link" href="#데이터-읽기"></a></h2>
+<pre class="language-python"><code class="language-python">spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"csv"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"header"</span><span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>load<span class="token punctuation">(</span>filePath<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python">df <span class="token operator">=</span> spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span>parquet<span class="token punctuation">(</span><span class="token string">"path/to/x.parquet"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+<span class="token operator">|</span>itemId<span class="token operator">|</span>attributes                   <span class="token operator">|</span>supplier           <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+<span class="token operator">|</span><span class="token number">1</span>     <span class="token operator">|</span><span class="token punctuation">[</span>blue<span class="token punctuation">,</span> winter<span class="token punctuation">,</span> cozy<span class="token punctuation">]</span>         <span class="token operator">|</span>Sports Company Inc<span class="token punctuation">.</span><span class="token operator">|</span>
+<span class="token operator">|</span><span class="token number">2</span>     <span class="token operator">|</span><span class="token punctuation">[</span>red<span class="token punctuation">,</span> summer<span class="token punctuation">,</span> fresh<span class="token punctuation">,</span> cooling<span class="token punctuation">]</span><span class="token operator">|</span>YetiX              <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token number">3</span>     <span class="token operator">|</span><span class="token punctuation">[</span>green<span class="token punctuation">,</span> summer<span class="token punctuation">,</span> travel<span class="token punctuation">]</span>      <span class="token operator">|</span>Sports Company Inc<span class="token punctuation">.</span><span class="token operator">|</span>
+<span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">+</span>
+
+itemsDfSchema <span class="token operator">=</span> StructType<span class="token punctuation">(</span><span class="token punctuation">[</span>
+  StructField<span class="token punctuation">(</span><span class="token string">"itemId"</span><span class="token punctuation">,</span> IntegerType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  StructField<span class="token punctuation">(</span><span class="token string">"attributes"</span><span class="token punctuation">,</span> ArrayType<span class="token punctuation">(</span>StringType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  StructField<span class="token punctuation">(</span><span class="token string">"supplier"</span><span class="token punctuation">,</span> StringType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+itemsDf <span class="token operator">=</span> spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span>schema<span class="token punctuation">(</span>itemsDfSchema<span class="token punctuation">)</span><span class="token punctuation">.</span>parquet<span class="token punctuation">(</span>filePath<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># return the number of columns in the CSV file stored at location filePath. From the CSV file, only lines should be read that do not start with a # character</span>
+<span class="token builtin">len</span><span class="token punctuation">(</span>spark<span class="token punctuation">.</span>read<span class="token punctuation">.</span>csv<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> comment<span class="token operator">=</span><span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>columns<span class="token punctuation">)</span>
+<span class="token comment"># comment – sets a single character used for skipping lines beginning with this character. By default (None), it is disabled.</span>
+</code></pre>
+<ul>
+<li><a href="https://www.marks4sure.com/Databricks-Certified-Associate-Developer-for-Apache-Spark-3-0-exam.html">https://www.marks4sure.com/Databricks-Certified-Associate-Developer-for-Apache-Spark-3-0-exam.html</a></li>
+</ul>
+<h2 id="데이터-저장">데이터 저장<a aria-hidden="true" class="anchor-heading icon-link" href="#데이터-저장"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 하나의 파일로 저장</span>
+df<span class="token punctuation">.</span>coalease<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mode<span class="token punctuation">(</span><span class="token string">'overwrite'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">'header'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># division으로 partitioning 후 저장</span>
+df<span class="token punctuation">.</span>write<span class="token punctuation">.</span>partitionBy<span class="token punctuation">(</span><span class="token string">"division"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parquet<span class="token punctuation">(</span>filePath<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 데이터 추가를 위해 저장 모드 지정</span>
+<span class="token keyword">def</span> <span class="token function">writeAppend</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">:</span> DataFrame<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token builtin">input</span><span class="token punctuation">.</span>write<span class="token punctuation">.</span>mode<span class="token punctuation">(</span><span class="token string">"append"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 우편번호로 파티션해서 저장</span>
+<span class="token keyword">def</span> <span class="token function">writeOutByZip</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">:</span> DataFrame<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token builtin">input</span><span class="token punctuation">.</span>write<span class="token punctuation">.</span>partitionBy<span class="token punctuation">(</span><span class="token string">"zipcode"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"json"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"output/"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="컬럼-조작">컬럼 조작<a aria-hidden="true" class="anchor-heading icon-link" href="#컬럼-조작"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>What</th><th>How</th><th></th></tr></thead><tbody><tr><td>선택</td><td>df.select('id', 'body')</td><td></td></tr><tr><td>제거</td><td>df.drop('body') <br> df.drop('productId', 'value')</td><td></td></tr><tr><td>필터링</td><td>df.filter(col("col_1") &#x26;| col("col_2)).limit(10)</td><td></td></tr><tr><td>추가</td><td>df.withColumn('col', lit(1))</td><td></td></tr><tr><td>이름 변경</td><td>df.withColumnRenamed('ownerUserId', 'owner')</td><td></td></tr><tr><td>정렬</td><td>df.orderBy() <br> df.sort()</td><td></td></tr><tr><td>조건</td><td>when((f.col('a').cast(IntegerType()) > 0), 1).otherwise(0)</td><td></td></tr><tr><td>이름 변경</td><td>col_name = [...] <br> df.toDF(*col_name)</td><td></td></tr></tbody></table></div>
+<h2 id="데이터-처리">데이터 처리<a aria-hidden="true" class="anchor-heading icon-link" href="#데이터-처리"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>What</th><th>How</th></tr></thead><tbody><tr><td>필터</td><td>df.filter</td></tr><tr><td>정렬</td><td>df.orderBy()</td></tr><tr><td>집약</td><td>df.agg(avg(col("kcal")) as "") <br> df.groupBy(...).agg(max(~).alias(~))</td></tr><tr><td>결합</td><td>df.join(df2, on=[...], how="inner/left") <br> df.join(df2, df['id'] == postId, 'outer')</td></tr><tr><td>집계</td><td>df.groupBy().agg… <br> df.distinct()</td></tr></tbody></table></div>
+<h2 id="sql-활용">SQL 활용<a aria-hidden="true" class="anchor-heading icon-link" href="#sql-활용"></a></h2>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>registerTempTable<span class="token punctuation">(</span><span class="token string">"dessert_table"</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>createOrReplaceTempView<span class="token punctuation">(</span><span class="token string">"dessert_table"</span><span class="token punctuation">)</span>
+numOver300KcalDf <span class="token operator">=</span> spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT cound(*) AS num_of_over_30Kcal FROM dessert_table WHERE kcal >= 260"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="take">Take<a aria-hidden="true" class="anchor-heading icon-link" href="#take"></a></h2>
+<pre class="language-python"><code class="language-python">transactionDf<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"storeId"</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">.</span>take<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="distinct">Distinct<a aria-hidden="true" class="anchor-heading icon-link" href="#distinct"></a></h2>
+<p>특정 컬럼의 unique values</p>
+<pre class="language-python"><code class="language-python">transactionDf<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">"storeId"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>distinct<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="partition-변경">Partition 변경<a aria-hidden="true" class="anchor-heading icon-link" href="#partition-변경"></a></h2>
+<ul>
+<li>
+<p><code>partitionBy</code>: 셔플링을 통해 새로운 RDD를 생성</p>
+</li>
+<li>
+<p><code>coalesce</code>: 파티션 개수를 줄이거나(shuffle=false) 늘림(shuffle=true)</p>
+<ul>
+<li>셔플링을 피하기 위해 같은 worker 안에서 partition들을 병합</li>
+<li>partition의 개수가 줄어들면서 (~병합되면서) partition 크기의 편향이 발생할 수 있음</li>
+</ul>
+<p><img src="https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/d14468bd-009b-4f2f-9d84-7c752862b1b8/Before+Repartition.png?format=1000w"></p>
+</li>
+<li>
+<p><code>repartition</code>: coalesce(n, shuffle=true)와 동일
+<img src="https://images.squarespace-cdn.com/content/v1/5bce4071ab1a620db382773e/4f68dd4e-fe65-4106-96c4-1060e9ab8569/After+Repartition.png?format=1000w"></p>
+</li>
+</ul>
+<h2 id="컬럼-split">컬럼 split<a aria-hidden="true" class="anchor-heading icon-link" href="#컬럼-split"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> pyspark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>functions <span class="token keyword">import</span> split
+
+<span class="token punctuation">(</span>df<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span>
+    <span class="token string">"firstName"</span><span class="token punctuation">,</span> split<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>getItem<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span>
+    <span class="token string">"lastName"</span><span class="token punctuation">,</span> split<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">.</span>getItem<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="컬럼-이름-변경">컬럼 이름 변경<a aria-hidden="true" class="anchor-heading icon-link" href="#컬럼-이름-변경"></a></h2>
+<pre><code>df.withColumnRenamed(`old column name`, `new colun name`)
+</code></pre>
+<h2 id="결측-값-다루기">결측 값 다루기<a aria-hidden="true" class="anchor-heading icon-link" href="#결측-값-다루기"></a></h2>
+<pre class="language-python"><code class="language-python">df<span class="token punctuation">.</span>na<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># df.na.drop("any")</span>
+df<span class="token punctuation">.</span>na<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">)</span>
+<span class="token comment"># df.na.drop(col("col_name"))</span>
+<span class="token comment"># df.na.fill(map(col("count"), 0)))</span>
+
+df<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>thresh<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token comment"># ㅁhave missing data in a least 3 columns</span>
+</code></pre>
+<h2 id="첫번째-줄">첫번째 줄<a aria-hidden="true" class="anchor-heading icon-link" href="#첫번째-줄"></a></h2>
+<pre class="language-cmd"><code class="language-cmd">>>> df.first()
+Row(age=2, name='Alice')
+>>> df.first().name
+Alice
+</code></pre>
+<h2 id="조건에-따른-boolean">조건에 따른 boolean<a aria-hidden="true" class="anchor-heading icon-link" href="#조건에-따른-boolean"></a></h2>
+<pre class="language-python"><code class="language-python">transactionDf<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"storeId"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>between<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&#x26;</span> <span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"productId"</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li><a href="https://www.marks4sure.com/databricks-certified-associate-developer-for-apache-spark-3-0-databricks-certified-associate-developer-for-apache-spark-3-0-exam-questions.html">https://www.marks4sure.com/databricks-certified-associate-developer-for-apache-spark-3-0-databricks-certified-associate-developer-for-apache-spark-3-0-exam-questions.html</a></li>
+</ul>
+<h2 id="시용자-정의-함수">시용자 정의 함수<a aria-hidden="true" class="anchor-heading icon-link" href="#시용자-정의-함수"></a></h2>
+<pre class="language-python"><code class="language-python">spark<span class="token punctuation">.</span>udf<span class="token punctuation">.</span>register<span class="token punctuation">(</span><span class="token string">"ACCESS_PERFORMANCE"</span><span class="token punctuation">,</span> assessPerformance<span class="token punctuation">)</span>
+spark<span class="token punctuation">.</span>sql<span class="token punctuation">(</span><span class="token string">"SELECT customerSatisfactgion, ASSESS_PERFORMANCE(customerSatisfaction) AS result FROM stores"</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-python"><code class="language-python">assessPerformanceUDF <span class="token operator">=</span> udf<span class="token punctuation">(</span>assessPerformance<span class="token punctuation">,</span> IntegerType<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+storedDF<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">,</span> assessPerformanceUDF<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"customerSatisfaction"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="unix-epoch-format에서-월month-추출">UNIX epoch format에서 월(month) 추출<a aria-hidden="true" class="anchor-heading icon-link" href="#unix-epoch-format에서-월month-추출"></a></h2>
+<pre class="language-python"><code class="language-python">storedDF<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"openTimestamp"</span><span class="token punctuation">,</span> col<span class="token punctuation">(</span><span class="token string">"openDate"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cast<span class="token punctuation">(</span><span class="token string">"Timestamp"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> \
+        <span class="token punctuation">.</span>withColun<span class="token punctuation">(</span><span class="token string">"month"</span><span class="token punctuation">,</span> month<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"openTimestamp"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="join">Join<a aria-hidden="true" class="anchor-heading icon-link" href="#join"></a></h2>
+<blockquote>
+<p>스파크의 기본 join 구현은 <code>shuffled hash join</code></p>
+<ul>
+<li>양쪽 RDD에서 같은 해시값의 키들이 같은 파티션에 모이도록 데이터를 이동(shuffle)</li>
+</ul>
+</blockquote>
+<p><code>df1.join(df2, joinExpression, joinType)</code></p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># inner join</span>
+df<span class="token punctuation">.</span>join<span class="token punctuation">(</span>newdf<span class="token punctuation">,</span> df<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> newdf<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> <span class="token string">"inner"</span><span class="token punctuation">)</span>
+df1<span class="token punctuation">.</span>join<span class="token punctuation">(</span>df2<span class="token punctuation">,</span> df1<span class="token punctuation">.</span>col<span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token operator">==</span>df2<span class="token punctuation">.</span>col<span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"inner"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># outer join</span>
+storesDF<span class="token punctuation">.</span>join<span class="token punctuation">(</span>employeesDF<span class="token punctuation">,</span> <span class="token string">"storeID"</span><span class="token punctuation">,</span> <span class="token string">"outer"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># multiple keys</span>
+storesDF<span class="token punctuation">.</span>join<span class="token punctuation">(</span>employeesDF<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"storeId"</span><span class="token punctuation">,</span> <span class="token string">"employeeId"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>Join은 일상적으로 쓰이는 스파크의 연산 중 가장 비싼 축에 속한다. Join을 수행하기 전에 필터링을 적용하여 데이터의 크기를 최대한 줄여 놓으면 더 빠르게 join할 수 있다.</p>
+</blockquote>
+<h2 id="broadcast-join">Broadcast join<a aria-hidden="true" class="anchor-heading icon-link" href="#broadcast-join"></a></h2>
+<ul>
+<li>Join하려는 두 테이블 중 하나가 다른 쪽보다 작은 경우 작은 쪽의 RDD를 큰 쪽의 worker node에 복사 --> join 시 발생하는 shuffle이 일어나지 않도록 하여 join 속도를 올림
+<pre class="language-python"><code class="language-python">transactionDf<span class="token punctuation">.</span>join<span class="token punctuation">(</span>broadcast<span class="token punctuation">(</span>itemsDf<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"transactionId"</span><span class="token punctuation">,</span> <span class="token string">"left_semi"</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><a href="/pks-publish/notes/t9h5i24qpl5wpfziw749zvv">Spark Config</a>의 <code>spark.sql.autoBroadcastJoinThreshold</code> 설정으로 테이블을 자동으로 브로드캐스팅할수도 있음</li>
+</ul>
+<h2 id="explode">Explode<a aria-hidden="true" class="anchor-heading icon-link" href="#explode"></a></h2>
+<pre><code>+------+-----------------------------+-------------------+
+|itemId|attributes                   |supplier           |
++------+-----------------------------+-------------------+
+|1     |[blue, winter, cozy]         |Sports Company Inc.|
+|2     |[red, summer, fresh, cooling]|YetiX              |
+|3     |[green, summer, travel]      |Sports Company Inc.|
++------+-----------------------------+-------------------+
+</code></pre>
+<pre class="language-python"><code class="language-python">articlesDf<span class="token punctuation">.</span>select<span class="token punctuation">(</span>explode<span class="token punctuation">(</span>col<span class="token punctuation">(</span>'attributes<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> \
+          <span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">'col'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span> \
+          <span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token string">'count'</span><span class="token punctuation">,</span> ascending<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> \
+          <span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'col'</span><span class="token punctuation">)</span>
+</code></pre>
+<pre><code>+-------+
+| col   |
++-------+
+| summer|
+| winter|
+| blue  |
+| cozy  |
+| travel|
+| fresh |
+| red   |
+| cooling|
+| green |
++-------+
+</code></pre>
+<h2 id="그룹에서-순위">그룹에서 순위<a aria-hidden="true" class="anchor-heading icon-link" href="#그룹에서-순위"></a></h2>
+<pre class="language-scala"><code class="language-scala"><span class="token comment">// 데이터</span>
+<span class="token keyword">val</span> peopleDF <span class="token operator">=</span> Seq<span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token string">"Ali"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Barbara"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Cesar"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">350</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Dongmei"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Eli"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Florita"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token string">"Gatimu"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> Seq<span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>toDF<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"department"</span><span class="token punctuation">,</span> <span class="token string">"score"</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 기대 결과</span>
+<span class="token operator">|</span>department<span class="token operator">|</span> name <span class="token operator">|</span>highest<span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">0</span><span class="token operator">|</span> Ali<span class="token operator">|</span> <span class="token number">100</span><span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">1</span><span class="token operator">|</span>Dongmei<span class="token operator">|</span> <span class="token number">400</span><span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">2</span><span class="token operator">|</span>Florita<span class="token operator">|</span> <span class="token number">500</span><span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">3</span><span class="token operator">|</span> Gatimu<span class="token operator">|</span> <span class="token number">300</span><span class="token operator">|</span>
+
+<span class="token comment">// 솔루션</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>expressions<span class="token punctuation">.</span></span>Window
+<span class="token keyword">val</span> windowSpec <span class="token operator">=</span> Window<span class="token punctuation">.</span>partitionBy<span class="token punctuation">(</span><span class="token string">"department"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>orderBy<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"score"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>desc<span class="token punctuation">)</span>
+
+peopleDF
+<span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"score"</span><span class="token punctuation">,</span> explode<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"score"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>select<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"department"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>col<span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dense_rank<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>over<span class="token punctuation">(</span>windowSpec<span class="token punctuation">)</span><span class="token punctuation">.</span>alias<span class="token punctuation">(</span><span class="token string">"rank"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> max<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"score"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>over<span class="token punctuation">(</span>windowSpec<span class="token punctuation">)</span><span class="token punctuation">.</span>alias<span class="token punctuation">(</span><span class="token string">"highest"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>where<span class="token punctuation">(</span>col<span class="token punctuation">(</span><span class="token string">"rank"</span><span class="token punctuation">)</span> <span class="token operator">==</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>drop<span class="token punctuation">(</span><span class="token string">"rank"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>orderBy<span class="token punctuation">(</span><span class="token string">"department"</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>

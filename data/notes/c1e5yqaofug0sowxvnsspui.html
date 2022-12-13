@@ -1,0 +1,24 @@
+<h1 id="pyodbc">Pyodbc<a aria-hidden="true" class="anchor-heading icon-link" href="#pyodbc"></a></h1>
+<h3 id="1-msodbcsql17과-pyodbc를-설치하여-사용">#1. msodbcsql17과 pyodbc를 설치하여 사용<a aria-hidden="true" class="anchor-heading icon-link" href="#1-msodbcsql17과-pyodbc를-설치하여-사용"></a></h3>
+<pre class="language-python"><code class="language-python"><span class="token operator">%</span>sh
+curl https<span class="token punctuation">:</span><span class="token operator">//</span>packages<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>keys<span class="token operator">/</span>microsoft<span class="token punctuation">.</span>asc <span class="token operator">|</span> apt<span class="token operator">-</span>key add <span class="token operator">-</span>
+curl https<span class="token punctuation">:</span><span class="token operator">//</span>packages<span class="token punctuation">.</span>microsoft<span class="token punctuation">.</span>com<span class="token operator">/</span>config<span class="token operator">/</span>ubuntu<span class="token operator">/</span><span class="token number">16.04</span><span class="token operator">/</span>prod<span class="token punctuation">.</span><span class="token builtin">list</span> <span class="token operator">></span> <span class="token operator">/</span>etc<span class="token operator">/</span>apt<span class="token operator">/</span>sources<span class="token punctuation">.</span><span class="token builtin">list</span><span class="token punctuation">.</span>d<span class="token operator">/</span>mssql<span class="token operator">-</span>release<span class="token punctuation">.</span><span class="token builtin">list</span>
+sudo apt<span class="token operator">-</span>get update
+sudo ACCEPT_EULA<span class="token operator">=</span>Y apt<span class="token operator">-</span>get <span class="token operator">-</span>q <span class="token operator">-</span>y install msodbcsql17
+sudo apt<span class="token operator">-</span>get install msodbcsql17
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token operator">%</span>pip install pyodbc
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> pyodbc
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    conn <span class="token operator">=</span> pyodbc<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token string">'DRIVER={ODBC Driver 17 for SQL Server};SERVER='</span><span class="token operator">+</span>server<span class="token operator">+</span><span class="token string">';DATABASE='</span><span class="token operator">+</span>database<span class="token operator">+</span><span class="token string">';UID='</span><span class="token operator">+</span>username<span class="token operator">+</span><span class="token string">';PWD='</span><span class="token operator">+</span> password<span class="token punctuation">)</span>
+    cursor <span class="token operator">=</span> cnxn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"…"</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="2-databricks에서-제공하는-connector-사용">#2. Databricks에서 제공하는 connector 사용<a aria-hidden="true" class="anchor-heading icon-link" href="#2-databricks에서-제공하는-connector-사용"></a></h3>
+<ul>
+<li>TBD</li>
+</ul>

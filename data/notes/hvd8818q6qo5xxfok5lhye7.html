@@ -1,0 +1,123 @@
+<h1 id="delta-live-tables">Delta Live Tables<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-live-tables"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<ul>
+<li>Automated data pipelines for Delta Lake &#x3C;-- <a href="/pks-publish/notes/es7fyakczjuyvb0u7k9g8xg">Delta Table</a> + <a href="/pks-publish/notes/cmfutyhgtl88lr1sike6zta">Structured Streaming</a></li>
+<li>데이터 처리 파이프라인을 빌드하기 위한 프레임워크</li>
+<li>사용자는 데이터에 대해 수행할 변환을 정의하고, DLT는 작업 오케스트레이션, 클러스터 관리, 모니터링, 데이터 품질 및 오류 처리를 관리</li>
+<li>여러 Spark 작업을 사용하여 데이터 파이프라인을 정의하는 대신 DLT는 각 처리 단계에 대해 사용자가 정의하는 대상 스키마를 기반으로 데이터를 변화하는 방법을 관리</li>
+<li>DLT는 <a href="/pks-publish/notes/jgxvkvj6ety2k8jdh6ia3un">Expectations</a>를 사용하여 데이터 품질을 적용할 수도 있음
+<ul>
+<li>예상 데이터 품질을 정의하고 이러한 기대에 실패한 레코드를 처리하는 방법을 지정할 수 있음 (<a href="/pks-publish/notes/vtzfkb3yhrdf403l7lqwan9">Constraint</a>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="how">How<a aria-hidden="true" class="anchor-heading icon-link" href="#how"></a></h2>
+<h3 id="data-ingestion">Data Ingestion<a aria-hidden="true" class="anchor-heading icon-link" href="#data-ingestion"></a></h3>
+<ul>
+<li>
+<p>Cloud storage에 있는 data: <code>Auto Loader</code>를 사용하여 데이터가 업로드될 때마다 Delta Live Table이 ingest</p>
+<pre class="language-python"><code class="language-python">spark<span class="token punctuation">.</span>readStream<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">'cloudFiles'</span><span class="token punctuation">)</span> <span class="token comment"># enables the use of Auto Loader</span>
+   <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"cloudFiles.format"</span><span class="token punctuation">,</span> <span class="token string">"csv"</span><span class="token punctuation">)</span>
+   <span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">"path/to/customers"</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p><code>Append-only</code> 속성을 가지는 다른 delta table: <code>SQL STREAM()</code> function을 사용하여 ingest</p>
+</li>
+</ul>
+<h3 id="delta-live-table-생성">Delta live table 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-live-table-생성"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> LIVE <span class="token keyword">TABLE</span> customers
+<span class="token keyword">AS</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> cloud_files<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="streaming-data-processing">Streaming data processing<a aria-hidden="true" class="anchor-heading icon-link" href="#streaming-data-processing"></a></h3>
+<h4 id="python">Python<a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a></h4>
+<pre class="language-python"><code class="language-python"><span class="token decorator annotation punctuation">@dlt<span class="token punctuation">.</span>table</span>
+<span class="token keyword">def</span> <span class="token function">streaming_bronze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token comment"># Since this is a streaming source, this table is incremental.</span>
+    spark<span class="token punctuation">.</span>readStream<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"cloudFiles"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"cloudFiles.format"</span><span class="token punctuation">,</span> <span class="token string">"json"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">"abfss://path/to/raw/data"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@dlt<span class="token punctuation">.</span>table</span>
+<span class="token keyword">def</span> <span class="token function">streaming_silver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># Since we read the bronze table as a stream, this silver table is also</span>
+  <span class="token comment"># updated incrementally.</span>
+  <span class="token keyword">return</span> dlt<span class="token punctuation">.</span>read_stream<span class="token punctuation">(</span><span class="token string">"streaming_bronze"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@dlt<span class="token punctuation">.</span>table</span>
+<span class="token keyword">def</span> <span class="token function">live_gold</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># This table will be recomputed completely by reading the whole silver table</span>
+  <span class="token comment"># when it is updated.</span>
+  <span class="token keyword">return</span> dlt<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">"streaming_silver"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span><span class="token string">"user_id"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="sql">SQL<a aria-hidden="true" class="anchor-heading icon-link" href="#sql"></a></h4>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token operator">OR</span> REFRESH STREAMING LIVE <span class="token keyword">TABLE</span> streaming_bronze
+<span class="token keyword">AS</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> cloud_files<span class="token punctuation">(</span>
+  <span class="token string">"abfss://path/to/raw/data"</span><span class="token punctuation">,</span> <span class="token string">"json"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">CREATE</span> <span class="token operator">OR</span> REFRESH STREAMING LIVE <span class="token keyword">TABLE</span> streaming_silver
+<span class="token keyword">AS</span> <span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> STREAM<span class="token punctuation">(</span>LIVE<span class="token punctuation">.</span>streaming_bronze<span class="token punctuation">)</span> <span class="token keyword">WHERE</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">CREATE</span> <span class="token operator">OR</span> REFRESH LIVE <span class="token keyword">TABLE</span> live_gold
+<span class="token keyword">AS</span> <span class="token keyword">SELECT</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> LIVE<span class="token punctuation">.</span>streaming_silver <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> user_id
+</code></pre>
+<h3 id="configure-a-structured-streaming-job">Configure a Structured Streaming job<a aria-hidden="true" class="anchor-heading icon-link" href="#configure-a-structured-streaming-job"></a></h3>
+<h4 id="from-a-bronze-table-to-a-silver-table">From a Bronze table to a Silver table<a aria-hidden="true" class="anchor-heading icon-link" href="#from-a-bronze-table-to-a-silver-table"></a></h4>
+<pre class="language-python"><code class="language-python"><span class="token punctuation">(</span>spark<span class="token punctuation">.</span>table<span class="token punctuation">(</span><span class="token string">"sales"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"avg_price"</span><span class="token punctuation">,</span> col<span class="token punctuation">(</span><span class="token string">"sales"</span><span class="token punctuation">)</span> <span class="token operator">/</span> col<span class="token punctuation">(</span><span class="token string">"units"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>writeStream
+    <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"checkpointLocation"</span><span class="token punctuation">,</span> checkpointPath<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>outputMode<span class="token punctuation">(</span>"append<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>table<span class="token punctuation">(</span><span class="token string">"cleanedSales"</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="to-execute-a-single-micro-batch-to-process-all-of-the-available-data">To Execute a single micro-batch to process all of the available data<a aria-hidden="true" class="anchor-heading icon-link" href="#to-execute-a-single-micro-batch-to-process-all-of-the-available-data"></a></h4>
+<pre class="language-python"><code class="language-Python"><span class="token punctuation">(</span>spark<span class="token punctuation">.</span>table<span class="token punctuation">(</span><span class="token string">"sales"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>withColumn<span class="token punctuation">(</span><span class="token string">"avg_price"</span><span class="token punctuation">,</span> col<span class="token punctuation">(</span><span class="token string">"sales"</span><span class="token punctuation">)</span> <span class="token operator">/</span> col<span class="token punctuation">(</span><span class="token string">"units"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>writeStream
+    <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"checkpointLocation"</span><span class="token punctuation">,</span> checkpointPath<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>output<span class="token punctuation">(</span><span class="token string">"complete"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>trigger<span class="token punctuation">(</span>once<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>table<span class="token punctuation">(</span><span class="token string">"new_sales"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="medalion-structures">Medalion Structures<a aria-hidden="true" class="anchor-heading icon-link" href="#medalion-structures"></a></h2>
+<p><img src="https://www.databricks.com/wp-content/uploads/2022/03/delta-lake-medallion-architecture-2.jpeg"></p>
+<ul>
+<li>
+<p>Data source > Bronze</p>
+<ul>
+<li>A job that ingests raw data from a streaming source into the Lakehouse</li>
+</ul>
+</li>
+<li>
+<p>Bronze > Silver</p>
+<ul>
+<li>A job that enriches data by parsing its timestamps into a human-readable format</li>
+</ul>
+</li>
+<li>
+<p>Silver > Gold</p>
+<ul>
+<li>A job that queries aggregated data to publish key insights into a dashboard</li>
+<li>A job that develops a feature set for a machine learning application</li>
+<li>A job that aggregates cleaned data to create standard summary statistics</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.databricks.com/glossary/medallion-architecture">https://www.databricks.com/glossary/medallion-architecture</a></p>
+</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/pks-publish/notes/yafhr4wma720uky7t582yzq">Change Data Capture with Delta Live Tables</a></li>
+<li><a href="/pks-publish/notes/jgxvkvj6ety2k8jdh6ia3un">Expectations</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/0wwj1byxg3uhkh6el05q2o9">Data+AI Summit 2022 키노트 주요 어나운스먼트 요약</a></li>
+<li><a href="/pks-publish/notes/jgxvkvj6ety2k8jdh6ia3un">Expectations</a></li>
+</ul>

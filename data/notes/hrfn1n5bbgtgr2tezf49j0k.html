@@ -1,0 +1,68 @@
+<h1 id="opensearch">OpenSearch<a aria-hidden="true" class="anchor-heading icon-link" href="#opensearch"></a></h1>
+<ul>
+<li><code>OpenSearch</code>는 커뮤니티 주도의 검색 및 분석 오픈소스이며, 엘라스틱서치 7.10.2 버전에서 분기됨</li>
+<li><code>OpenSearch</code>는 Apache Lucene 기반의 분선 검색 엔진이며, <code>OpenSearch Dashboards</code>는 데이터 시각화 및 유저인터페이스를 제공</li>
+<li>엘라스틱서치 오픈 배포판의 모든 기능을 포함</li>
+</ul>
+<h2 id="opensearch-용어">OpenSearch 용어<a aria-hidden="true" class="anchor-heading icon-link" href="#opensearch-용어"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>클러스터/도메인</th><th>노드로 분산 구성된 시스템</th></tr></thead><tbody><tr><td>노드</td><td>컴퓨팅 자원과 스토리지를 가진 개별 인스턴스를 의미. 리더노드와 데이터 노드가 있음.</td></tr><tr><td>인덱스</td><td>도큐먼트를 저장하는 논리적 구분자로서 하나 이상의 샤드로 구성.</td></tr><tr><td>샤드</td><td>여러 대 노드를 효율적으로 사용하기 위해 도큐먼트를 샤드라는 단위로 나눠 분산 저장. 성능과 처리량을 높이며, 프라이머리 샤드와 레플리카 샤드가 있음.</td></tr><tr><td>도큐먼트</td><td>데이터가 저장되는 기본 단위. JSON 구조로 여러 필드와 값을 가짐.</td></tr></tbody></table></div>
+<h2 id="관계형-db와-opensearch-비교">관계형 DB와 OpenSearch 비교<a aria-hidden="true" class="anchor-heading icon-link" href="#관계형-db와-opensearch-비교"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>관계형DB</th><th>OpenSearch</th></tr></thead><tbody><tr><td>테이블</td><td>인덱스</td></tr><tr><td>레코드</td><td>도큐먼트</td></tr><tr><td>컬럼</td><td>필드</td></tr><tr><td>스키마</td><td>매핑</td></tr></tbody></table></div>
+<ul>
+<li>인덱스는 샤드들로 구성됨</li>
+<li>다수 노드에 샤드가 분산 저장되며 수평 확장 가능</li>
+</ul>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li>AWS Builders Korea Program 200 : Amazon OpenSearch Service로 실시간 데이터 분석과 시각화 기본기 다지기</li>
+</ul>

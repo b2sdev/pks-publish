@@ -1,0 +1,191 @@
+<h1 id="binary-tree">Binary Tree<a aria-hidden="true" class="anchor-heading icon-link" href="#binary-tree"></a></h1>
+<h2 id="이진-트리의-최대-깊이">이진 트리의 최대 깊이<a aria-hidden="true" class="anchor-heading icon-link" href="#이진-트리의-최대-깊이"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+    queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    depth <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+        depth <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token comment"># 큐 연산 추출 노드의 자식 노드 삽입</span>
+        <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            cur_root <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cur_root<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur_root<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> cur_root<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+                queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cur_root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+
+    <span class="token comment"># BFS 반복 횟수 == 깊이</span>
+    <span class="token keyword">return</span> depth
+</code></pre>
+<h2 id="이진-트리의-지름">이진 트리의 지름<a aria-hidden="true" class="anchor-heading icon-link" href="#이진-트리의-지름"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">diameterOfBinaryTree</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">nonlocal</span> diameter
+
+        <span class="token keyword">if</span> <span class="token keyword">not</span> node<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token number">0</span>
+
+        left <span class="token operator">=</span> dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+        right <span class="token operator">=</span> dfs<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+
+        diameter <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>diameter<span class="token punctuation">,</span> left <span class="token operator">+</span> right<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> <span class="token builtin">max</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+
+    diameter <span class="token operator">=</span> <span class="token number">0</span>
+    dfs<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> diameter
+</code></pre>
+<h2 id="이진-트리의-높이">이진 트리의 높이<a aria-hidden="true" class="anchor-heading icon-link" href="#이진-트리의-높이"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">height</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 	<span class="token keyword">if</span> root <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token number">0</span>
+	<span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token builtin">max</span><span class="token punctuation">(</span>height<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> height<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+	
+<span class="token keyword">def</span> <span class="token function">height</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> <span class="token keyword">not</span> root<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token number">0</span>
+	h <span class="token operator">=</span> <span class="token number">0</span>
+	queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+		<span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+			curr_node <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+			<span class="token keyword">if</span> curr_node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+				queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>curr_node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> curr_node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+				queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span>curr_node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+		h <span class="token operator">+=</span> <span class="token number">1</span>
+	<span class="token keyword">return</span> h
+</code></pre>
+<h3 id="이진-트리의-최소-깊이">이진 트리의 최소 깊이<a aria-hidden="true" class="anchor-heading icon-link" href="#이진-트리의-최소-깊이"></a></h3>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">minDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> <span class="token keyword">not</span> root<span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token number">0</span>
+	<span class="token keyword">if</span> root<span class="token punctuation">.</span>left <span class="token keyword">and</span> root<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token builtin">min</span><span class="token punctuation">(</span>minDepth<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">,</span> minDpeth<span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+	<span class="token keyword">else</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> minDepth<span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token keyword">or</span> root<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token keyword">def</span> <span class="token function">minDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+ 	queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>dqeue<span class="token punctuation">(</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 	<span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+ 		node<span class="token punctuation">,</span> level <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 		<span class="token keyword">if</span> node<span class="token punctuation">:</span>
+ 			<span class="token keyword">if</span> <span class="token keyword">not</span> node<span class="token punctuation">.</span>left <span class="token keyword">and</span> <span class="token keyword">not</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+ 				<span class="token keyword">return</span> level
+ 			<span class="token keyword">else</span><span class="token punctuation">:</span>
+ 				queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> level <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 				queue<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> level <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="이진-트리-순회">이진 트리 순회<a aria-hidden="true" class="anchor-heading icon-link" href="#이진-트리-순회"></a></h2>
+<ul>
+<li>전위(Pre-order) 순회: NLR</li>
+<li>중위(In-order) 순회: LNR</li>
+<li>후위(Post-order) 순회: LRN</li>
+<li>Recursion</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">preorder</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> node <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+	preorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+	preorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+	
+<span class="token keyword">def</span> <span class="token function">inorder</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> node <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span>
+	inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+	inorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+	
+<span class="token keyword">def</span> <span class="token function">postorder</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> node <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span>
+	postorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+	postorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+	postorder<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>Iterative</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">traverse_preorder</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> root<span class="token punctuation">:</span>
+        <span class="token keyword">return</span>
+
+    stack <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span>
+
+    <span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+        node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> node<span class="token punctuation">.</span>right<span class="token punctuation">:</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> node<span class="token punctuation">.</span>left<span class="token punctuation">:</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token keyword">def</span> <span class="token function">traverse_inorder</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    node <span class="token operator">=</span> root
+    <span class="token keyword">while</span> stack <span class="token keyword">or</span> node<span class="token punctuation">:</span>
+        <span class="token keyword">while</span> node<span class="token punctuation">:</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>left
+
+        node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">print</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
+
+        node <span class="token operator">=</span> node<span class="token punctuation">.</span>right
+</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token comment"># https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/</span>
+
+<span class="token keyword">def</span> <span class="token function">postOrderIterative</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    node <span class="token operator">=</span> root
+    stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">while</span> node<span class="token punctuation">:</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+            stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">)</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>left
+
+        <span class="token keyword">if</span> <span class="token keyword">not</span> stack<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+
+        node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># 현재 노드의 첫번째 방문일때, 오른쪽으로 이동</span>
+        <span class="token keyword">if</span> stack <span class="token keyword">and</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> node<span class="token punctuation">:</span>
+            node <span class="token operator">=</span> node<span class="token punctuation">.</span>right
+        <span class="token comment"># 현재 노드를 두번째 방문 했을때 출력한다.</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"visited"</span><span class="token punctuation">,</span> node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+            node <span class="token operator">=</span> <span class="token boolean">None</span>  <span class="token comment"># The first is by postorder using a flag to indicate whether the node has been visited or not.</span>
+<span class="token keyword">def</span> <span class="token function">postOrderTraversal</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span> 	
+ 	traversal<span class="token punctuation">,</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+ 	<span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+ 		node<span class="token punctuation">,</span> visited <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 		<span class="token keyword">if</span> node<span class="token punctuation">:</span>
+ 			<span class="token keyword">if</span> visited<span class="token punctuation">:</span>
+ 				<span class="token comment"># add to result if visited</span>
+ 				traversal<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+ 			<span class="token keyword">else</span><span class="token punctuation">:</span>
+ 				<span class="token comment"># post-order</span>
+ 				stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>node<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 				stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 				stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ 	
+ 	<span class="token keyword">return</span> traversal
+ 
+ 
+<span class="token comment"># The 2nd uses modified preorder (right subtree first). Then reverse the result.</span>
+
+<span class="token keyword">def</span> <span class="token function">postorderTraversal</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	traversal<span class="token punctuation">,</span> stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span>
+	<span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+		node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> node<span class="token punctuation">:</span>
+			<span class="token comment"># pre-order, right-first</span>
+			traversal<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+			stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+			stack<span class="token punctuation">.</span>append<span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+	
+	<span class="token comment"># reverse result</span>
+	<span class="token keyword">return</span> traversal<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</code></pre>

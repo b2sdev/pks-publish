@@ -2,7 +2,7 @@
 id: yfg1zp70ww391hvbdd4sgop
 title: Databricks SQL
 desc: ''
-updated: 1670897379251
+updated: 1670990707355
 created: 1655698565248
 ---
 
@@ -67,7 +67,7 @@ CREATE TABLE student USING CSV LOCATION '/mnt/csv_files';
 ```sql
 GRANT ALL PRIVILEAGES ON TABLE sales TO new.engineer@company.com;
 GRANT SELECT ON TABLE sales TO new.engineer@company.com;
-₩₩₩
+```
 
 ### 중복 제거
 ```sql
@@ -102,6 +102,27 @@ WHEN NOT MATCHED
     people10mupdates.ssn
   )
 ```
+
+### Window functions
+
+```sql
+SELECT
+    name
+  , dept
+  , salary
+  , RANK() OVER (PARTITION BY dept ORDER BY salary) AS rank
+  , DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary) AS dense_rank
+  , DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary
+                       ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS dense_rank2
+  , MIN(salary) OVER (PARTITION BY dept ORDER BY salary) AS min
+  , LAG(salary) OVER (PARTITION BY dept ORDER BY salary) AS lag
+  , LEAD(salary, 1, 0) OVER (PARTITION BY dept ORDER BY salary) AS lead
+FROM employees
+;
+```
+![](/assets/images/sql_result_window_functions.png)
+
+### TBD
 ```sql
 -- unnest
 -- card_id STRING, items ARRAY<item_id:STRING> --> card_id STRING, item_id STRING
@@ -112,21 +133,6 @@ SELECT cart_id, explode(items) AS item_id FROM raw_table;
 -- --> transacction_id: STRING, date TIMESTAMP
 SELECT transaction_id, payload.date FROM raw_table;
 ```
-
-```sql
-SELECT
-    name
-  , dept
-  , RANK() OVER (PARTITION BY dept ORDER BY salary) AS rank
-  , DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary
-                       ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS dense_rank
-  , MIN(salary) OVER (PARTITION BY dept ORDER BY salary) AS min
-  , LAG(salary) OVER (PARTITION BY dept ORDER BY salary) AS lag
-  , LEAD(salary, 1, 0) OVER (PARTITION BY dept ORDER BY salary) AS lead
-FROM employees
-;
-```
-
 
 ## Reference
 - [Upsert into a Delta Lake table using merge](https://docs.databricks.com/delta/merge.html)

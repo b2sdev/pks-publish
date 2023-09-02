@@ -2,11 +2,11 @@
 id: rc5ks6o8knqqwbdlubjye6d
 title: Data Query Patterns
 desc: ''
-updated: 1692973061069
+updated: 1693656429946
 created: 1692968541450
 ---
 
-## Queation
+## Question
 모놀리식 애플리케이션은 전체 데이터가 하나의 DB에 있기 때문에 SELECT 문으로 여러 테이블을 조인하는 쿼리를 작성할 수 있습니다. 마이크로서비스는 각 서비스마다 각자 DB를 갖는데 각 서비스가 소유한 데이터를 조인하는 쿼리를 어떻게 구현할 수 있을까요?
 
 ## Answer

@@ -2,7 +2,7 @@
 id: 2b76tsb8q0aqabl8uww9at1
 title: Data Lakehouse
 desc: ''
-updated: 1670634608645
+updated: 1693716897879
 created: 1669725901082
 ---
 
@@ -19,7 +19,7 @@ created: 1669725901082
 - Lakehouse 아키텍처는 다음과 같은 몇 가지 주요 기능을 제공
 
     - 개방형 형식의 안정적이고 확장 가능하며 저렴한 스토리지
-    - [[dev.cs.database.ACID]] 트랜잭션을 사용한 ETL 및 스트림 처리
+    - [[dev.cs.database.ACID]]을 사용한 ETL 및 스트림 처리
     - 쿼리 시 관리 용이성과 성능을 보장하기 위한 메타데이터, 버전 관리, 캐싱 및 인덱싱
     - 데이터 과학 및 기계 학습을 위한 선언적 DataFrame API와 함께 BI 및 보고용 SQL API
 

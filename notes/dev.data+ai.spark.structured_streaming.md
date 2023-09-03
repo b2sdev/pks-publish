@@ -2,13 +2,13 @@
 id: cmfutyhgtl88lr1sike6zta
 title: Structured Streaming
 desc: ''
-updated: 1670895881441
+updated: 1693717524978
 created: 1669722226613
 ---
 
 ## What
 
-- Structured stream에서 data stream은 계속해서 append되는 테이를로 간주됨
+- Structured stream에서 data stream은 계속해서 append되는 테이블로 간주됨
 
 ![](https://learn.microsoft.com/en-us/azure/databricks/_static/images/getting-started/gsasg-spark-streaming-workflow.png)
 

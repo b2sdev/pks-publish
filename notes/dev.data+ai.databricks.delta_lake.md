@@ -2,7 +2,7 @@
 id: f5ta5qp6kvcp8x23oxfjwi2
 title: Delta Lake
 desc: ''
-updated: 1670635268811
+updated: 1693717299550
 created: 1669726561783
 ---
 
@@ -25,7 +25,7 @@ partitions for those relevant to a query). It also leverages this design to prov
 optimization, upserts, caching, and audit logs.
 
 ## WHY
-- [[dev.data+ai.data_lake]]는 Schema Enforcement, Data Quality, [[dev.cs.database.ACID]] 등을 지원하지 않음
+- [[dev.data+ai.data_lake]]는 Schema Enforcement, Data Quality, ACID Transaction 등을 지원하지 않음
 - 이러한 Data Lakes의 결점을 Delta Lake로 극복할 수 있음
 
 ## Z-ordering

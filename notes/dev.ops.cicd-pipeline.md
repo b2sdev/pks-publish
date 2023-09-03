@@ -1,8 +1,8 @@
 ---
 id: a2jc19qewqx5ebgm015ocsd
-title: CI/CD Pipeline
+title: CI/CD 파이프라인
 desc: ''
-updated: 1693663029388
+updated: 1693723846378
 created: 1693660941014
 ---
 

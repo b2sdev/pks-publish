@@ -2,7 +2,7 @@
 id: i72er7p7yb3mfelrn45f3i4
 title: Solutions Architect 인터뷰 준비 - 기본 개념
 desc: ''
-updated: 1693719747611
+updated: 1693730101539
 created: 1693663938788
 ---
 
@@ -521,7 +521,7 @@ created: 1693663938788
 <summary>OLAP와 OLTP의 주요 차이점은 무엇인가요?</summary>
 <div markdown="1">
 
-- OLTP는 온라인 트랜잭션 처리를 위한 시스템으로, 실시간 데이터 입력, 수정, 검색을 지원합니다. OLAP는 온라인 분석 처리를 위한 시스템으로, 복잡한 질의와 데이터 분석에 최적화되어 있습니다.
+- OLTP는 온라인 트랜잭션 처리를 위한 시스템으로, 실시간 데이터 입력, 수정, 검색을 지원합니다. OLAP는 온라인 분석 처리를 위한 시스템으로, 복잡한 질의와 데이터 분석에 최적화되어 있습니다. (cf. [[dev.cs.database.oltp-vs-olap]])
 
 </div>
 </details>
@@ -656,7 +656,7 @@ created: 1693663938788
 - Star Schema와 Snowflake Schema는 두 가지 주요 데이터 웨어하우스 스키마 설계 방식입니다.
 - Star Schema:
     - 중심에 큰 "fact table"이 위치하고, 이 테이블에 직접 연결된 차원 테이블(dimension tables)로 구성됩니다.
-차원 테이블은 정규화되지 않은 형태입니다.
+    - 차원 테이블은 정규화되지 않은 형태입니다.
     - 쿼리 성능이 뛰어나며, 직관적이어서 이해하기 쉽습니다.
 - Snowflake Schema:
     - Star Schema의 확장 형태로, 차원 테이블이 추가적으로 분해되어 정규화된 형태로 저장됩니다.
@@ -668,7 +668,6 @@ created: 1693663938788
 </details>
 
 <br />
-
 
 <details>
 <summary>ETL과 ELT 프로세스의 주요 차이점을 설명하고, 각 프로세스의 장점 및 적절한 사용 시나리오에 대해 설명해 주십시오.</summary>
@@ -954,7 +953,7 @@ created: 1693663938788
 <summary>컨테이너와 VM(Virtual Machine)의 주요 차이점은 무엇인가요?</summary>
 <div markdown="1">
 
-- VM은 전체 운영체제를 포함하므로 무거운 반명, 컨테이너는 OS 커널을 공유하므로 경량화되어 있습니다. 따라서 컨테이너는 VM보다 빠르게 시작되고, 더 적은 자원을 사용합니다.
+- VM은 전체 운영체제를 포함하므로 무거운 반면, 컨테이너는 OS 커널을 공유하므로 경량화되어 있습니다. 따라서 컨테이너는 VM보다 빠르게 시작되고, 더 적은 자원을 사용합니다.
 
 </div>
 </details>

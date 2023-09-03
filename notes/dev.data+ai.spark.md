@@ -2,7 +2,7 @@
 id: mvmjei3kla5158ugqpwf79z
 title: Spark
 desc: ''
-updated: 1669882933955
+updated: 1693736765330
 created: 1666958283987
 ---
 
@@ -32,7 +32,7 @@ extract = udf(functools.partial, extract, 'key')
 ```
 
 ## 브로드캐스트 변수
-- 복수의 executor가 공통으로 참조하는 데이터는 `브로드캐스트 변수`로 배포
+- 복수의 executor가 공통으로 참조하는 데이터는 *브로드캐스트 변수*로 배포
 
 ## Dataframe Source
 - https://github.com/apache/spark/blob/master/python/pyspark/sql/dataframe.py

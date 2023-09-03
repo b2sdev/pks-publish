@@ -2,7 +2,7 @@
 id: amhbge9cv2vmha17e12isfu
 title: Spark Overview
 desc: ''
-updated: 1669856239739
+updated: 1693737388100
 created: 1669210433558
 ---
 
@@ -22,7 +22,7 @@ created: 1669210433558
 - RDD 처리
     - transformation(변환)
         - RDD를 가공하고 그 결과로 새로운 RDD를 얻는 처리
-        - shuffle(셔풀)
+        - shuffle(셔플)
             - 서로 다른 파티션에 있는 같은 키를 가지는 요소의 자리를 바꾸는 것
             - executor 간의 다대다 네트워크 통신이 필요해짐 ~ 부하가 높은 처리
         - narrow transformation : shuffle이 발생하지 않음

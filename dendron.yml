@@ -107,3 +107,4 @@ publishing:
     searchMode: search
     assetsPrefix: /pks-publish
     siteUrl: https://b2sdev.github.io
+    theme: dark  

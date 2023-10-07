@@ -2,7 +2,7 @@
 id: csls1iecmzveuq2w6ym65k0
 title: AWS Certified Solutions Architect - Associate (SAA-C03) 오답 노트
 desc: ''
-updated: 1694842161860
+updated: 1696667709232
 created: 1694842069036
 ---
 
@@ -11,6 +11,29 @@ created: 1694842069036
 ## Questions
 
 <hr>
+
+### Question #3
+
+A company uses AWS Organizations to manage multiple AWS accounts for different departments. The management account has an Amazon S3 bucket that contains project reports. The company wants to limit access to this S3 bucket to only users of accounts within the organization in AWS Organizations.
+
+Which solution meets these requirements with the LEAST amount of operational overhead?
+
+A. Add the aws PrincipalOrgID global condition key with a reference to the organization ID to the S3 bucket policy.
+
+B. Create an organizational unit (OU) for each department. Add the aws:PrincipalOrgPaths global condition key to the S3 bucket policy.
+
+C. Use AWS CloudTrail to monitor the CreateAccount, InviteAccountToOrganization, LeaveOrganization, and RemoveAccountFromOrganization events. Update the S3 bucket policy accordingly.
+
+D. Tag each user that needs access to the S3 bucket. Add the aws:PrincipalTag global condition key to the S3 bucket policy.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
 
 ### Question #9
 
@@ -26,6 +49,118 @@ B. Create an Amazon S3 File Gateway to extend the company's storage space. Creat
 C. Create an Amazon FSx for Windows File Server file system to extend the company's storage space.
 
 D. Install a utility on each user's computer to access Amazon S3. Create an S3 Lifecycle policy to transition the data to S3 Glacier Flexible Retrieval after 7 days.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #12
+
+A global company hosts its web application on Amazon EC2 instances behind an Application Load Balancer (ALB). The web application has static data and dynamic data. The company stores its static data in an Amazon S3 bucket. The company wants to improve performance and reduce latency for the static data and dynamic data. The company is using its own domain name registered with Amazon Route 53.
+
+What should a solutions architect do to meet these requirements?
+
+A. Create an Amazon CloudFront distribution that has the S3 bucket and the ALB as origins. Configure Route 53 to route traffic to the CloudFront distribution.
+
+B. Create an Amazon CloudFront distribution that has the ALB as an origin. Create an AWS Global Accelerator standard accelerator that has the S3 bucket as an endpoint Configure Route 53 to route traffic to the CloudFront distribution.
+
+C. Create an Amazon CloudFront distribution that has the S3 bucket as an origin. Create an AWS Global Accelerator standard accelerator that has the ALB and the CloudFront distribution as endpoints. Create a custom domain name that points to the accelerator DNS name. Use the custom domain name as an endpoint for the web application.
+
+D. Create an Amazon CloudFront distribution that has the ALB as an origin. Create an AWS Global Accelerator standard accelerator that has the S3 bucket as an endpoint. Create two domain names. Point one domain name to the CloudFront DNS name for dynamic content. Point the other domain name to the accelerator DNS name for static content. Use the domain names as endpoints for the web application.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #15
+
+A company recently migrated to AWS and wants to implement a solution to protect the traffic that flows in and out of the production VPC. The company had an inspection server in its on-premises data center. The inspection server performed specific operations such as traffic flow inspection and traffic filtering. The company wants to have the same functionalities in the AWS Cloud.
+
+Which solution will meet these requirements?
+
+A. Use Amazon GuardDuty for traffic inspection and traffic filtering in the production VPC.
+
+B. Use Traffic Mirroring to mirror traffic from the production VPC for traffic inspection and filtering.
+
+C. Use AWS Network Firewall to create the required rules for traffic inspection and traffic filtering for the production VPC.
+
+D. Use AWS Firewall Manager to create the required rules for traffic inspection and traffic filtering for the production VPC.
+
+<details>
+<summary>Show Answer</summary>
+
+> C
+
+</details>
+
+<br><hr>
+
+### Question #16
+
+A company hosts a data lake on AWS. The data lake consists of data in Amazon S3 and Amazon RDS for PostgreSQL. The company needs a reporting solution that provides data visualization and includes all the data sources within the data lake. Only the company's management team should have full access to all the visualizations. The rest of the company should have only limited access.
+
+Which solution will meet these requirements?
+
+A. Create an analysis in Amazon QuickSight. Connect all the data sources and create new datasets. Publish dashboards to visualize the data. Share the dashboards with the appropriate IAM roles.
+
+B. Create an analysis in Amazon QuickSight. Connect all the data sources and create new datasets. Publish dashboards to visualize the data. Share the dashboards with the appropriate users and groups.
+
+C. Create an AWS Glue table and crawler for the data in Amazon S3. Create an AWS Glue extract, transform, and load (ETL) job to produce reports. Publish the reports to Amazon S3. Use S3 bucket policies to limit access to the reports.
+
+D. Create an AWS Glue table and crawler for the data in Amazon S3. Use Amazon Athena Federated Query to access data within Amazon RDS for PostgreSQL. Generate reports by using Amazon Athena. Publish the reports to Amazon S3. Use S3 bucket policies to limit access to the reports.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #19
+
+A company has a three-tier web application that is deployed on AWS. The web servers are deployed in a public subnet in a VPC. The application servers and database servers are deployed in private subnets in the same VPC. The company has deployed a third-party virtual firewall appliance from AWS Marketplace in an inspection VPC. The appliance is configured with an IP interface that can accept IP packets.
+A solutions architect needs to integrate the web application with the appliance to inspect all traffic to the application before the traffic reaches the web server.
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Create a Network Load Balancer in the public subnet of the application's VPC to route the traffic to the appliance for packet inspection.
+
+B. Create an Application Load Balancer in the public subnet of the application's VPC to route the traffic to the appliance for packet inspection.
+
+C. Deploy a transit gateway in the inspection VPConfigure route tables to route the incoming packets through the transit gateway.
+
+D. Deploy a Gateway Load Balancer in the inspection VPC. Create a Gateway Load Balancer endpoint to receive the incoming packets and forward the packets to the appliance.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
+### Question #34
+
+A company hosts its multi-tier applications on AWS. For compliance, governance, auditing, and security, the company must track configuration changes on its AWS resources and record a history of API calls made to these resources.
+
+What should a solutions architect do to meet these requirements?
+
+A. Use AWS CloudTrail to track configuration changes and AWS Config to record API calls.
+B. Use AWS Config to track configuration changes and AWS CloudTrail to record API calls.
+C. Use AWS Config to track configuration changes and Amazon CloudWatch to record API calls.
+D. Use AWS CloudTrail to track configuration changes and Amazon CloudWatch to record API calls.
 
 <details>
 <summary>Show Answer</summary>
@@ -103,6 +238,32 @@ D. Create a Regional API Gateway endpoint. Associate the API Gateway endpoint wi
 
 <br><hr>
 
+### Question #64
+
+A company has more than 5 TB of file data on Windows file servers that run on premises. Users and applications interact with the data each day.
+The company is moving its Windows workloads to AWS. As the company continues this process, the company requires access to AWS and on-premises file storage with minimum latency. The company needs a solution that minimizes operational overhead and requires no significant changes to the existing file access patterns. The company uses an AWS Site-to-Site VPN connection for connectivity to AWS.
+
+What should a solutions architect do to meet these requirements?
+
+A. Deploy and configure Amazon FSx for Windows File Server on AWS. Move the on-premises file data to FSx for Windows File Server. Reconfigure the workloads to use FSx for Windows File Server on AWS.
+
+B. Deploy and configure an Amazon S3 File Gateway on premises. Move the on-premises file data to the S3 File Gateway. Reconfigure the on-premises workloads and the cloud workloads to use the S3 File Gateway.
+
+C. Deploy and configure an Amazon S3 File Gateway on premises. Move the on-premises file data to Amazon S3. Reconfigure the workloads to use either Amazon S3 directly or the S3 File Gateway. depending on each workload's location.
+
+D. Deploy and configure Amazon FSx for Windows File Server on AWS. Deploy and configure an Amazon FSx File Gateway on premises. Move the on-premises file data to the FSx File Gateway. Configure the cloud workloads to use FSx for Windows File Server on AWS. Configure the on-premises workloads to use the FSx File Gateway.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
+
+
 ### Question #66
 
 A company has an application that generates a large number of files, each approximately 5 MB in size. The files are stored in Amazon S3. Company policy requires the files to be stored for 4 years before they can be deleted. Immediate accessibility is always required as the files contain critical business data that is not easy to reproduce. The files are frequently accessed in the first 30 days of the object creation but are rarely accessed after the first 30 days.
@@ -121,6 +282,52 @@ D. Create an S3 bucket lifecycle policy to move files from S3 Standard to S3 Sta
 <summary>Show Answer</summary>
 
 > C
+
+</details>
+
+<br><hr>
+
+### Question #68
+
+A solutions architect is designing a new hybrid architecture to extend a company's on-premises infrastructure to AWS. The company requires a highly available connection with consistent low latency to an AWS Region. The company needs to minimize costs and is willing to accept slower traffic if the primary connection fails.
+
+What should the solutions architect do to meet these requirements?
+
+A. Provision an AWS Direct Connect connection to a Region. Provision a VPN connection as a backup if the primary Direct Connect connection fails.
+
+B. Provision a VPN tunnel connection to a Region for private connectivity. Provision a second VPN tunnel for private connectivity and as a backup if the primary VPN connection fails.
+
+C. Provision an AWS Direct Connect connection to a Region. Provision a second Direct Connect connection to the same Region as a backup if the primary Direct Connect connection fails.
+
+D. Provision an AWS Direct Connect connection to a Region. Use the Direct Connect failover attribute from the AWS CLI to automatically create a backup connection if the primary Direct Connect connection fails.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #71
+
+A company runs a shopping application that uses Amazon DynamoDB to store customer information. In case of data corruption, a solutions architect needs to design a solution that meets a recovery point objective (RPO) of 15 minutes and a recovery time objective (RTO) of 1 hour.
+
+What should the solutions architect recommend to meet these requirements?
+
+A. Configure DynamoDB global tables. For RPO recovery, point the application to a different AWS Region.
+
+B. Configure DynamoDB point-in-time recovery. For RPO recovery, restore to the desired point in time.
+
+C. Export the DynamoDB data to Amazon S3 Glacier on a daily basis. For RPO recovery, import the data from S3 Glacier to DynamoDB.
+
+D. Schedule Amazon Elastic Block Store (Amazon EBS) snapshots for the DynamoDB table every 15 minutes. For RPO recovery, restore the DynamoDB table by using the EBS snapshot.
+
+<details>
+<summary>Show Answer</summary>
+
+> B 
 
 </details>
 
@@ -220,6 +427,56 @@ D. Configure the company's S3 bucket to use S3 Intelligent-Tiering. Sync the S3 
 
 <br><hr>
 
+### Question #93
+
+A company runs an on-premises application that is powered by a MySQL database. The company is migrating the application to AWS to increase the application's elasticity and availability.
+
+The current architecture shows heavy read activity on the database during times of normal operation. Every 4 hours, the company's development team pulls a full export of the production database to populate a database in the staging environment. During this period, users experience unacceptable application latency. The development team is unable to use the staging environment until the procedure completes.
+
+A solutions architect must recommend replacement architecture that alleviates the application latency issue. The replacement architecture also must give the development team the ability to continue using the staging environment without delay.
+
+Which solution meets these requirements?
+
+A. Use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production. Populate the staging database by implementing a backup and restore process that uses the mysqldump utility.
+
+B. Use Amazon Aurora MySQL with Multi-AZ Aurora Replicas for production. Use database cloning to create the staging database on-demand.
+
+C. Use Amazon RDS for MySQL with a Multi-AZ deployment and read replicas for production. Use the standby instance for the staging database.
+
+D. Use Amazon RDS for MySQL with a Multi-AZ deployment and read replicas for production. Populate the staging database by implementing a backup and restore process that uses the mysqldump utility.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #101
+
+A solutions architect is designing a VPC with public and private subnets. The VPC and subnets use IPv4 CIDR blocks. There is one public subnet and one private subnet in each of three Availability Zones (AZs) for high availability. An internet gateway is used to provide internet access for the public subnets. The private subnets require access to the internet to allow Amazon EC2 instances to download software updates.
+
+What should the solutions architect do to enable Internet access for the private subnets?
+
+A. Create three NAT gateways, one for each public subnet in each AZ. Create a private route table for each AZ that forwards non-VPC traffic to the NAT gateway in its AZ.
+
+B. Create three NAT instances, one for each private subnet in each AZ. Create a private route table for each AZ that forwards non-VPC traffic to the NAT instance in its AZ.
+
+C. Create a second internet gateway on one of the private subnets. Update the route table for the private subnets that forward non-VPC traffic to the private internet gateway.
+
+D. Create an egress-only internet gateway on one of the public subnets. Update the route table for the private subnets that forward non-VPC traffic to the egress-only Internet gateway.
+
+<details>
+<summary>Show Answer</summary>
+
+> A 
+
+</details>
+
+<br><hr>
+
 ### Question #113
 
 A company uses 50 TB of data for reporting. The company wants to move this data from on premises to AWS. A custom application in the company’s data center runs a weekly data transformation job. The company plans to pause the application until the data transfer is complete and needs to begin the transfer process as soon as possible.
@@ -245,6 +502,33 @@ D. Order an AWS Snowball Edge Storage Optimized device that includes Amazon EC2 
 
 <br><hr>
 
+### Question #116
+
+A company uses a popular content management system (CMS) for its corporate website. However, the required patching and maintenance are burdensome. The company is redesigning its website and wants anew solution. The website will be updated four times a year and does not need to have any dynamic content available. The solution must provide high scalability and enhanced security.
+
+Which combination of changes will meet these requirements with the LEAST operational overhead? (Choose two.)
+
+A. Configure Amazon CloudFront in front of the website to use HTTPS functionality.
+
+B. Deploy an AWS WAF web ACL in front of the website to provide HTTPS functionality.
+
+C. Create and deploy an AWS Lambda function to manage and serve the website content.
+
+D. Create the new website and an Amazon S3 bucket. Deploy the website on the S3 bucket with static website hosting enabled.
+
+E. Create the new website. Deploy the website by using an Auto Scaling group of Amazon EC2 instances behind an Application Load Balancer.
+
+<details>
+<summary>Show Answer</summary>
+
+> A,D
+
+</details>
+
+<br><hr>
+
+
+
 ### Question #119
 
 A global company is using Amazon API Gateway to design REST APIs for its loyalty club users in the us-east-1 Region and the ap-southeast-2 Region. A solutions architect must design a solution to protect these API Gateway managed REST APIs across multiple accounts from SQL injection and cross-site scripting attacks.
@@ -258,6 +542,29 @@ B. Set up AWS Firewall Manager in both Regions. Centrally configure AWS WAF rule
 C. Set up AWS Shield in bath Regions. Associate Regional web ACLs with an API stage.
 
 D. Set up AWS Shield in one of the Regions. Associate Regional web ACLs with an API stage.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #120
+
+A company has implemented a self-managed DNS solution on three Amazon EC2 instances behind a Network Load Balancer (NLB) in the us-west-2 Region. Most of the company's users are located in the United States and Europe. The company wants to improve the performance and availability of the solution. The company launches and configures three EC2 instances in the eu-west-1 Region and adds the EC2 instances as targets for a new NLB.
+
+Which solution can the company use to route traffic to all the EC2 instances?
+
+A. Create an Amazon Route 53 geolocation routing policy to route requests to one of the two NLBs. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution’s origin.
+
+B. Create a standard accelerator in AWS Global Accelerator. Create endpoint groups in us-west-2 and eu-west-1. Add the two NLBs as endpoints for the endpoint groups.
+
+C. Attach Elastic IP addresses to the six EC2 instances. Create an Amazon Route 53 geolocation routing policy to route requests to one of the six EC2 instances. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution's origin.
+
+D. Replace the two NLBs with two Application Load Balancers (ALBs). Create an Amazon Route 53 latency routing policy to route requests to one of the two ALBs. Create an Amazon CloudFront distribution. Use the Route 53 record as the distribution’s origin.
 
 <details>
 <summary>Show Answer</summary>
@@ -318,6 +625,54 @@ E. Migrate the web application to be hosted on AWS Fargate with Amazon Elastic C
 
 <br><hr>
 
+### Question #134
+
+A company wants to move its application to a serverless solution. The serverless solution needs to analyze existing and new data by using SL. The company stores the data in an Amazon S3 bucket. The data requires encryption and must be replicated to a different AWS Region.
+
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Create a new S3 bucket. Load the data into the new S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with AWS KMS multi-Region kays (SSE-KMS). Use Amazon Athena to query the data.
+
+B. Create a new S3 bucket. Load the data into the new S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with AWS KMS multi-Region keys (SSE-KMS). Use Amazon RDS to query the data.
+
+C. Load the data into the existing S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Use Amazon Athena to query the data.
+
+D. Load the data into the existing S3 bucket. Use S3 Cross-Region Replication (CRR) to replicate encrypted objects to an S3 bucket in another Region. Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Use Amazon RDS to query the data.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #139
+
+A reporting team receives files each day in an Amazon S3 bucket. The reporting team manually reviews and copies the files from this initial S3 bucket to an analysis S3 bucket each day at the same time to use with Amazon QuickSight. Additional teams are starting to send more files in larger sizes to the initial S3 bucket.
+
+The reporting team wants to move the files automatically analysis S3 bucket as the files enter the initial S3 bucket. The reporting team also wants to use AWS Lambda functions to run pattern-matching code on the copied data. In addition, the reporting team wants to send the data files to a pipeline in Amazon SageMaker Pipelines.
+
+What should a solutions architect do to meet these requirements with the LEAST operational overhead?
+
+A. Create a Lambda function to copy the files to the analysis S3 bucket. Create an S3 event notification for the analysis S3 bucket. Configure Lambda and SageMaker Pipelines as destinations of the event notification. Configure s3:ObjectCreated:Put as the event type.
+
+B. Create a Lambda function to copy the files to the analysis S3 bucket. Configure the analysis S3 bucket to send event notifications to Amazon EventBridge (Amazon CloudWatch Events). Configure an ObjectCreated rule in EventBridge (CloudWatch Events). Configure Lambda and SageMaker Pipelines as targets for the rule.
+
+C. Configure S3 replication between the S3 buckets. Create an S3 event notification for the analysis S3 bucket. Configure Lambda and SageMaker Pipelines as destinations of the event notification. Configure s3:ObjectCreated:Put as the event type.
+
+D. Configure S3 replication between the S3 buckets. Configure the analysis S3 bucket to send event notifications to Amazon EventBridge (Amazon CloudWatch Events). Configure an ObjectCreated rule in EventBridge (CloudWatch Events). Configure Lambda and SageMaker Pipelines as targets for the rule.
+
+<details>
+<summary>Show Answer</summary>
+
+> D 
+
+</details>
+
+<br><hr>
+
 ### Question #140
 
 A solutions architect needs to help a company optimize the cost of running an application on AWS. The application will use Amazon EC2 instances, AWS Fargate, and AWS Lambda for compute within the architecture.
@@ -345,6 +700,29 @@ E. Purchase a 1-year EC2 instance Savings Plan for the front end and API layer.
 
 <br><hr>
 
+### Question #143
+
+A company wants to migrate its existing on-premises monolithic application to AWS. The company wants to keep as much of the front-end code and the backend code as possible. However, the company wants to break the application into smaller applications. A different team will manage each application. The company needs a highly scalable solution that minimizes operational overhead.
+
+Which solution will meet these requirements?
+
+A. Host the application on AWS Lambda. Integrate the application with Amazon API Gateway.
+
+B. Host the application with AWS Amplify. Connect the application to an Amazon API Gateway API that is integrated with AWS Lambda.
+
+C. Host the application on Amazon EC2 instances. Set up an Application Load Balancer with EC2 instances in an Auto Scaling group as targets.
+
+D. Host the application on Amazon Elastic Container Service (Amazon ECS). Set up an Application Load Balancer with Amazon ECS as the target.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
 ### Question #144
 
 A company recently started using Amazon Aurora as the data store for its global ecommerce application. When large reports are run, developers report that the ecommerce application is performing poorly. After reviewing metrics in Amazon CloudWatch, a solutions architect finds that the ReadIOPS and CPUUtilizalion metrics are spiking when monthly reports run.
@@ -367,6 +745,76 @@ D. Increase the Provisioned IOPS on the Aurora instance.
 </details>
 
 <br><hr>
+
+### Question #145
+
+A company hosts a website analytics application on a single Amazon EC2 On-Demand Instance. The analytics software is written in PHP and uses a MySQL database. The analytics software, the web server that provides PHP, and the database server are all hosted on the EC2 instance. The application is showing signs of performance degradation during busy times and is presenting 5xx errors. The company needs to make the application scale seamlessly.
+
+Which solution will meet these requirements MOST cost-effectively?
+
+A. Migrate the database to an Amazon RDS for MySQL DB instance. Create an AMI of the web application. Use the AMI to launch a second EC2 On-Demand Instance. Use an Application Load Balancer to distribute the load to each EC2 instance.
+
+B. Migrate the database to an Amazon RDS for MySQL DB instance. Create an AMI of the web application. Use the AMI to launch a second EC2 On-Demand Instance. Use Amazon Route 53 weighted routing to distribute the load across the two EC2 instances.
+
+C. Migrate the database to an Amazon Aurora MySQL DB instance. Create an AWS Lambda function to stop the EC2 instance and change the instance type. Create an Amazon CloudWatch alarm to invoke the Lambda function when CPU utilization surpasses 75%.
+
+D. Migrate the database to an Amazon Aurora MySQL DB instance. Create an AMI of the web application. Apply the AMI to a launch template. Create an Auto Scaling group with the launch template Configure the launch template to use a Spot Fleet. Attach an Application Load Balancer to the Auto Scaling group.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
+### Question #150
+
+A company is migrating an application from on-premises servers to Amazon EC2 instances. As part of the migration design requirements, a solutions architect must implement infrastructure metric alarms. The company does not need to take action if CPU utilization increases to more than 50% for a short burst of time. However, if the CPU utilization increases to more than 50% and read IOPS on the disk are high at the same time, the company needs to act as soon as possible. The solutions architect also must reduce false alarms.
+
+What should the solutions architect do to meet these requirements?
+
+A. Create Amazon CloudWatch composite alarms where possible.
+B. Create Amazon CloudWatch dashboards to visualize the metrics and react to issues quickly.
+C. Create Amazon CloudWatch Synthetics canaries to monitor the application and raise an alarm.
+D. Create single Amazon CloudWatch metric alarms with multiple metric thresholds where possible.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #151
+
+A company wants to migrate its on-premises data center to AWS. According to the company's compliance requirements, the company can use only the ap-northeast-3 Region. Company administrators are not permitted to connect VPCs to the internet.
+
+Which solutions will meet these requirements? (Choose two.)
+
+A. Use AWS Control Tower to implement data residency guardrails to deny internet access and deny access to all AWS Regions except ap-northeast-3.
+
+B. Use rules in AWS WAF to prevent internet access. Deny access to all AWS Regions except ap-northeast-3 in the AWS account settings.
+
+C. Use AWS Organizations to configure service control policies (SCPS) that prevent VPCs from gaining internet access. Deny access to all AWS Regions except ap-northeast-3.
+
+D. Create an outbound rule for the network ACL in each VPC to deny all traffic from 0.0.0.0/0. Create an IAM policy for each user to prevent the use of any AWS Region other than ap-northeast-3.
+
+E. Use AWS Config to activate managed rules to detect and alert for internet gateways and to detect and alert for new resources deployed outside of ap-northeast-3.
+
+<details>
+<summary>Show Answer</summary>
+
+> A, C
+
+</details>
+
+<br><hr>
+
+
 
 ### Question #157
 
@@ -411,6 +859,31 @@ D. Amazon S3 Transfer Acceleration
 <summary>Show Answer</summary>
 
 > A
+
+</details>
+
+<br><hr>
+
+### Question #159
+
+A company is running a publicly accessible serverless application that uses Amazon API Gateway and AWS Lambda. The application’s traffic recently spiked due to fraudulent requests from botnets.
+
+Which steps should a solutions architect take to block requests from unauthorized users? (Choose two.)
+
+A. Create a usage plan with an API key that is shared with genuine users only.
+
+B. Integrate logic within the Lambda function to ignore the requests from fraudulent IP addresses.
+
+C. Implement an AWS WAF rule to target malicious requests and trigger actions to filter them out.
+
+D. Convert the existing public API to a private API. Update the DNS records to redirect users to the new API endpoint.
+
+E. Create an IAM role for each user attempting to access the API. A user will assume the role when making the API call.
+
+<details>
+<summary>Show Answer</summary>
+
+> A, C
 
 </details>
 
@@ -487,6 +960,169 @@ D. Create an Elastic IP address. Configure the Lambda function to send traffic t
 
 <br><hr>
 
+### Question #188
+
+A company uses Amazon S3 as its data lake. The company has a new partner that must use SFTP to upload data files. A solutions architect needs to implement a highly available SFTP solution that minimizes operational overhead.
+
+Which solution will meet these requirements?
+
+A. Use AWS Transfer Family to configure an SFTP-enabled server with a publicly accessible endpoint. Choose the S3 data lake as the destination.
+
+B. Use Amazon S3 File Gateway as an SFTP server. Expose the S3 File Gateway endpoint URL to the new partner. Share the S3 File Gateway endpoint with the new partner.
+
+C. Launch an Amazon EC2 instance in a private subnet in a VPInstruct the new partner to upload files to the EC2 instance by using a VPN. Run a cron job script, on the EC2 instance to upload files to the S3 data lake.
+
+D. Launch Amazon EC2 instances in a private subnet in a VPC. Place a Network Load Balancer (NLB) in front of the EC2 instances. Create an SFTP listener port for the NLB. Share the NLB hostname with the new partner. Run a cron job script on the EC2 instances to upload files to the S3 data lake.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #189
+
+A company needs to store contract documents. A contract lasts for 5 years. During the 5-year period, the company must ensure that the documents cannot be overwritten or deleted. The company needs to encrypt the documents at rest and rotate the encryption keys automatically every year.
+
+Which combination of steps should a solutions architect take to meet these requirements with the LEAST operational overhead? (Choose two.)
+
+A. Store the documents in Amazon S3. Use S3 Object Lock in governance mode.
+
+B. Store the documents in Amazon S3. Use S3 Object Lock in compliance mode.
+
+C. Use server-side encryption with Amazon S3 managed encryption keys (SSE-S3). Configure key rotation.
+
+D. Use server-side encryption with AWS Key Management Service (AWS KMS) customer managed keys. Configure key rotation.
+
+E. Use server-side encryption with AWS Key Management Service (AWS KMS) customer provided (imported) keys. Configure key rotation.
+
+<details>
+<summary>Show Answer</summary>
+
+> B, D
+
+</details>
+
+<br><hr>
+
+### Question #190
+
+A company has a web application that is based on Java and PHP. The company plans to move the application from on premises to AWS. The company needs the ability to test new site features frequently. The company also needs a highly available and managed solution that requires minimum operational overhead.
+
+Which solution will meet these requirements?
+
+A. Create an Amazon S3 bucket. Enable static web hosting on the S3 bucket. Upload the static content to the S3 bucket. Use AWS Lambda to process all dynamic content.
+
+B. Deploy the web application to an AWS Elastic Beanstalk environment. Use URL swapping to switch between multiple Elastic Beanstalk environments for feature testing.
+
+C. Deploy the web application to Amazon EC2 instances that are configured with Java and PHP. Use Auto Scaling groups and an Application Load Balancer to manage the website’s availability.
+
+D. Containerize the web application. Deploy the web application to Amazon EC2 instances. Use the AWS Load Balancer Controller to dynamically route traffic between containers that contain the new site features for testing.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #194
+
+A company needs to run a critical application on AWS. The company needs to use Amazon EC2 for the application’s database. The database must be highly available and must fail over automatically if a disruptive event occurs.
+
+Which solution will meet these requirements?
+
+A. Launch two EC2 instances, each in a different Availability Zone in the same AWS Region. Install the database on both EC2 instances. Configure the EC2 instances as a cluster. Set up database replication.
+
+B. Launch an EC2 instance in an Availability Zone. Install the database on the EC2 instance. Use an Amazon Machine Image (AMI) to back up the data. Use AWS CloudFormation to automate provisioning of the EC2 instance if a disruptive event occurs.
+
+C. Launch two EC2 instances, each in a different AWS Region. Install the database on both EC2 instances. Set up database replication. Fail over the database to a second Region.
+
+D. Launch an EC2 instance in an Availability Zone. Install the database on the EC2 instance. Use an Amazon Machine Image (AMI) to back up the data. Use EC2 automatic recovery to recover the instance if a disruptive event occurs.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #201
+
+A company is developing a marketing communications service that targets mobile app users. The company needs to send confirmation messages with Short Message Service (SMS) to its users. The users must be able to reply to the SMS messages. The company must store the responses for a year for analysis.
+
+What should a solutions architect do to meet these requirements?
+
+A. Create an Amazon Connect contact flow to send the SMS messages. Use AWS Lambda to process the responses.
+
+B. Build an Amazon Pinpoint journey. Configure Amazon Pinpoint to send events to an Amazon Kinesis data stream for analysis and archiving.
+
+C. Use Amazon Simple Queue Service (Amazon SQS) to distribute the SMS messages. Use AWS Lambda to process the responses.
+
+D. Create an Amazon Simple Notification Service (Amazon SNS) FIFO topic. Subscribe an Amazon Kinesis data stream to the SNS topic for analysis and archiving.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #208
+
+A company needs to move data from an Amazon EC2 instance to an Amazon S3 bucket. The company must ensure that no API calls and no data are routed through public internet routes. Only the EC2 instance can have access to upload data to the S3 bucket.
+
+Which solution will meet these requirements?
+
+A. Create an interface VPC endpoint for Amazon S3 in the subnet where the EC2 instance is located. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.
+
+B. Create a gateway VPC endpoint for Amazon S3 in the Availability Zone where the EC2 instance is located. Attach appropriate security groups to the endpoint. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.
+
+C. Run the nslookup tool from inside the EC2 instance to obtain the private IP address of the S3 bucket’s service API endpoint. Create a route in the VPC route table to provide the EC2 instance with access to the S3 bucket. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.
+
+D. Use the AWS provided, publicly available ip-ranges.json file to obtain the private IP address of the S3 bucket’s service API endpoint. Create a route in the VPC route table to provide the EC2 instance with access to the S3 bucket. Attach a resource policy to the S3 bucket to only allow the EC2 instance’s IAM role for access.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #215
+
+A company has 700 TB of backup data stored in network attached storage (NAS) in its data center. This backup data need to be accessible for infrequent regulatory requests and must be retained 7 years. The company has decided to migrate this backup data from its data center to AWS. The migration must be complete within 1 month. The company has 500 Mbps of dedicated bandwidth on its public internet connection available for data transfer.
+
+What should a solutions architect do to migrate and store the data at the LOWEST cost?
+
+A. Order AWS Snowball devices to transfer the data. Use a lifecycle policy to transition the files to Amazon S3 Glacier Deep Archive.
+
+B. Deploy a VPN connection between the data center and Amazon VPC. Use the AWS CLI to copy the data from on premises to Amazon S3 Glacier.
+
+C. Provision a 500 Mbps AWS Direct Connect connection and transfer the data to Amazon S3. Use a lifecycle policy to transition the files to Amazon S3 Glacier Deep Archive.
+
+D. Use AWS DataSync to transfer the data and deploy a DataSync agent on premises. Use the DataSync task to copy files from the on-premises NAS storage to Amazon S3 Glacier.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
 ### Question #217
 
 A company runs a global web application on Amazon EC2 instances behind an Application Load Balancer. The application stores data in Amazon Aurora. The company needs to create a disaster recovery solution and can tolerate up to 30 minutes of downtime and potential data loss. The solution does not need to handle the load when the primary infrastructure is healthy.
@@ -505,6 +1141,173 @@ D. Back up data with AWS Backup. Use the backup to create the required infrastru
 <summary>Show Answer</summary>
 
 > A
+
+</details>
+
+<br><hr>
+
+### Question #218
+
+A company has a web server running on an Amazon EC2 instance in a public subnet with an Elastic IP address. The default security group is assigned to the EC2 instance. The default network ACL has been modified to block all traffic. A solutions architect needs to make the web server accessible from everywhere on port 443.
+
+Which combination of steps will accomplish this task? (Choose two.)
+
+A. Create a security group with a rule to allow TCP port 443 from source 0.0.0.0/0.
+
+B. Create a security group with a rule to allow TCP port 443 to destination 0.0.0.0/0.
+
+C. Update the network ACL to allow TCP port 443 from source 0.0.0.0/0.
+
+D. Update the network ACL to allow inbound/outbound TCP port 443 from source 0.0.0.0/0 and to destination 0.0.0.0/0.
+
+E. Update the network ACL to allow inbound TCP port 443 from source 0.0.0.0/0 and outbound TCP port 32768-65535 to destination 0.0.0.0/0.
+
+<details>
+<summary>Show Answer</summary>
+
+> A, E 
+
+</details>
+
+<br><hr>
+
+### Question #219
+
+A company’s application is having performance issues. The application is stateful and needs to complete in-memory tasks on Amazon EC2 instances. The company used AWS CloudFormation to deploy infrastructure and used the M5 EC2 instance family. As traffic increased, the application performance degraded. Users are reporting delays when the users attempt to access the application.
+
+Which solution will resolve these issues in the MOST operationally efficient way?
+
+A. Replace the EC2 instances with T3 EC2 instances that run in an Auto Scaling group. Make the changes by using the AWS Management Console.
+
+B. Modify the CloudFormation templates to run the EC2 instances in an Auto Scaling group. Increase the desired capacity and the maximum capacity of the Auto Scaling group manually when an increase is necessary.
+
+C. Modify the CloudFormation templates. Replace the EC2 instances with R5 EC2 instances. Use Amazon CloudWatch built-in EC2 memory metrics to track the application performance for future capacity planning.
+
+D. Modify the CloudFormation templates. Replace the EC2 instances with R5 EC2 instances. Deploy the Amazon CloudWatch agent on the EC2 instances to generate custom application latency metrics for future capacity planning.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
+### Question #223
+
+A company has deployed a Java Spring Boot application as a pod that runs on Amazon Elastic Kubernetes Service (Amazon EKS) in private subnets. The application needs to write data to an Amazon DynamoDB table. A solutions architect must ensure that the application can interact with the DynamoDB table without exposing traffic to the internet.
+
+Which combination of steps should the solutions architect take to accomplish this goal? (Choose two.)
+
+A. Attach an IAM role that has sufficient privileges to the EKS pod.
+
+B. Attach an IAM user that has sufficient privileges to the EKS pod.
+
+C. Allow outbound connectivity to the DynamoDB table through the private subnets’ network ACLs.
+
+D. Create a VPC endpoint for DynamoDB.
+
+E. Embed the access keys in the Java Spring Boot code.
+
+<details>
+<summary>Show Answer</summary>
+
+> A, D
+
+</details>
+
+<br><hr>
+
+### Question #224
+
+A company recently migrated its web application to AWS by rehosting the application on Amazon EC2 instances in a single AWS Region. The company wants to redesign its application architecture to be highly available and fault tolerant. Traffic must reach all running EC2 instances randomly.
+
+Which combination of steps should the company take to meet these requirements? (Choose two.)
+
+A. Create an Amazon Route 53 failover routing policy.
+
+B. Create an Amazon Route 53 weighted routing policy.
+
+C. Create an Amazon Route 53 multivalue answer routing policy.
+
+D. Launch three EC2 instances: two instances in one Availability Zone and one instance in another Availability Zone.
+
+E. Launch four EC2 instances: two instances in one Availability Zone and two instances in another Availability Zone.
+
+<details>
+<summary>Show Answer</summary>
+
+> C, E
+
+</details>
+
+<br><hr>
+
+### Question #225
+
+A media company collects and analyzes user activity data on premises. The company wants to migrate this capability to AWS. The user activity data store will continue to grow and will be petabytes in size. The company needs to build a highly available data ingestion solution that facilitates on-demand analytics of existing data and new data with SQL.
+
+Which solution will meet these requirements with the LEAST operational overhead?
+
+A. Send activity data to an Amazon Kinesis data stream. Configure the stream to deliver the data to an Amazon S3 bucket.
+
+B. Send activity data to an Amazon Kinesis Data Firehose delivery stream. Configure the stream to deliver the data to an Amazon Redshift cluster.
+
+C. Place activity data in an Amazon S3 bucket. Configure Amazon S3 to run an AWS Lambda function on the data as the data arrives in the S3 bucket.
+
+D. Create an ingestion service on Amazon EC2 instances that are spread across multiple Availability Zones. Configure the service to forward data to an Amazon RDS Multi-AZ database.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #233
+
+A company has three VPCs named Development, Testing, and Production in the us-east-1 Region. The three VPCs need to be connected to an on-premises data center and are designed to be separate to maintain security and prevent any resource sharing. A solutions architect needs to find a scalable and secure solution.
+
+What should the solutions architect recommend?
+
+A. Create an AWS Direct Connect connection and a VPN connection for each VPC to connect back to the data center.
+
+B. Create VPC peers from all the VPCs to the Production VPC. Use an AWS Direct Connect connection from the Production VPC back to the data center.
+
+C. Connect VPN connections from all the VPCs to a VPN in the Production VPC. Use a VPN connection from the Production VPC back to the data center.
+
+D. Create a new VPC called Network. Within the Network VPC, create an AWS Transit Gateway with an AWS Direct Connect connection back to the data center. Attach all the other VPCs to the Network VPC.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #234
+
+A company is building a new web-based customer relationship management application. The application will use several Amazon EC2 instances that are backed by Amazon Elastic Block Store (Amazon EBS) volumes behind an Application Load Balancer (ALB). The application will also use an Amazon Aurora database. All data for the application must be encrypted at rest and in transit.
+
+Which solution will meet these requirements?
+
+A. Use AWS Key Management Service (AWS KMS) certificates on the ALB to encrypt data in transit. Use AWS Certificate Manager (ACM) to encrypt the EBS volumes and Aurora database storage at rest.
+
+B. Use the AWS root account to log in to the AWS Management Console. Upload the company’s encryption certificates. While in the root account, select the option to turn on encryption for all data at rest and in transit for the account.
+
+C. Use AWS Key Management Service (AWS KMS) to encrypt the EBS volumes and Aurora database storage at rest. Attach an AWS Certificate Manager (ACM) certificate to the ALB to encrypt data in transit.
+
+D. Use BitLocker to encrypt all data at rest. Import the company’s TLS certificate keys to AWS Key Management Service (AWS KMS) Attach the KMS keys to the ALB to encrypt data in transit.
+
+<details>
+<summary>Show Answer</summary>
+
+> C
 
 </details>
 
@@ -604,6 +1407,181 @@ D. Process the data and store the transformed data in three separate Amazon Dyna
 
 <br><hr>
 
+### Question #327
+
+A solutions architect must secure a VPC network that hosts Amazon EC2 instances. The EC2 instances contain highly sensitive data and run in a private subnet. According to company policy, the EC2 instances that run in the VPC can access only approved third-party software repositories on the internet for software product updates that use the third party’s URL. Other internet traffic must be blocked.
+
+Which solution meets these requirements?
+
+A. Update the route table for the private subnet to route the outbound traffic to an AWS Network Firewall firewall. Configure domain list rule groups.
+
+B. Set up an AWS WAF web ACL. Create a custom set of rules that filter traffic requests based on source and destination IP address range sets.
+
+C. Implement strict inbound security group rules. Configure an outbound rule that allows traffic only to the authorized software repositories on the internet by specifying the URLs.
+
+D. Configure an Application Load Balancer (ALB) in front of the EC2 instances. Direct all outbound traffic to the ALB. Use a URL-based rule listener in the ALB’s target group for outbound access to the internet.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+
+
+### Question #388
+
+A company is deploying a two-tier web application in a VPC. The web tier is using an Amazon EC2 Auto Scaling group with public subnets that span multiple Availability Zones. The database tier consists of an Amazon RDS for MySQL DB instance in separate private subnets. The web tier requires access to the database to retrieve product information.
+
+The web application is not working as intended. The web application reports that it cannot connect to the database. The database is confirmed to be up and running. All configurations for the network ACLs, security groups, and route tables are still in their default states.
+
+What should a solutions architect recommend to fix the application?
+
+A. Add an explicit rule to the private subnet’s network ACL to allow traffic from the web tier’s EC2 instances.
+
+B. Add a route in the VPC route table to allow traffic between the web tier’s EC2 instances and the database tier.
+
+C. Deploy the web tier's EC2 instances and the database tier’s RDS instance into two separate VPCs, and configure VPC peering.
+
+D. Add an inbound rule to the security group of the database tier’s RDS instance to allow traffic from the web tiers security group.
+
+<details>
+<summary>Show Answer</summary>
+
+> D
+
+</details>
+
+<br><hr>
+
+
+
+### Question #399
+
+A financial company hosts a web application on AWS. The application uses an Amazon API Gateway Regional API endpoint to give users the ability to retrieve current stock prices. The company’s security team has noticed an increase in the number of API requests. The security team is concerned that HTTP flood attacks might take the application offline.
+
+A solutions architect must design a solution to protect the application from this type of attack.
+
+Which solution meets these requirements with the LEAST operational overhead?
+
+A. Create an Amazon CloudFront distribution in front of the API Gateway Regional API endpoint with a maximum TTL of 24 hours.
+
+B. Create a Regional AWS WAF web ACL with a rate-based rule. Associate the web ACL with the API Gateway stage.
+
+C. Use Amazon CloudWatch metrics to monitor the Count metric and alert the security team when the predefined rate is reached.
+
+D. Create an Amazon CloudFront distribution with Lambda@Edge in front of the API Gateway Regional API endpoint. Create an AWS Lambda function to block requests from IP addresses that exceed the predefined rate.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #406
+
+A solutions architect is designing a two-tiered architecture that includes a public subnet and a database subnet. The web servers in the public subnet must be open to the internet on port 443. The Amazon RDS for MySQL DB instance in the database subnet must be accessible only to the web servers on port 3306.
+
+Which combination of steps should the solutions architect take to meet these requirements? (Choose two.)
+
+A. Create a network ACL for the public subnet. Add a rule to deny outbound traffic to 0.0.0.0/0 on port 3306.
+
+B. Create a security group for the DB instance. Add a rule to allow traffic from the public subnet CIDR block on port 3306.
+
+C. Create a security group for the web servers in the public subnet. Add a rule to allow traffic from 0.0.0.0/0 on port 443.
+
+D. Create a security group for the DB instance. Add a rule to allow traffic from the web servers’ security group on port 3306.
+
+E. Create a security group for the DB instance. Add a rule to deny all traffic except traffic from the web servers’ security group on port 3306.
+
+<details>
+<summary>Show Answer</summary>
+
+> C, D
+
+</details>
+
+<br><hr>
+
+
+
+### Question #407
+
+A company is using Site-to-Site VPN connections for secure connectivity to its AWS Cloud resources from on premises. Due to an increase in traffic across the
+VPN connections to the Amazon EC2 instances, users are experiencing slower VPN connectivity.
+
+Which solution will improve the VPN throughput?
+
+A. Implement multiple customer gateways for the same network to scale the throughput.
+
+B. Use a transit gateway with equal cost multipath routing and add additional VPN tunnels.
+
+C. Configure a virtual private gateway with equal cost multipath routing and multiple channels.
+
+D. Increase the number of tunnels in the VPN configuration to scale the throughput beyond the default limit.
+
+<details>
+<summary>Show Answer</summary>
+
+> B
+
+</details>
+
+<br><hr>
+
+### Question #439
+
+A solutions architect configured a VPC that has a small range of IP addresses. The number of Amazon EC2 instances that are in the VPC is increasing, and there is an insufficient number of IP addresses for future workloads.
+
+Which solution resolves this issue with the LEAST operational overhead?
+
+A. Add an additional IPv4 CIDR block to increase the number of IP addresses and create additional subnets in the VPC. Create new resources in the new subnets by using the new CIDR.
+
+B. Create a second VPC with additional subnets. Use a peering connection to connect the second VPC with the first VPC. Update the routes and create new resources in the subnets of the second VPC.
+
+C. Use AWS Transit Gateway to add a transit gateway and connect a second VPC with the first VPC. Update the routes of the transit gateway and VPCs. Create new resources in the subnets of the second VPC.
+
+D. Create a second VPC. Create a Site-to-Site VPN connection between the first VPC and the second VPC by using a VPN-hosted solution on Amazon EC2 and a virtual private gateway. Update the route between VPCs to the traffic through the VPN. Create new resources in the subnets of the second VPC.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #442
+
+A company has two VPCs that are located in the us-west-2 Region within the same AWS account. The company needs to allow network traffic between these
+VPCs. Approximately 500 GB of data transfer will occur between the VPCs each month.
+
+What is the MOST cost-effective solution to connect these VPCs?
+
+A. Implement AWS Transit Gateway to connect the VPCs. Update the route tables of each VPC to use the transit gateway for inter-VPC communication.
+
+B. Implement an AWS Site-to-Site VPN tunnel between the VPCs. Update the route tables of each VPC to use the VPN tunnel for inter-VPC communication.
+
+C. Set up a VPC peering connection between the VPCs. Update the route tables of each VPC to use the VPC peering connection for inter-VPC communication.
+
+D. Set up a 1 GB AWS Direct Connect connection between the VPCs. Update the route tables of each VPC to use the Direct Connect connection for inter-VPC communication.
+
+<details>
+<summary>Show Answer</summary>
+
+> C
+
+</details>
+
+<br><hr>
+
 ### Question #447
 
 A company has a stateless web application that runs on AWS Lambda functions that are invoked by Amazon API Gateway. The company wants to deploy the application across multiple AWS Regions to provide Regional failover capabilities.
@@ -627,6 +1605,29 @@ D. Create an Application Load Balancer in the primary Region. Set the target gro
 
 <br><hr>
 
+### Question #471
+
+A company is creating an application that runs on containers in a VPC. The application stores and accesses data in an Amazon S3 bucket. During the development phase, the application will store and access 1 TB of data in Amazon S3 each day. The company wants to minimize costs and wants to prevent traffic from traversing the internet whenever possible.
+
+Which solution will meet these requirements?
+
+A. Enable S3 Intelligent-Tiering for the S3 bucket
+
+B. Enable S3 Transfer Acceleration for the S3 bucket
+
+C. Create a gateway VPC endpoint for Amazon S3. Associate this endpoint with all route tables in the VPC
+
+D. Create an interface endpoint for Amazon S3 in the VPC. Associate this endpoint with all route tables in the VPC
+
+<details>
+<summary>Show Answer</summary>
+
+> C
+
+</details>
+
+<br><hr>
+
 ### Question #474
 
 A company has multiple VPCs across AWS Regions to support and run workloads that are isolated from workloads in other Regions. Because of a recent application launch requirement, the company’s VPCs must communicate with all other VPCs across all Regions.
@@ -645,6 +1646,100 @@ D. Use AWS PrivateLink across all Regions to connect VPCs across Regions and man
 <summary>Show Answer</summary>
 
 > C
+
+</details>
+
+<br><hr>
+
+### Question #504
+
+A company needs to connect several VPCs in the us-east-1 Region that span hundreds of AWS accounts. The company's networking team has its own AWS account to manage the cloud network.
+
+What is the MOST operationally efficient solution to connect the VPCs?
+
+A. Set up VPC peering connections between each VPC. Update each associated subnet’s route table
+
+B. Configure a NAT gateway and an internet gateway in each VPC to connect each VPC through the internet
+
+C. Create an AWS Transit Gateway in the networking team’s AWS account. Configure static routes from each VPC.
+
+D. Deploy VPN gateways in each VPC. Create a transit VPC in the networking team’s AWS account to connect to each VPC.
+
+<details>
+<summary>Show Answer</summary>
+
+> C
+
+</details>
+
+<br><hr>
+
+### Question #544
+
+A retail company uses a regional Amazon API Gateway API for its public REST APIs. The API Gateway endpoint is a custom domain name that points to an Amazon Route 53 alias record. A solutions architect needs to create a solution that has minimal effects on customers and minimal data loss to release the new version of APIs.
+
+Which solution will meet these requirements?
+
+A. Create a canary release deployment stage for API Gateway. Deploy the latest API version. Point an appropriate percentage of traffic to the canary stage. After API verification, promote the canary stage to the production stage.
+
+B. Create a new API Gateway endpoint with a new version of the API in OpenAPI YAML file format. Use the import-to-update operation in merge mode into the API in API Gateway. Deploy the new version of the API to the production stage.
+
+C. Create a new API Gateway endpoint with a new version of the API in OpenAPI JSON file format. Use the import-to-update operation in overwrite mode into the API in API Gateway. Deploy the new version of the API to the production stage.
+
+D. Create a new API Gateway endpoint with new versions of the API definitions. Create a custom domain name for the new API Gateway API. Point the Route 53 alias record to the new API Gateway API custom domain name.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
+
+</details>
+
+<br><hr>
+
+### Question #558
+
+A company has two VPCs that are located in the us-west-2 Region within the same AWS account. The company needs to allow network traffic between these VPCs. Approximately 500 GB of data transfer will occur between the VPCs each month.
+
+What is the MOST cost-effective solution to connect these VPCs?
+
+A. Implement AWS Transit Gateway to connect the VPCs. Update the route tables of each VPC to use the transit gateway for inter-VPC communication.
+
+B. Implement an AWS Site-to-Site VPN tunnel between the VPCs. Update the route tables of each VPC to use the VPN tunnel for inter-VPC communication.
+
+C. Set up a VPC peering connection between the VPCs. Update the route tables of each VPC to use the VPC peering connection for inter-VPC communication.
+
+D. Set up a 1 GB AWS Direct Connect connection between the VPCs. Update the route tables of each VPC to use the Direct Connect connection for inter-VPC communication.
+
+<details>
+<summary>Show Answer</summary>
+
+> C
+
+</details>
+
+<br>
+
+### Question #608
+
+A company has an application that serves clients that are deployed in more than 20.000 retail storefront locations around the world. The application consists of backend web services that are exposed over HTTPS on port 443. The application is hosted on Amazon EC2 instances behind an Application Load Balancer (ALB). The retail locations communicate with the web application over the public internet. The company allows each retail location to register the IP address that the retail location has been allocated by its local ISP.
+
+The company's security team recommends to increase the security of the application endpoint by restricting access to only the IP addresses registered by the retail locations.
+
+What should a solutions architect do to meet these requirements?
+
+A. Associate an AWS WAF web ACL with the ALB. Use IP rule sets on the ALB to filter traffic. Update the IP addresses in the rule to include the registered IP addresses.
+
+B. Deploy AWS Firewall Manager to manage the ALConfigure firewall rules to restrict traffic to the ALModify the firewall rules to include the registered IP addresses.
+
+C. Store the IP addresses in an Amazon DynamoDB table. Configure an AWS Lambda authorization function on the ALB to validate that incoming requests are from the registered IP addresses.
+
+D. Configure the network ACL on the subnet that contains the public interface of the ALB. Update the ingress rules on the network ACL with entries for each of the registered IP addresses.
+
+<details>
+<summary>Show Answer</summary>
+
+> A
 
 </details>
 

@@ -158,8 +158,11 @@ A company hosts its multi-tier applications on AWS. For compliance, governance, 
 What should a solutions architect do to meet these requirements?
 
 A. Use AWS CloudTrail to track configuration changes and AWS Config to record API calls.
+
 B. Use AWS Config to track configuration changes and AWS CloudTrail to record API calls.
+
 C. Use AWS Config to track configuration changes and Amazon CloudWatch to record API calls.
+
 D. Use AWS CloudTrail to track configuration changes and Amazon CloudWatch to record API calls.
 
 <details>
@@ -504,7 +507,7 @@ D. Order an AWS Snowball Edge Storage Optimized device that includes Amazon EC2 
 
 ### Question #116
 
-A company uses a popular content management system (CMS) for its corporate website. However, the required patching and maintenance are burdensome. The company is redesigning its website and wants anew solution. The website will be updated four times a year and does not need to have any dynamic content available. The solution must provide high scalability and enhanced security.
+A company uses a popular content management system (CMS) for its corporate website. However, the required patching and maintenance are burdensome. The company is redesigning its website and wants a new solution. The website will be updated four times a year and does not need to have any dynamic content available. The solution must provide high scalability and enhanced security.
 
 Which combination of changes will meet these requirements with the LEAST operational overhead? (Choose two.)
 
@@ -521,7 +524,7 @@ E. Create the new website. Deploy the website by using an Auto Scaling group of 
 <details>
 <summary>Show Answer</summary>
 
-> A,D
+> A, D
 
 </details>
 
@@ -776,8 +779,11 @@ A company is migrating an application from on-premises servers to Amazon EC2 ins
 What should the solutions architect do to meet these requirements?
 
 A. Create Amazon CloudWatch composite alarms where possible.
+
 B. Create Amazon CloudWatch dashboards to visualize the metrics and react to issues quickly.
+
 C. Create Amazon CloudWatch Synthetics canaries to monitor the application and raise an alarm.
+
 D. Create single Amazon CloudWatch metric alarms with multiple metric thresholds where possible.
 
 <details>

@@ -1,0 +1,1966 @@
+{
+  "roots": [
+    {
+      "key": "rfaecb1r4pxpahsrighqpfi",
+      "title": "Dev",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Dendron",
+      "children": [
+        {
+          "key": "vmcgt1bw13lwsobet50r3vl",
+          "title": "Architecture",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "q06aec6ibrmv2n8cgsbcpg0",
+              "title": "Event Driven",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "dutuytuh15to760roszvzd8",
+              "title": "Event Vs Message",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "q5aynjvtl8ck5i8o4z1789a",
+              "title": "Microservices",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "rc5ks6o8knqqwbdlubjye6d",
+                  "title": "Data Query Patterns",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "rlenn47khmjb6uyso6rzm27",
+                  "title": "마이크로서비스 배포 패턴",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "ftol1yqshnioely3qcrekyf",
+                  "title": "일체형 데이터베이스, 목적에 맞게 MSA 구조로 전환하기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "pj0dbesw2qm5j1tub9f34pg",
+          "title": "Back-End",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "m64zjprvzr6iutm1f2l0gl5",
+              "title": "Django",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "60ldbh7hgfjpbnkkr4jsvix",
+                  "title": "Django에서 Tailwind CSS 사용하기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "99q7prq3t1a4apfogsjzjuq",
+              "title": "Node.js",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "qptxqzkp75o2e7tlp0qdweg",
+              "title": "Spring Boot",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "e40hlh2wukm75vo4t8r9c7p",
+          "title": "Cloud",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "btlucakd0olyaaz9vw53j7m",
+              "title": "AWS",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "uyrn9wfgt8zqanwnh2ywi8d",
+                  "title": "Certification",
+                  "icon": "plusOutlined",
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": [
+                    {
+                      "key": "csls1iecmzveuq2w6ym65k0",
+                      "title": "AWS Certified Solutions Architect - Associate (SAA-C03) 오답 노트",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "children": []
+                    },
+                    {
+                      "key": "d4quhjtuyln1qrsn1mtw54h",
+                      "title": "클라우드 AWS 자격증으로 시작하기",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "2zdrd8z8yztlx22m0fzvdao",
+                  "title": "Amazon CloudFront",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "xwy3hs73m8qz50gruxt5ybs",
+                  "title": "AWS의 목적별 데이터베이스",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "eh1lcq94yo2ddqvlwtwewva",
+                  "title": "Elastic Beanstalk",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "c7rlm99q259j6ib7n6zmn6r",
+                  "title": "4가지 상호 VPC 연결 방법",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "k5czowo3tsy1kbggabfgzsa",
+                  "title": "AWS Lake House",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "vdibvlxx9sskn8p5g9tkqmh",
+                  "title": "Amazon Redshift",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": [
+                    {
+                      "key": "k8upog5coafm9oqxlw0iwb9",
+                      "title": "Amazon Redshift의 가격 대비 성능 벤치 마크 결과",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "4nfnwou6n2xn610b1p6mpd2",
+              "title": "Azure",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "kqv6a3qemjy3elfzvkcc3lj",
+                  "title": "DevOps",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "7m2b46cy9l6njc5oi0ivjny",
+                  "title": "Azure Event Grid",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "7f5sgkt0loj1kbstscnsam8",
+                  "title": "Azure Message Services",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "i72er7p7yb3mfelrn45f3i4",
+              "title": "Solutions Architect 인터뷰 준비 - 기본 개념",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "qjawb19o62iafj8gtjq44gr",
+              "title": "Solutions Architect 인터뷰 준비 - Troubleshooting",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "7xwnx64er01irhu8wg1q5zm",
+          "title": "Computer Science",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "w0yf9uzk7tgxng8otvbrhbh",
+              "title": "Database",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "i77f7bz5g58kgrwmzz5rf07",
+                  "title": "ACID 트랜잭션",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "kjlv4k3hgedpl8052cz26qe",
+                  "title": "Change data capture (CDC)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "rpwmr2qp3xuwot1e168ibdz",
+                  "title": "Hot Block",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "3mocp8kysw194a2b1uyr7pm",
+                  "title": "데이터베이스 정규화",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "fu8wshgb2pwe2pm3rthbjva",
+                  "title": "OLTP vs OLAP",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "4t7xtxgsl187am4usaa6cnp",
+                  "title": "Storage",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "waxuyf1zmofwmcuej10vnyh",
+                  "title": "Stored Procedure",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "fuo4xr0qnj3li74gote4uye",
+                  "title": "구체화된 뷰(Structured View)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "trziaq3ush0ew2q6x4nulqv",
+                  "title": "Vacuum",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "4buyekecqhzdg87aqxmh1rz",
+          "title": "Data+AI",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "o5g6vbdff83uch6a5nnjz33",
+              "title": "ML-DL Book Landscape",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "m25xpc4pv7cgsrqsxha8dbk",
+              "title": "Colab",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "8gsvw222hcs6qkz21gzxjpn",
+              "title": "Data ingestion",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "vtzfkb3yhrdf403l7lqwan9",
+                  "title": "Constraint",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "eja9cwc6rjfx4zrkmvrp8az",
+              "title": "Data Lake",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "cw0115z7wl7ulfbg9vcjz5n",
+              "title": "Data Mining",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "fgo90mmygqmiichus71qo88",
+              "title": "Data Warehouse",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "skeuhenz2vf0ycgfmyy8pl1",
+              "title": "Databricks",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "30w8ms2motllf365kt2q895",
+                  "title": "Architecture overview",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "zne5ha9xcc0pplouj6lj2ro",
+                  "title": "CLI",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "4xe29kkjyqwkmi5d80du7c9",
+                  "title": "Cluster",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "0wwj1byxg3uhkh6el05q2o9",
+                  "title": "Data+AI Summit 2022 키노트 주요 어나운스먼트 요약",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "2b76tsb8q0aqabl8uww9at1",
+                  "title": "Data Lakehouse",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "yfg1zp70ww391hvbdd4sgop",
+                  "title": "Databricks SQL",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "1ncwv3zac3km8grtf7etpta",
+                  "title": "Databricks Connect",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "f5ta5qp6kvcp8x23oxfjwi2",
+                  "title": "Delta Lake",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "hvd8818q6qo5xxfok5lhye7",
+                  "title": "Delta Live Tables",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": [
+                    {
+                      "key": "yafhr4wma720uky7t582yzq",
+                      "title": "Change Data Capture with Delta Live Tables",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "children": []
+                    },
+                    {
+                      "key": "jgxvkvj6ety2k8jdh6ia3un",
+                      "title": "Expectations",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "es7fyakczjuyvb0u7k9g8xg",
+                  "title": "Delta Table",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "c1e5yqaofug0sowxvnsspui",
+                  "title": "Pyodbc",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "gaf44w0jm155ojabiyonsv6",
+                  "title": "Databricks SQL Connector",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "3msf71clkxum5m01visxdi9",
+                  "title": "Workspace",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "2wye5hlqu8k8nfjag3ngk86",
+              "title": "Deep Learning",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "yvk0xkh6g8ppp2wfatt3wcj",
+                  "title": "Autoencoder",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "9le0nqs1qq4ep2dzy27dorn",
+              "title": "ETL vs ELT",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "a6005blm436wj1grbnbf406",
+              "title": "LLM",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "o138rnv88g88chweztzfdis",
+                  "title": "LLM Workflow Engine",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "e88lgjzncekrs5466oeqe0e",
+              "title": "Machine Learning Flow",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "h6ofuapqvxb6egyxzsi0pzt",
+              "title": "Machine Learning",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "ggv7a7kcqdycghbl3swpaql",
+                  "title": "Bias vs Variance",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "ulkhzg050nk603kpq0j4fvf",
+                  "title": "XGBoost",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "hrfn1n5bbgtgr2tezf49j0k",
+              "title": "OpenSearch",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "w02ky6rev6fdfd7wml758by",
+              "title": "Pandas",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "ro64yjzc7xn6bwmd6hwhy23",
+                  "title": "Pandas Cheat Sheet",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "v7q8a35jkouboemyj9j27jd",
+                  "title": "Pandas Dataframe",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "st4q3726xwavhzpa13npxir",
+                  "title": "Datetime",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "krw7dpkjkiu6sesrnypgdky",
+                  "title": "Memo",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "1y1yaydbzccdy4uu5qkpjt2",
+                  "title": "Memo (TBD)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "n0z812p7gv3z73gmdxw9ph8",
+                  "title": "결측치 확인 및 처리",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "okqv7bt20hfz93cqagtcykh",
+                  "title": "Pandas로 SQL 쿼리",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "hqu4i8324y6hjp0385k2cdq",
+                  "title": "Visualization",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "wwq5sutdc4ktsx9nklka6gx",
+              "title": "References",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "mvmjei3kla5158ugqpwf79z",
+              "title": "Spark",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "l79vrhuhxtx2luc014n20sr",
+                  "title": "Cluster",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "t9h5i24qpl5wpfziw749zvv",
+                  "title": "Spark Config",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "sfeu6c5r2tcv2mgr2xpo696",
+                  "title": "Dataframe",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "n5zbm8d7522ndfjfsreix5s",
+                  "title": "Spark 분산 처리 최적화",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "amhbge9cv2vmha17e12isfu",
+                  "title": "Spark Overview",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "b8q25l0shnd5zc4ivjoaoyi",
+                  "title": "클러스터 구성 최적화",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "cmfutyhgtl88lr1sike6zta",
+                  "title": "Structured Streaming",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "miqc8mr1j0itwvkjtinfm0t",
+                  "title": "Terms",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "5tk9riawukbjruoio20gua5",
+              "title": "SQL",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "3njlng2tyw3m6jh0d5w05qm",
+                  "title": "SQL로 날짜 다루기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "2lkjdexj6b28p56nh3ws2x5",
+                  "title": "Ranking",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "of7uuxusmpxq6zis5tikl5e",
+                  "title": "Select",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "f738a25b786us70pus8bsbp",
+                  "title": "Test",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "h7k7mswtpfy8zpzkmle65pv",
+                  "title": "Top N",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "jsyqw35o9f94r94k8vby25s",
+              "title": "Statistics",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "yplkp47jvnjh21h7w1h4rev",
+                  "title": "지수 평활법 (지수 이동 평균법)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "y84i18zreffhrbeg72tevp5",
+              "title": "Tensorflow",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "cy8nvbp38rxht0uek8ep4zm",
+                  "title": "REDNet",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "k4ifwg0q0eu3d4j49clxyv4",
+                  "title": "Tensorflow References",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "wuuj5g5ivb6vbn1axgptr6b",
+              "title": "Unsupervised Learning",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "g2h1b86d7qg1qisqe49t737",
+              "title": "Visualization",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "lyuotykr3e47c5bt119iyb5",
+                  "title": "Seaborn",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "n1xmefdyaaztqb8wmsmqtjj",
+          "title": "Data Structure & Algotirhm",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "6qoeufgmgbzekihukmsdqe5",
+              "title": "Binary Tree",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "6ge8dy2vkiqpcncw11db5nz",
+              "title": "Codility",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "73yrsjam3jkiwxn0jhdy9b9",
+              "title": "Count Common Sequence",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "49c2otfru50j5704cq7hzdc",
+              "title": "Fibonacci",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "q47e7wx919wzzgipy3fvqeq",
+              "title": "GCD",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "c0cwsuu2pvu4r5oci5pnzun",
+              "title": "Graph",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "qyv06vs1dfadlk7elwdy6mz",
+                  "title": "Dijkstra",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "axrt8l0r3u8a8au2tb2b5cq",
+                  "title": "Kruskal (TBD)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "627foyc09213sefsc4jv14s",
+                  "title": "Prim (TBD)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "h2c38thvdl02pce4ba2bezm",
+              "title": "LCS",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "66kuey7dyhcolcishzcuq04",
+              "title": "Leetcode",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "yjfif248bas5zztj672hwa2",
+                  "title": "Number of Enclaves",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "zptf7g0kt1w9wji3ewgmbv9",
+                  "title": "Number of Islands",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "jovz4nby9i419opr9bvld08",
+              "title": "Math",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "1lxg6ehu6mdob71k50fz0um",
+                  "title": "약수의 개수가 n인 자연수 k(의 개수) 구하기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "5md3q9daagijj4py0g1avkb",
+                  "title": "소인수분해",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "04q8cnanacxg0m90hkhbg45",
+                  "title": "소수(Prime number)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "s66kv1tn9vjsl1sybm55rvv",
+                  "title": "소인수분해 후 각 소인수의 지수의 합 구하기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "j3i16hqmzqhn20x8kp4upr7",
+              "title": "References",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "4docp4jbbgo25mtbarxp0av",
+              "title": "Sief (TBD)",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "cazeafhpm43z9mt0yscadjg",
+              "title": "Tree",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "tp9y57d7la53pi3wgida6uk",
+                  "title": "Java Example",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "d8p9jq81rc0pfbbuzz7prah",
+          "title": "Development Environment",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "1fna5jinu8bocc1mkd0rdol",
+              "title": "Tool",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "v9540xew0f97avvt2rtp95p",
+                  "title": "Video Share Code",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "yq2839iijurmzkrwkqwo9ps",
+          "title": "Front-End",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "j95xd7tjl2d4vmcvnqfhkjz",
+              "title": "Angular",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "wejk9lrgygrtmaeoehqho8a",
+              "title": "jQuery",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "tk1yx32xjiaccas5meo61vx",
+              "title": "React",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "op3rjsa9o09cekfxi8jatx4",
+                  "title": "Chakra UI",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "51sfhirev9l2r8bef9utfb9",
+          "title": "Git",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": []
+        },
+        {
+          "key": "xuw6kyksesfaatsmt3gctyi",
+          "title": "Language",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "8utv3dj1llevocwwrwo3mzg",
+              "title": "Java",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "q1090jvryzv1lmx1bwst7b2",
+                  "title": "Advanced",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "gc5lqbz8w4i631oufzdwx42",
+                  "title": "Java8 함수형 프로그래밍과 Java9",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "vvqzr5swnrfjn98xulhyfa9",
+                  "title": "Troubleshooting",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "ogjkk7euzhakq97avlzx53j",
+              "title": "JavaScript",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "33ylell56q96ksnbmds03df",
+                  "title": "날짜 다루기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "tjp3kswzndv23sven8z0elg",
+                  "title": "문자열 다루기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "cs0ywedlr9hdyf3a6r08h8y",
+              "title": "Python",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "ktsjn4s21wagp62qtp6oq94",
+                  "title": "Python으로 file 다루기",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "yczd3hv0634qxe3j6fe7q55",
+                  "title": "Functools",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "3no2v5e8boxi2tz9vtpkhto",
+                  "title": "How to access the top element in heapq without deleting (popping) it python?",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "thuw0b2idvs989de88paung",
+                  "title": "Logger (TBD)",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "f1jdwz7kt2ygt0bg794xtqm",
+                  "title": "OS",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "fiz4kqdcmvllh0152ftb82s",
+                  "title": "Math",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "edz7dtpw37iqg7uejfq1x7g",
+                  "title": "Problem Solving Tips",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "dysy9z4ix70igtpptywbaj9",
+                  "title": "SQLAlchemy",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "njc2zpmxz8izls7ogwdj20h",
+          "title": "Network",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "15u3ygmaiatyfibfxqb04qb",
+              "title": "RTP(Real-time Transport Protocol)",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "hjhj7012prdnc5esnwo676g",
+              "title": "VPN(Virtual Private Network, 가상 사설망)",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "d3ma1d2r59fhejrl6bn9g0e",
+          "title": "Ops",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "a2jc19qewqx5ebgm015ocsd",
+              "title": "CI/CD 파이프라인",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "9j1q3kxwekec114z390y9l6",
+              "title": "Deployment vs Release",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "x8fgptqq97o6wh9z5yfbu6n",
+              "title": "Kubernetes",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "gz5dc3ubvg1davlj6k1q1yb",
+                  "title": "Cluster",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "m4d9b9v3qx8b2paxktqfkrr",
+                  "title": "Controller",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "6okho30ws0l6sxu9we8i8bv",
+                  "title": "Kubectl",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "w35m32fihqby5myg16wj7lj",
+                  "title": "Pod",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "tgd9pt1fu1j4ejm4g09vlx4",
+          "title": "OS",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "fb98og4y84nn4bwz7wry4yx",
+              "title": "Linux",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "vt8oxft71a5maydeuialpc8",
+              "title": "Mac",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "vljjfrtemykufg9k84eh68f",
+              "title": "Ubuntu",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "73ktfy4ex7d5q6qhj0h65q0",
+                  "title": "Pip",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "dbzdjnctsucmkxrt9h5zpce",
+                  "title": "How to fix pip path?",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "5jlkrg4hx6dpy5tr55grkh6",
+          "title": "Programming",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "0dgdfinbj1n0ojsgy5glg9w",
+              "title": "Functional Programming",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": [
+                {
+                  "key": "n04jjrt8nzns1qyjxb772d9",
+                  "title": "Favorates",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "egn7d2ba2225zlpggb5rtfd",
+                  "title": "Ramda.js",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                },
+                {
+                  "key": "xjaqxo09yk7o1wq69amybai",
+                  "title": "Snippets",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "bm8azh916vx3ztpq2bbaexi",
+              "title": "Vim",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "ockg1gb78gpshwty5zjmvue",
+          "title": "Security",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "7feysonruipv9d3spp155i5",
+              "title": "Authentication vs Authorization",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "k67qb370u0v1ew13mqqwpju",
+              "title": "SSL/TLS",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "owsm2ti22dslhpk9oduhhku",
+          "title": "Software Engineering",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "vqy4ew1zj3u6rny0i5wmi0t",
+              "title": "Theory",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "52x2zgp7jpygai1h0jpv0t8",
+          "title": "(TBC)",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": []
+        },
+        {
+          "key": "2d5oqog2rsdfdogne54tq9t",
+          "title": "Web",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "children": [
+            {
+              "key": "4yr6706wt6ndq37zc4m36oo",
+              "title": "CORS(Cross Origin Resource Sharing)",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            },
+            {
+              "key": "xf5r819cmc7h978dfga0awb",
+              "title": "Notion과 Next.js로 웹사이트 만들기",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "yv10fxn4oysrlce8j3yic0k",
+      "title": "About",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Dendron",
+      "children": []
+    }
+  ],
+  "child2parent": {
+    "rfaecb1r4pxpahsrighqpfi": null,
+    "vmcgt1bw13lwsobet50r3vl": "rfaecb1r4pxpahsrighqpfi",
+    "q06aec6ibrmv2n8cgsbcpg0": "vmcgt1bw13lwsobet50r3vl",
+    "dutuytuh15to760roszvzd8": "vmcgt1bw13lwsobet50r3vl",
+    "q5aynjvtl8ck5i8o4z1789a": "vmcgt1bw13lwsobet50r3vl",
+    "rc5ks6o8knqqwbdlubjye6d": "q5aynjvtl8ck5i8o4z1789a",
+    "rlenn47khmjb6uyso6rzm27": "q5aynjvtl8ck5i8o4z1789a",
+    "ftol1yqshnioely3qcrekyf": "q5aynjvtl8ck5i8o4z1789a",
+    "pj0dbesw2qm5j1tub9f34pg": "rfaecb1r4pxpahsrighqpfi",
+    "m64zjprvzr6iutm1f2l0gl5": "pj0dbesw2qm5j1tub9f34pg",
+    "60ldbh7hgfjpbnkkr4jsvix": "m64zjprvzr6iutm1f2l0gl5",
+    "99q7prq3t1a4apfogsjzjuq": "pj0dbesw2qm5j1tub9f34pg",
+    "qptxqzkp75o2e7tlp0qdweg": "pj0dbesw2qm5j1tub9f34pg",
+    "e40hlh2wukm75vo4t8r9c7p": "rfaecb1r4pxpahsrighqpfi",
+    "btlucakd0olyaaz9vw53j7m": "e40hlh2wukm75vo4t8r9c7p",
+    "uyrn9wfgt8zqanwnh2ywi8d": "btlucakd0olyaaz9vw53j7m",
+    "csls1iecmzveuq2w6ym65k0": "uyrn9wfgt8zqanwnh2ywi8d",
+    "d4quhjtuyln1qrsn1mtw54h": "uyrn9wfgt8zqanwnh2ywi8d",
+    "2zdrd8z8yztlx22m0fzvdao": "btlucakd0olyaaz9vw53j7m",
+    "xwy3hs73m8qz50gruxt5ybs": "btlucakd0olyaaz9vw53j7m",
+    "eh1lcq94yo2ddqvlwtwewva": "btlucakd0olyaaz9vw53j7m",
+    "c7rlm99q259j6ib7n6zmn6r": "btlucakd0olyaaz9vw53j7m",
+    "k5czowo3tsy1kbggabfgzsa": "btlucakd0olyaaz9vw53j7m",
+    "vdibvlxx9sskn8p5g9tkqmh": "btlucakd0olyaaz9vw53j7m",
+    "k8upog5coafm9oqxlw0iwb9": "vdibvlxx9sskn8p5g9tkqmh",
+    "4nfnwou6n2xn610b1p6mpd2": "e40hlh2wukm75vo4t8r9c7p",
+    "kqv6a3qemjy3elfzvkcc3lj": "4nfnwou6n2xn610b1p6mpd2",
+    "7m2b46cy9l6njc5oi0ivjny": "4nfnwou6n2xn610b1p6mpd2",
+    "7f5sgkt0loj1kbstscnsam8": "4nfnwou6n2xn610b1p6mpd2",
+    "i72er7p7yb3mfelrn45f3i4": "e40hlh2wukm75vo4t8r9c7p",
+    "qjawb19o62iafj8gtjq44gr": "e40hlh2wukm75vo4t8r9c7p",
+    "7xwnx64er01irhu8wg1q5zm": "rfaecb1r4pxpahsrighqpfi",
+    "w0yf9uzk7tgxng8otvbrhbh": "7xwnx64er01irhu8wg1q5zm",
+    "i77f7bz5g58kgrwmzz5rf07": "w0yf9uzk7tgxng8otvbrhbh",
+    "kjlv4k3hgedpl8052cz26qe": "w0yf9uzk7tgxng8otvbrhbh",
+    "rpwmr2qp3xuwot1e168ibdz": "w0yf9uzk7tgxng8otvbrhbh",
+    "3mocp8kysw194a2b1uyr7pm": "w0yf9uzk7tgxng8otvbrhbh",
+    "fu8wshgb2pwe2pm3rthbjva": "w0yf9uzk7tgxng8otvbrhbh",
+    "4t7xtxgsl187am4usaa6cnp": "w0yf9uzk7tgxng8otvbrhbh",
+    "waxuyf1zmofwmcuej10vnyh": "w0yf9uzk7tgxng8otvbrhbh",
+    "fuo4xr0qnj3li74gote4uye": "w0yf9uzk7tgxng8otvbrhbh",
+    "trziaq3ush0ew2q6x4nulqv": "w0yf9uzk7tgxng8otvbrhbh",
+    "4buyekecqhzdg87aqxmh1rz": "rfaecb1r4pxpahsrighqpfi",
+    "o5g6vbdff83uch6a5nnjz33": "4buyekecqhzdg87aqxmh1rz",
+    "m25xpc4pv7cgsrqsxha8dbk": "4buyekecqhzdg87aqxmh1rz",
+    "8gsvw222hcs6qkz21gzxjpn": "4buyekecqhzdg87aqxmh1rz",
+    "vtzfkb3yhrdf403l7lqwan9": "8gsvw222hcs6qkz21gzxjpn",
+    "eja9cwc6rjfx4zrkmvrp8az": "4buyekecqhzdg87aqxmh1rz",
+    "cw0115z7wl7ulfbg9vcjz5n": "4buyekecqhzdg87aqxmh1rz",
+    "fgo90mmygqmiichus71qo88": "4buyekecqhzdg87aqxmh1rz",
+    "skeuhenz2vf0ycgfmyy8pl1": "4buyekecqhzdg87aqxmh1rz",
+    "30w8ms2motllf365kt2q895": "skeuhenz2vf0ycgfmyy8pl1",
+    "zne5ha9xcc0pplouj6lj2ro": "skeuhenz2vf0ycgfmyy8pl1",
+    "4xe29kkjyqwkmi5d80du7c9": "skeuhenz2vf0ycgfmyy8pl1",
+    "0wwj1byxg3uhkh6el05q2o9": "skeuhenz2vf0ycgfmyy8pl1",
+    "2b76tsb8q0aqabl8uww9at1": "skeuhenz2vf0ycgfmyy8pl1",
+    "yfg1zp70ww391hvbdd4sgop": "skeuhenz2vf0ycgfmyy8pl1",
+    "1ncwv3zac3km8grtf7etpta": "skeuhenz2vf0ycgfmyy8pl1",
+    "f5ta5qp6kvcp8x23oxfjwi2": "skeuhenz2vf0ycgfmyy8pl1",
+    "hvd8818q6qo5xxfok5lhye7": "skeuhenz2vf0ycgfmyy8pl1",
+    "yafhr4wma720uky7t582yzq": "hvd8818q6qo5xxfok5lhye7",
+    "jgxvkvj6ety2k8jdh6ia3un": "hvd8818q6qo5xxfok5lhye7",
+    "es7fyakczjuyvb0u7k9g8xg": "skeuhenz2vf0ycgfmyy8pl1",
+    "c1e5yqaofug0sowxvnsspui": "skeuhenz2vf0ycgfmyy8pl1",
+    "gaf44w0jm155ojabiyonsv6": "skeuhenz2vf0ycgfmyy8pl1",
+    "3msf71clkxum5m01visxdi9": "skeuhenz2vf0ycgfmyy8pl1",
+    "2wye5hlqu8k8nfjag3ngk86": "4buyekecqhzdg87aqxmh1rz",
+    "yvk0xkh6g8ppp2wfatt3wcj": "2wye5hlqu8k8nfjag3ngk86",
+    "9le0nqs1qq4ep2dzy27dorn": "4buyekecqhzdg87aqxmh1rz",
+    "a6005blm436wj1grbnbf406": "4buyekecqhzdg87aqxmh1rz",
+    "o138rnv88g88chweztzfdis": "a6005blm436wj1grbnbf406",
+    "e88lgjzncekrs5466oeqe0e": "4buyekecqhzdg87aqxmh1rz",
+    "h6ofuapqvxb6egyxzsi0pzt": "4buyekecqhzdg87aqxmh1rz",
+    "ggv7a7kcqdycghbl3swpaql": "h6ofuapqvxb6egyxzsi0pzt",
+    "ulkhzg050nk603kpq0j4fvf": "h6ofuapqvxb6egyxzsi0pzt",
+    "hrfn1n5bbgtgr2tezf49j0k": "4buyekecqhzdg87aqxmh1rz",
+    "w02ky6rev6fdfd7wml758by": "4buyekecqhzdg87aqxmh1rz",
+    "ro64yjzc7xn6bwmd6hwhy23": "w02ky6rev6fdfd7wml758by",
+    "v7q8a35jkouboemyj9j27jd": "w02ky6rev6fdfd7wml758by",
+    "st4q3726xwavhzpa13npxir": "w02ky6rev6fdfd7wml758by",
+    "krw7dpkjkiu6sesrnypgdky": "w02ky6rev6fdfd7wml758by",
+    "1y1yaydbzccdy4uu5qkpjt2": "w02ky6rev6fdfd7wml758by",
+    "n0z812p7gv3z73gmdxw9ph8": "w02ky6rev6fdfd7wml758by",
+    "okqv7bt20hfz93cqagtcykh": "w02ky6rev6fdfd7wml758by",
+    "hqu4i8324y6hjp0385k2cdq": "w02ky6rev6fdfd7wml758by",
+    "wwq5sutdc4ktsx9nklka6gx": "4buyekecqhzdg87aqxmh1rz",
+    "mvmjei3kla5158ugqpwf79z": "4buyekecqhzdg87aqxmh1rz",
+    "l79vrhuhxtx2luc014n20sr": "mvmjei3kla5158ugqpwf79z",
+    "t9h5i24qpl5wpfziw749zvv": "mvmjei3kla5158ugqpwf79z",
+    "sfeu6c5r2tcv2mgr2xpo696": "mvmjei3kla5158ugqpwf79z",
+    "n5zbm8d7522ndfjfsreix5s": "mvmjei3kla5158ugqpwf79z",
+    "amhbge9cv2vmha17e12isfu": "mvmjei3kla5158ugqpwf79z",
+    "b8q25l0shnd5zc4ivjoaoyi": "mvmjei3kla5158ugqpwf79z",
+    "cmfutyhgtl88lr1sike6zta": "mvmjei3kla5158ugqpwf79z",
+    "miqc8mr1j0itwvkjtinfm0t": "mvmjei3kla5158ugqpwf79z",
+    "5tk9riawukbjruoio20gua5": "4buyekecqhzdg87aqxmh1rz",
+    "3njlng2tyw3m6jh0d5w05qm": "5tk9riawukbjruoio20gua5",
+    "2lkjdexj6b28p56nh3ws2x5": "5tk9riawukbjruoio20gua5",
+    "of7uuxusmpxq6zis5tikl5e": "5tk9riawukbjruoio20gua5",
+    "f738a25b786us70pus8bsbp": "5tk9riawukbjruoio20gua5",
+    "h7k7mswtpfy8zpzkmle65pv": "5tk9riawukbjruoio20gua5",
+    "jsyqw35o9f94r94k8vby25s": "4buyekecqhzdg87aqxmh1rz",
+    "yplkp47jvnjh21h7w1h4rev": "jsyqw35o9f94r94k8vby25s",
+    "y84i18zreffhrbeg72tevp5": "4buyekecqhzdg87aqxmh1rz",
+    "cy8nvbp38rxht0uek8ep4zm": "y84i18zreffhrbeg72tevp5",
+    "k4ifwg0q0eu3d4j49clxyv4": "y84i18zreffhrbeg72tevp5",
+    "wuuj5g5ivb6vbn1axgptr6b": "4buyekecqhzdg87aqxmh1rz",
+    "g2h1b86d7qg1qisqe49t737": "4buyekecqhzdg87aqxmh1rz",
+    "lyuotykr3e47c5bt119iyb5": "g2h1b86d7qg1qisqe49t737",
+    "n1xmefdyaaztqb8wmsmqtjj": "rfaecb1r4pxpahsrighqpfi",
+    "6qoeufgmgbzekihukmsdqe5": "n1xmefdyaaztqb8wmsmqtjj",
+    "6ge8dy2vkiqpcncw11db5nz": "n1xmefdyaaztqb8wmsmqtjj",
+    "73yrsjam3jkiwxn0jhdy9b9": "n1xmefdyaaztqb8wmsmqtjj",
+    "49c2otfru50j5704cq7hzdc": "n1xmefdyaaztqb8wmsmqtjj",
+    "q47e7wx919wzzgipy3fvqeq": "n1xmefdyaaztqb8wmsmqtjj",
+    "c0cwsuu2pvu4r5oci5pnzun": "n1xmefdyaaztqb8wmsmqtjj",
+    "qyv06vs1dfadlk7elwdy6mz": "c0cwsuu2pvu4r5oci5pnzun",
+    "axrt8l0r3u8a8au2tb2b5cq": "c0cwsuu2pvu4r5oci5pnzun",
+    "627foyc09213sefsc4jv14s": "c0cwsuu2pvu4r5oci5pnzun",
+    "h2c38thvdl02pce4ba2bezm": "n1xmefdyaaztqb8wmsmqtjj",
+    "66kuey7dyhcolcishzcuq04": "n1xmefdyaaztqb8wmsmqtjj",
+    "yjfif248bas5zztj672hwa2": "66kuey7dyhcolcishzcuq04",
+    "zptf7g0kt1w9wji3ewgmbv9": "66kuey7dyhcolcishzcuq04",
+    "jovz4nby9i419opr9bvld08": "n1xmefdyaaztqb8wmsmqtjj",
+    "1lxg6ehu6mdob71k50fz0um": "jovz4nby9i419opr9bvld08",
+    "5md3q9daagijj4py0g1avkb": "jovz4nby9i419opr9bvld08",
+    "04q8cnanacxg0m90hkhbg45": "jovz4nby9i419opr9bvld08",
+    "s66kv1tn9vjsl1sybm55rvv": "jovz4nby9i419opr9bvld08",
+    "j3i16hqmzqhn20x8kp4upr7": "n1xmefdyaaztqb8wmsmqtjj",
+    "4docp4jbbgo25mtbarxp0av": "n1xmefdyaaztqb8wmsmqtjj",
+    "cazeafhpm43z9mt0yscadjg": "n1xmefdyaaztqb8wmsmqtjj",
+    "tp9y57d7la53pi3wgida6uk": "cazeafhpm43z9mt0yscadjg",
+    "d8p9jq81rc0pfbbuzz7prah": "rfaecb1r4pxpahsrighqpfi",
+    "1fna5jinu8bocc1mkd0rdol": "d8p9jq81rc0pfbbuzz7prah",
+    "v9540xew0f97avvt2rtp95p": "1fna5jinu8bocc1mkd0rdol",
+    "yq2839iijurmzkrwkqwo9ps": "rfaecb1r4pxpahsrighqpfi",
+    "j95xd7tjl2d4vmcvnqfhkjz": "yq2839iijurmzkrwkqwo9ps",
+    "wejk9lrgygrtmaeoehqho8a": "yq2839iijurmzkrwkqwo9ps",
+    "tk1yx32xjiaccas5meo61vx": "yq2839iijurmzkrwkqwo9ps",
+    "op3rjsa9o09cekfxi8jatx4": "tk1yx32xjiaccas5meo61vx",
+    "51sfhirev9l2r8bef9utfb9": "rfaecb1r4pxpahsrighqpfi",
+    "xuw6kyksesfaatsmt3gctyi": "rfaecb1r4pxpahsrighqpfi",
+    "8utv3dj1llevocwwrwo3mzg": "xuw6kyksesfaatsmt3gctyi",
+    "q1090jvryzv1lmx1bwst7b2": "8utv3dj1llevocwwrwo3mzg",
+    "gc5lqbz8w4i631oufzdwx42": "8utv3dj1llevocwwrwo3mzg",
+    "vvqzr5swnrfjn98xulhyfa9": "8utv3dj1llevocwwrwo3mzg",
+    "ogjkk7euzhakq97avlzx53j": "xuw6kyksesfaatsmt3gctyi",
+    "33ylell56q96ksnbmds03df": "ogjkk7euzhakq97avlzx53j",
+    "tjp3kswzndv23sven8z0elg": "ogjkk7euzhakq97avlzx53j",
+    "cs0ywedlr9hdyf3a6r08h8y": "xuw6kyksesfaatsmt3gctyi",
+    "ktsjn4s21wagp62qtp6oq94": "cs0ywedlr9hdyf3a6r08h8y",
+    "yczd3hv0634qxe3j6fe7q55": "cs0ywedlr9hdyf3a6r08h8y",
+    "3no2v5e8boxi2tz9vtpkhto": "cs0ywedlr9hdyf3a6r08h8y",
+    "thuw0b2idvs989de88paung": "cs0ywedlr9hdyf3a6r08h8y",
+    "f1jdwz7kt2ygt0bg794xtqm": "cs0ywedlr9hdyf3a6r08h8y",
+    "fiz4kqdcmvllh0152ftb82s": "cs0ywedlr9hdyf3a6r08h8y",
+    "edz7dtpw37iqg7uejfq1x7g": "cs0ywedlr9hdyf3a6r08h8y",
+    "dysy9z4ix70igtpptywbaj9": "cs0ywedlr9hdyf3a6r08h8y",
+    "njc2zpmxz8izls7ogwdj20h": "rfaecb1r4pxpahsrighqpfi",
+    "15u3ygmaiatyfibfxqb04qb": "njc2zpmxz8izls7ogwdj20h",
+    "hjhj7012prdnc5esnwo676g": "njc2zpmxz8izls7ogwdj20h",
+    "d3ma1d2r59fhejrl6bn9g0e": "rfaecb1r4pxpahsrighqpfi",
+    "a2jc19qewqx5ebgm015ocsd": "d3ma1d2r59fhejrl6bn9g0e",
+    "9j1q3kxwekec114z390y9l6": "d3ma1d2r59fhejrl6bn9g0e",
+    "x8fgptqq97o6wh9z5yfbu6n": "d3ma1d2r59fhejrl6bn9g0e",
+    "gz5dc3ubvg1davlj6k1q1yb": "x8fgptqq97o6wh9z5yfbu6n",
+    "m4d9b9v3qx8b2paxktqfkrr": "x8fgptqq97o6wh9z5yfbu6n",
+    "6okho30ws0l6sxu9we8i8bv": "x8fgptqq97o6wh9z5yfbu6n",
+    "w35m32fihqby5myg16wj7lj": "x8fgptqq97o6wh9z5yfbu6n",
+    "tgd9pt1fu1j4ejm4g09vlx4": "rfaecb1r4pxpahsrighqpfi",
+    "fb98og4y84nn4bwz7wry4yx": "tgd9pt1fu1j4ejm4g09vlx4",
+    "vt8oxft71a5maydeuialpc8": "tgd9pt1fu1j4ejm4g09vlx4",
+    "vljjfrtemykufg9k84eh68f": "tgd9pt1fu1j4ejm4g09vlx4",
+    "73ktfy4ex7d5q6qhj0h65q0": "vljjfrtemykufg9k84eh68f",
+    "dbzdjnctsucmkxrt9h5zpce": "vljjfrtemykufg9k84eh68f",
+    "5jlkrg4hx6dpy5tr55grkh6": "rfaecb1r4pxpahsrighqpfi",
+    "0dgdfinbj1n0ojsgy5glg9w": "5jlkrg4hx6dpy5tr55grkh6",
+    "n04jjrt8nzns1qyjxb772d9": "0dgdfinbj1n0ojsgy5glg9w",
+    "egn7d2ba2225zlpggb5rtfd": "0dgdfinbj1n0ojsgy5glg9w",
+    "xjaqxo09yk7o1wq69amybai": "0dgdfinbj1n0ojsgy5glg9w",
+    "bm8azh916vx3ztpq2bbaexi": "5jlkrg4hx6dpy5tr55grkh6",
+    "ockg1gb78gpshwty5zjmvue": "rfaecb1r4pxpahsrighqpfi",
+    "7feysonruipv9d3spp155i5": "ockg1gb78gpshwty5zjmvue",
+    "k67qb370u0v1ew13mqqwpju": "ockg1gb78gpshwty5zjmvue",
+    "owsm2ti22dslhpk9oduhhku": "rfaecb1r4pxpahsrighqpfi",
+    "vqy4ew1zj3u6rny0i5wmi0t": "owsm2ti22dslhpk9oduhhku",
+    "52x2zgp7jpygai1h0jpv0t8": "rfaecb1r4pxpahsrighqpfi",
+    "2d5oqog2rsdfdogne54tq9t": "rfaecb1r4pxpahsrighqpfi",
+    "4yr6706wt6ndq37zc4m36oo": "2d5oqog2rsdfdogne54tq9t",
+    "xf5r819cmc7h978dfga0awb": "2d5oqog2rsdfdogne54tq9t",
+    "yv10fxn4oysrlce8j3yic0k": null
+  },
+  "notesLabelById": {
+    "rfaecb1r4pxpahsrighqpfi": "Dev",
+    "vmcgt1bw13lwsobet50r3vl": "Architecture",
+    "q06aec6ibrmv2n8cgsbcpg0": "Event Driven",
+    "dutuytuh15to760roszvzd8": "Event Vs Message",
+    "q5aynjvtl8ck5i8o4z1789a": "Microservices",
+    "rc5ks6o8knqqwbdlubjye6d": "Data Query Patterns",
+    "rlenn47khmjb6uyso6rzm27": "마이크로서비스 배포 패턴",
+    "ftol1yqshnioely3qcrekyf": "일체형 데이터베이스, 목적에 맞게 MSA 구조로 전환하기",
+    "pj0dbesw2qm5j1tub9f34pg": "Back-End",
+    "m64zjprvzr6iutm1f2l0gl5": "Django",
+    "60ldbh7hgfjpbnkkr4jsvix": "Django에서 Tailwind CSS 사용하기",
+    "99q7prq3t1a4apfogsjzjuq": "Node.js",
+    "qptxqzkp75o2e7tlp0qdweg": "Spring Boot",
+    "e40hlh2wukm75vo4t8r9c7p": "Cloud",
+    "btlucakd0olyaaz9vw53j7m": "AWS",
+    "uyrn9wfgt8zqanwnh2ywi8d": "Certification",
+    "csls1iecmzveuq2w6ym65k0": "AWS Certified Solutions Architect - Associate (SAA-C03) 오답 노트",
+    "d4quhjtuyln1qrsn1mtw54h": "클라우드 AWS 자격증으로 시작하기",
+    "2zdrd8z8yztlx22m0fzvdao": "Amazon CloudFront",
+    "xwy3hs73m8qz50gruxt5ybs": "AWS의 목적별 데이터베이스",
+    "eh1lcq94yo2ddqvlwtwewva": "Elastic Beanstalk",
+    "c7rlm99q259j6ib7n6zmn6r": "4가지 상호 VPC 연결 방법",
+    "k5czowo3tsy1kbggabfgzsa": "AWS Lake House",
+    "vdibvlxx9sskn8p5g9tkqmh": "Amazon Redshift",
+    "k8upog5coafm9oqxlw0iwb9": "Amazon Redshift의 가격 대비 성능 벤치 마크 결과",
+    "4nfnwou6n2xn610b1p6mpd2": "Azure",
+    "kqv6a3qemjy3elfzvkcc3lj": "DevOps",
+    "7m2b46cy9l6njc5oi0ivjny": "Azure Event Grid",
+    "7f5sgkt0loj1kbstscnsam8": "Azure Message Services",
+    "i72er7p7yb3mfelrn45f3i4": "Solutions Architect 인터뷰 준비 - 기본 개념",
+    "qjawb19o62iafj8gtjq44gr": "Solutions Architect 인터뷰 준비 - Troubleshooting",
+    "7xwnx64er01irhu8wg1q5zm": "Computer Science",
+    "w0yf9uzk7tgxng8otvbrhbh": "Database",
+    "i77f7bz5g58kgrwmzz5rf07": "ACID 트랜잭션",
+    "kjlv4k3hgedpl8052cz26qe": "Change data capture (CDC)",
+    "rpwmr2qp3xuwot1e168ibdz": "Hot Block",
+    "3mocp8kysw194a2b1uyr7pm": "데이터베이스 정규화",
+    "fu8wshgb2pwe2pm3rthbjva": "OLTP vs OLAP",
+    "4t7xtxgsl187am4usaa6cnp": "Storage",
+    "waxuyf1zmofwmcuej10vnyh": "Stored Procedure",
+    "fuo4xr0qnj3li74gote4uye": "구체화된 뷰(Structured View)",
+    "trziaq3ush0ew2q6x4nulqv": "Vacuum",
+    "4buyekecqhzdg87aqxmh1rz": "Data+AI",
+    "o5g6vbdff83uch6a5nnjz33": "ML-DL Book Landscape",
+    "m25xpc4pv7cgsrqsxha8dbk": "Colab",
+    "8gsvw222hcs6qkz21gzxjpn": "Data ingestion",
+    "vtzfkb3yhrdf403l7lqwan9": "Constraint",
+    "eja9cwc6rjfx4zrkmvrp8az": "Data Lake",
+    "cw0115z7wl7ulfbg9vcjz5n": "Data Mining",
+    "fgo90mmygqmiichus71qo88": "Data Warehouse",
+    "skeuhenz2vf0ycgfmyy8pl1": "Databricks",
+    "30w8ms2motllf365kt2q895": "Architecture overview",
+    "zne5ha9xcc0pplouj6lj2ro": "CLI",
+    "4xe29kkjyqwkmi5d80du7c9": "Cluster",
+    "0wwj1byxg3uhkh6el05q2o9": "Data+AI Summit 2022 키노트 주요 어나운스먼트 요약",
+    "2b76tsb8q0aqabl8uww9at1": "Data Lakehouse",
+    "yfg1zp70ww391hvbdd4sgop": "Databricks SQL",
+    "1ncwv3zac3km8grtf7etpta": "Databricks Connect",
+    "f5ta5qp6kvcp8x23oxfjwi2": "Delta Lake",
+    "hvd8818q6qo5xxfok5lhye7": "Delta Live Tables",
+    "yafhr4wma720uky7t582yzq": "Change Data Capture with Delta Live Tables",
+    "jgxvkvj6ety2k8jdh6ia3un": "Expectations",
+    "es7fyakczjuyvb0u7k9g8xg": "Delta Table",
+    "c1e5yqaofug0sowxvnsspui": "Pyodbc",
+    "gaf44w0jm155ojabiyonsv6": "Databricks SQL Connector",
+    "3msf71clkxum5m01visxdi9": "Workspace",
+    "2wye5hlqu8k8nfjag3ngk86": "Deep Learning",
+    "yvk0xkh6g8ppp2wfatt3wcj": "Autoencoder",
+    "9le0nqs1qq4ep2dzy27dorn": "ETL vs ELT",
+    "a6005blm436wj1grbnbf406": "LLM",
+    "o138rnv88g88chweztzfdis": "LLM Workflow Engine",
+    "e88lgjzncekrs5466oeqe0e": "Machine Learning Flow",
+    "h6ofuapqvxb6egyxzsi0pzt": "Machine Learning",
+    "ggv7a7kcqdycghbl3swpaql": "Bias vs Variance",
+    "ulkhzg050nk603kpq0j4fvf": "XGBoost",
+    "hrfn1n5bbgtgr2tezf49j0k": "OpenSearch",
+    "w02ky6rev6fdfd7wml758by": "Pandas",
+    "ro64yjzc7xn6bwmd6hwhy23": "Pandas Cheat Sheet",
+    "v7q8a35jkouboemyj9j27jd": "Pandas Dataframe",
+    "st4q3726xwavhzpa13npxir": "Datetime",
+    "krw7dpkjkiu6sesrnypgdky": "Memo",
+    "1y1yaydbzccdy4uu5qkpjt2": "Memo (TBD)",
+    "n0z812p7gv3z73gmdxw9ph8": "결측치 확인 및 처리",
+    "okqv7bt20hfz93cqagtcykh": "Pandas로 SQL 쿼리",
+    "hqu4i8324y6hjp0385k2cdq": "Visualization",
+    "wwq5sutdc4ktsx9nklka6gx": "References",
+    "mvmjei3kla5158ugqpwf79z": "Spark",
+    "l79vrhuhxtx2luc014n20sr": "Cluster",
+    "t9h5i24qpl5wpfziw749zvv": "Spark Config",
+    "sfeu6c5r2tcv2mgr2xpo696": "Dataframe",
+    "n5zbm8d7522ndfjfsreix5s": "Spark 분산 처리 최적화",
+    "amhbge9cv2vmha17e12isfu": "Spark Overview",
+    "b8q25l0shnd5zc4ivjoaoyi": "클러스터 구성 최적화",
+    "cmfutyhgtl88lr1sike6zta": "Structured Streaming",
+    "miqc8mr1j0itwvkjtinfm0t": "Terms",
+    "5tk9riawukbjruoio20gua5": "SQL",
+    "3njlng2tyw3m6jh0d5w05qm": "SQL로 날짜 다루기",
+    "2lkjdexj6b28p56nh3ws2x5": "Ranking",
+    "of7uuxusmpxq6zis5tikl5e": "Select",
+    "f738a25b786us70pus8bsbp": "Test",
+    "h7k7mswtpfy8zpzkmle65pv": "Top N",
+    "jsyqw35o9f94r94k8vby25s": "Statistics",
+    "yplkp47jvnjh21h7w1h4rev": "지수 평활법 (지수 이동 평균법)",
+    "y84i18zreffhrbeg72tevp5": "Tensorflow",
+    "cy8nvbp38rxht0uek8ep4zm": "REDNet",
+    "k4ifwg0q0eu3d4j49clxyv4": "Tensorflow References",
+    "wuuj5g5ivb6vbn1axgptr6b": "Unsupervised Learning",
+    "g2h1b86d7qg1qisqe49t737": "Visualization",
+    "lyuotykr3e47c5bt119iyb5": "Seaborn",
+    "n1xmefdyaaztqb8wmsmqtjj": "Data Structure & Algotirhm",
+    "6qoeufgmgbzekihukmsdqe5": "Binary Tree",
+    "6ge8dy2vkiqpcncw11db5nz": "Codility",
+    "73yrsjam3jkiwxn0jhdy9b9": "Count Common Sequence",
+    "49c2otfru50j5704cq7hzdc": "Fibonacci",
+    "q47e7wx919wzzgipy3fvqeq": "GCD",
+    "c0cwsuu2pvu4r5oci5pnzun": "Graph",
+    "qyv06vs1dfadlk7elwdy6mz": "Dijkstra",
+    "axrt8l0r3u8a8au2tb2b5cq": "Kruskal (TBD)",
+    "627foyc09213sefsc4jv14s": "Prim (TBD)",
+    "h2c38thvdl02pce4ba2bezm": "LCS",
+    "66kuey7dyhcolcishzcuq04": "Leetcode",
+    "yjfif248bas5zztj672hwa2": "Number of Enclaves",
+    "zptf7g0kt1w9wji3ewgmbv9": "Number of Islands",
+    "jovz4nby9i419opr9bvld08": "Math",
+    "1lxg6ehu6mdob71k50fz0um": "약수의 개수가 n인 자연수 k(의 개수) 구하기",
+    "5md3q9daagijj4py0g1avkb": "소인수분해",
+    "04q8cnanacxg0m90hkhbg45": "소수(Prime number)",
+    "s66kv1tn9vjsl1sybm55rvv": "소인수분해 후 각 소인수의 지수의 합 구하기",
+    "j3i16hqmzqhn20x8kp4upr7": "References",
+    "4docp4jbbgo25mtbarxp0av": "Sief (TBD)",
+    "cazeafhpm43z9mt0yscadjg": "Tree",
+    "tp9y57d7la53pi3wgida6uk": "Java Example",
+    "d8p9jq81rc0pfbbuzz7prah": "Development Environment",
+    "1fna5jinu8bocc1mkd0rdol": "Tool",
+    "v9540xew0f97avvt2rtp95p": "Video Share Code",
+    "yq2839iijurmzkrwkqwo9ps": "Front-End",
+    "j95xd7tjl2d4vmcvnqfhkjz": "Angular",
+    "wejk9lrgygrtmaeoehqho8a": "jQuery",
+    "tk1yx32xjiaccas5meo61vx": "React",
+    "op3rjsa9o09cekfxi8jatx4": "Chakra UI",
+    "51sfhirev9l2r8bef9utfb9": "Git",
+    "xuw6kyksesfaatsmt3gctyi": "Language",
+    "8utv3dj1llevocwwrwo3mzg": "Java",
+    "q1090jvryzv1lmx1bwst7b2": "Advanced",
+    "gc5lqbz8w4i631oufzdwx42": "Java8 함수형 프로그래밍과 Java9",
+    "vvqzr5swnrfjn98xulhyfa9": "Troubleshooting",
+    "ogjkk7euzhakq97avlzx53j": "JavaScript",
+    "33ylell56q96ksnbmds03df": "날짜 다루기",
+    "tjp3kswzndv23sven8z0elg": "문자열 다루기",
+    "cs0ywedlr9hdyf3a6r08h8y": "Python",
+    "ktsjn4s21wagp62qtp6oq94": "Python으로 file 다루기",
+    "yczd3hv0634qxe3j6fe7q55": "Functools",
+    "3no2v5e8boxi2tz9vtpkhto": "How to access the top element in heapq without deleting (popping) it python?",
+    "thuw0b2idvs989de88paung": "Logger (TBD)",
+    "f1jdwz7kt2ygt0bg794xtqm": "OS",
+    "fiz4kqdcmvllh0152ftb82s": "Math",
+    "edz7dtpw37iqg7uejfq1x7g": "Problem Solving Tips",
+    "dysy9z4ix70igtpptywbaj9": "SQLAlchemy",
+    "njc2zpmxz8izls7ogwdj20h": "Network",
+    "15u3ygmaiatyfibfxqb04qb": "RTP(Real-time Transport Protocol)",
+    "hjhj7012prdnc5esnwo676g": "VPN(Virtual Private Network, 가상 사설망)",
+    "d3ma1d2r59fhejrl6bn9g0e": "Ops",
+    "a2jc19qewqx5ebgm015ocsd": "CI/CD 파이프라인",
+    "9j1q3kxwekec114z390y9l6": "Deployment vs Release",
+    "x8fgptqq97o6wh9z5yfbu6n": "Kubernetes",
+    "gz5dc3ubvg1davlj6k1q1yb": "Cluster",
+    "m4d9b9v3qx8b2paxktqfkrr": "Controller",
+    "6okho30ws0l6sxu9we8i8bv": "Kubectl",
+    "w35m32fihqby5myg16wj7lj": "Pod",
+    "tgd9pt1fu1j4ejm4g09vlx4": "OS",
+    "fb98og4y84nn4bwz7wry4yx": "Linux",
+    "vt8oxft71a5maydeuialpc8": "Mac",
+    "vljjfrtemykufg9k84eh68f": "Ubuntu",
+    "73ktfy4ex7d5q6qhj0h65q0": "Pip",
+    "dbzdjnctsucmkxrt9h5zpce": "How to fix pip path?",
+    "5jlkrg4hx6dpy5tr55grkh6": "Programming",
+    "0dgdfinbj1n0ojsgy5glg9w": "Functional Programming",
+    "n04jjrt8nzns1qyjxb772d9": "Favorates",
+    "egn7d2ba2225zlpggb5rtfd": "Ramda.js",
+    "xjaqxo09yk7o1wq69amybai": "Snippets",
+    "bm8azh916vx3ztpq2bbaexi": "Vim",
+    "ockg1gb78gpshwty5zjmvue": "Security",
+    "7feysonruipv9d3spp155i5": "Authentication vs Authorization",
+    "k67qb370u0v1ew13mqqwpju": "SSL/TLS",
+    "owsm2ti22dslhpk9oduhhku": "Software Engineering",
+    "vqy4ew1zj3u6rny0i5wmi0t": "Theory",
+    "52x2zgp7jpygai1h0jpv0t8": "(TBC)",
+    "2d5oqog2rsdfdogne54tq9t": "Web",
+    "4yr6706wt6ndq37zc4m36oo": "CORS(Cross Origin Resource Sharing)",
+    "xf5r819cmc7h978dfga0awb": "Notion과 Next.js로 웹사이트 만들기",
+    "yv10fxn4oysrlce8j3yic0k": "About"
+  }
+}

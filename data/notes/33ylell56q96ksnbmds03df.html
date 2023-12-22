@@ -1,0 +1,36 @@
+<h1 id="날짜-다루기">날짜 다루기<a aria-hidden="true" class="anchor-heading icon-link" href="#날짜-다루기"></a></h1>
+<h2 id="현재-시각-가져오기">현재 시각 가져오기<a aria-hidden="true" class="anchor-heading icon-link" href="#현재-시각-가져오기"></a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> currentDate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="datetime을-date-포맷으로-바꾸기">Datetime을 Date 포맷으로 바꾸기<a aria-hidden="true" class="anchor-heading icon-link" href="#datetime을-date-포맷으로-바꾸기"></a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Format the date as 'YYYY-MM-DD'</span>
+<span class="token keyword">const</span> formattedDate <span class="token operator">=</span> currentDate<span class="token punctuation">.</span><span class="token method function property-access">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="날짜를-해당-주의-월요일-날짜로-변경">날짜를 해당 주의 월요일 날짜로 변경<a aria-hidden="true" class="anchor-heading icon-link" href="#날짜를-해당-주의-월요일-날짜로-변경"></a></h2>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">convertDate</span><span class="token punctuation">(</span><span class="token parameter">dateString</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>dateString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> dayOfWeek <span class="token operator">=</span> date<span class="token punctuation">.</span><span class="token method function property-access">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// If the date is already a Sunday, subtract 7 days</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>dayOfWeek <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    date<span class="token punctuation">.</span><span class="token method function property-access">setDate</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token method function property-access">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+    date<span class="token punctuation">.</span><span class="token method function property-access">setDate</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token method function property-access">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> dayOfWeek<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword control-flow">return</span> date<span class="token punctuation">.</span><span class="token method function property-access">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Example usage</span>
+<span class="token keyword">const</span> date1 <span class="token operator">=</span> <span class="token string">'2023-09-18'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> convertedDate1 <span class="token operator">=</span> <span class="token function">convertDate</span><span class="token punctuation">(</span>date1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>convertedDate1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: 2023-09-17</span>
+
+<span class="token keyword">const</span> date2 <span class="token operator">=</span> <span class="token string">'2023-09-25'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> convertedDate2 <span class="token operator">=</span> <span class="token function">convertDate</span><span class="token punctuation">(</span>date2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>convertedDate2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: 2023-09-24</span>
+
+<span class="token keyword">const</span> date3 <span class="token operator">=</span> <span class="token string">'2023-10-02'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> convertedDate3 <span class="token operator">=</span> <span class="token function">convertDate</span><span class="token punctuation">(</span>date3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>convertedDate3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Output: 2023-10-01</span>
+</code></pre>

@@ -1,0 +1,39 @@
+<h1 id="delta-table">Delta Table<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-table"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<p>Delta table은 parquet 파일에 기능을 더한 Delta 파일에 또 기능을 추가한 것</p>
+<h3 id="delta-tables">Delta Tables<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-tables"></a></h3>
+<pre><code>- Delta files
+- Registered in a metastore
+- Delta tractional logs
+</code></pre>
+<h3 id="delta-files">Delta files<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-files"></a></h3>
+<pre><code>- Data versioning
+- Transaction logs
+- ACID transactions
+</code></pre>
+<h3 id="parquet-files">Parquet files<a aria-hidden="true" class="anchor-heading icon-link" href="#parquet-files"></a></h3>
+<pre><code>- Power to store tablular data
+- Fast
+- Columnar storage
+</code></pre>
+<h2 id="sql-examples">SQL examples<a aria-hidden="true" class="anchor-heading icon-link" href="#sql-examples"></a></h2>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token operator">OR</span> <span class="token keyword">REPLACE</span> <span class="token keyword">TABLE</span> table_name <span class="token punctuation">(</span>
+    id STRING<span class="token punctuation">,</span>
+    birthDate <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+    avgRating <span class="token keyword">FLOAT</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> table_name <span class="token punctuation">(</span>
+    id STRING<span class="token punctuation">,</span>
+    birthDate <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+    avgRating <span class="token keyword">FLOAT</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> my_table<span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/2b76tsb8q0aqabl8uww9at1">Data Lakehouse</a></li>
+<li><a href="/pks-publish/notes/hvd8818q6qo5xxfok5lhye7">Delta Live Tables</a></li>
+</ul>

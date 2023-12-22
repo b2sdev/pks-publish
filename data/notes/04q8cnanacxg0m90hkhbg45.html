@@ -1,0 +1,17 @@
+<h1 id="소수prime-number">소수(Prime number)<a aria-hidden="true" class="anchor-heading icon-link" href="#소수prime-number"></a></h1>
+<p>소수(prime number)는 <strong>에라토스테네스의 체</strong> 알고리즘으로 구한다.</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sieve_of_eratosthenes</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Return a list of all prime numbers less than n."""</span>
+    sieve <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">]</span> <span class="token operator">*</span> n
+    sieve<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sieve<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token boolean">False</span>  <span class="token comment"># 0과 1은 소수가 아니다.</span>
+    
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>n <span class="token operator">**</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> sieve<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i<span class="token operator">*</span>i<span class="token punctuation">,</span> n<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                sieve<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>  <span class="token comment"># i의 배수는 모두 소수가 아니다.</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">[</span>i <span class="token keyword">for</span> i<span class="token punctuation">,</span> is_prime <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>sieve<span class="token punctuation">)</span> <span class="token keyword">if</span> is_prime<span class="token punctuation">]</span>
+
+num <span class="token operator">=</span> <span class="token number">30</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sieve_of_eratosthenes<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># [2, 3, 5, 7, 11, 13, 17, 19, 23, 29] 출력</span>
+</code></pre>

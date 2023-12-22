@@ -1,0 +1,55 @@
+<h1 id="spark">Spark<a aria-hidden="true" class="anchor-heading icon-link" href="#spark"></a></h1>
+<h2 id="중요-정보">중요 정보<a aria-hidden="true" class="anchor-heading icon-link" href="#중요-정보"></a></h2>
+<ul>
+<li>스파크는 병렬 분산 환경을 의식하지 않고 처리를 기술할 수 있는 것을 목표로 한다.</li>
+</ul>
+<h2 id="terms">Terms<a aria-hidden="true" class="anchor-heading icon-link" href="#terms"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>term</th><th>description</th></tr></thead><tbody><tr><td>RDD</td><td>Resilient Distributed Dataset, 내결함성 분산 데이터셋</td></tr></tbody></table></div>
+<h2 id="spark-session">Spark Session<a aria-hidden="true" class="anchor-heading icon-link" href="#spark-session"></a></h2>
+<pre class="language-python"><code class="language-python">spark <span class="token operator">=</span> SparkSession<span class="token punctuation">.</span>builder<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>getOrCreate<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="udf">UDF<a aria-hidden="true" class="anchor-heading icon-link" href="#udf"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token decorator annotation punctuation">@udf</span>
+<span class="token keyword">def</span> <span class="token function">extract</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># do something</span>
+
+extract <span class="token operator">=</span> udf<span class="token punctuation">(</span>functools<span class="token punctuation">.</span>partial<span class="token punctuation">,</span> extract<span class="token punctuation">,</span> <span class="token string">'key'</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="브로드캐스트-변수">브로드캐스트 변수<a aria-hidden="true" class="anchor-heading icon-link" href="#브로드캐스트-변수"></a></h2>
+<ul>
+<li>복수의 executor가 공통으로 참조하는 데이터는 <em>브로드캐스트 변수</em>로 배포</li>
+</ul>
+<h2 id="dataframe-source">Dataframe Source<a aria-hidden="true" class="anchor-heading icon-link" href="#dataframe-source"></a></h2>
+<ul>
+<li><a href="https://github.com/apache/spark/blob/master/python/pyspark/sql/dataframe.py">https://github.com/apache/spark/blob/master/python/pyspark/sql/dataframe.py</a></li>
+</ul>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li>아파치 스파크 입문</li>
+<li><a href="https://github.com/spark-in-action/first-edition">https://github.com/spark-in-action/first-edition</a></li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/pks-publish/notes/l79vrhuhxtx2luc014n20sr">Cluster</a></li>
+<li><a href="/pks-publish/notes/sfeu6c5r2tcv2mgr2xpo696">Dataframe</a></li>
+<li><a href="/pks-publish/notes/t9h5i24qpl5wpfziw749zvv">Spark Config</a></li>
+<li><a href="/pks-publish/notes/amhbge9cv2vmha17e12isfu">Spark Overview</a></li>
+<li><a href="/pks-publish/notes/n5zbm8d7522ndfjfsreix5s">Spark 분산 처리 최적화</a></li>
+<li><a href="/pks-publish/notes/cmfutyhgtl88lr1sike6zta">Structured Streaming</a></li>
+<li><a href="/pks-publish/notes/miqc8mr1j0itwvkjtinfm0t">Terms</a></li>
+<li><a href="/pks-publish/notes/b8q25l0shnd5zc4ivjoaoyi">클러스터 구성 최적화</a></li>
+</ol>

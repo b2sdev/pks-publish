@@ -1,0 +1,35 @@
+<h1 id="sief-tbd">Sief (TBD)<a aria-hidden="true" class="anchor-heading icon-link" href="#sief-tbd"></a></h1>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 소수가 아닌 수를 지워가는 과정</span>
+<span class="token comment"># def mark_sieve(first, last, factor):</span>
+<span class="token comment">#   *first = False</span>
+<span class="token comment">#   while last - first > factor:</span>
+<span class="token comment">#     first = first + factor</span>
+<span class="token comment">#     *first = False</span>
+
+
+<span class="token keyword">def</span> <span class="token function">sief0</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  sieve <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  
+  <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> sieve<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">:</span> <span class="token keyword">continue</span>
+    <span class="token keyword">for</span> u <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">*</span>x<span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+      sieve<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+
+  <span class="token keyword">print</span><span class="token punctuation">(</span>sieve<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">sief1</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">def</span> <span class="token function">mark_sieve</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> last<span class="token punctuation">,</span> factor<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sieve<span class="token punctuation">[</span>first<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+    <span class="token keyword">while</span> last <span class="token operator">-</span> first <span class="token operator">></span> factor<span class="token punctuation">:</span>
+      first <span class="token operator">=</span> first <span class="token operator">+</span> factor
+      sieve<span class="token punctuation">[</span>first<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">False</span>
+
+  sieve <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">True</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># if sieve[x]: continue</span>
+    mark_sieve<span class="token punctuation">(</span>x<span class="token punctuation">,</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>sieve<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+sief0<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+sief1<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>

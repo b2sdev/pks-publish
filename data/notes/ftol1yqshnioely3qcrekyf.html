@@ -1,0 +1,195 @@
+<h1 id="일체형-데이터베이스-목적에-맞게-msa-구조로-전환하기">일체형 데이터베이스, 목적에 맞게 MSA 구조로 전환하기<a aria-hidden="true" class="anchor-heading icon-link" href="#일체형-데이터베이스-목적에-맞게-msa-구조로-전환하기"></a></h1>
+<h2 id="현대적인-애플리케이션의-요구사항">현대적인 애플리케이션의 요구사항<a aria-hidden="true" class="anchor-heading icon-link" href="#현대적인-애플리케이션의-요구사항"></a></h2>
+<ul>
+<li>수백만의 트래픽 수용과 밀리 세컨드 단위의 빠른 응답속도를 제공해야 함</li>
+<li>유연한 확장이 가능해야 하며 어떤 장애 상황이 오더라도 안전하게 시스템과 데이터를 보호할 수 있어야 함</li>
+<li>다양한 고객의 요구사항에 빠르게 대응하고 신속하게 서비스를 배포할 수 있어야 함</li>
+</ul>
+<h2 id="기존의-모놀리식-아키텍처">기존의 모놀리식 아키텍처<a aria-hidden="true" class="anchor-heading icon-link" href="#기존의-모놀리식-아키텍처"></a></h2>
+<ul>
+<li>여러 서비스들이 오라클로 대표되는 하나의 큰 RDBMS를 메인 DB로 사용하고 또 각 서비스들은 서로 강한 의존성을 가짐</li>
+<li>장점
+<ul>
+<li>관리 포인트가 줄어들고, 시스템을 표준화하기 쉬움</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>개발자들은 새로운 서비스를 추가한다거나 기존의 서비스를 변경하는 것에 큰 어려움을 겪음</li>
+<li>사용자 요청이 폭증할 경우 이를 처리하기 위한 확장성을 가지는 것이 어려웠음</li>
+</ul>
+</li>
+</ul>
+<h2 id="모놀리식-아키텍처의-한계">모놀리식 아키텍처의 한계<a aria-hidden="true" class="anchor-heading icon-link" href="#모놀리식-아키텍처의-한계"></a></h2>
+<ul>
+<li>모놀리식 시스템 구조에서는 애플리케이션이나 DB에서 변경이 있을 경우 그에 따른 영향이 매우 큼
+<ul>
+<li>-> 새로운 개발을 하거나 변경을 할 경우에는 수많은 서비스 담당자들이 모두 함께 작업을 해야 함</li>
+<li>-> 애플리케이션에 새로운 기술을 도입하는 것은 커녕 작은 배포조차 정해진 유지보수 시간에만 가능</li>
+<li>-> 개발자와 운영자들 모두 효율성이 떨어지게 되고, 전체 시스템 관점에서도 기술 부채가 쌓이는 문제가 발생</li>
+</ul>
+</li>
+</ul>
+<h2 id="통합된-데이터베이스의-한계">통합된 데이터베이스의 한계<a aria-hidden="true" class="anchor-heading icon-link" href="#통합된-데이터베이스의-한계"></a></h2>
+<ul>
+<li>
+<p>통합된 데이터베이스는 트래픽과 데이터의 증가를 처리하는데 효율적이지 않음</p>
+<ul>
+<li>전통적인 모놀리식 관계형 데이터베이스는 데이터의 변경 시 정규화된 테이블들 간에 ACID 트랜잭션을 유지해야 하고, 필요로 하는 데이터를 조회하기 위해 여러 테이블들을 조회해야 함</li>
+<li>-> 이런 이유로 트래픽이 증가함에 따라 지속적으로 낮은 응답속도를 보장하기가 쉽지 않음</li>
+<li>또 폭증하는 데이터를 저장하고 관리하기 위해 데이터베이스의 용량을 확장해야하지만 관계형 데이터베이스의 확장 방식인 수직 확장은 디스크 용량이나 CPU 또는 memory 같은 자원을 추가하는데 많은 시간이 소요되고 확장 가능한 최대 용량의 한계를 가지고 있음</li>
+</ul>
+<blockquote>
+<p>하나의 통합된 데이터베이스는 문제 해결을 위한 적절한 도구 선택의 폭을 제한하게 되고, 이것은 개발자의 생산성을 떨어트려 서비스의 품질을 저해하는 원인이 됨</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="통합된-데이터베이스의-한계-1">통합된 데이터베이스의 한계<a aria-hidden="true" class="anchor-heading icon-link" href="#통합된-데이터베이스의-한계-1"></a></h2>
+<ul>
+<li>
+<p>다양하고 빠르게 변화하는 고객의 요구사항을 만족시키기 위해 개발자들은 유연한 개발 환경에서 적절한 도구를 선택하고 애플리케이션을 빠르게 개발하여 대응해야 함</p>
+</li>
+<li>
+<p>하지만 하나의 통합된 데이터베이스는 문제 해결을 위한 적절한 도구 선택의 폭을 제한하게 되고, 이것은 개발자의 생산성을 떨어트려 서비스의 품질을 저해하는 원인이 됨</p>
+<blockquote>
+<p>워크로드마다 데이터는 다양한 특성을 가지고 있기에, 하나의 통합된 데이터베이스가 다양한 특성의 데이터를 저장하고 그 데이터를 효율적으로 처리할 수는 없음</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="마이크로서비스로의-전환">마이크로서비스로의 전환<a aria-hidden="true" class="anchor-heading icon-link" href="#마이크로서비스로의-전환"></a></h2>
+<ul>
+<li>
+<p>모놀리식 아키텍처의 문제들을 해결하기 위해서 모놀리식 시스템을 서비스 단위로 분리하는 마이크로서비스 아키텍처가 등장</p>
+</li>
+<li>
+<p><strong>마이크로서비스 아키텍처</strong>는 서비스 단위로 개발팀을 좀 더 작게 나누고 개발과 운영에 대한 권한과 책임을 위임함으로써 더 빠른 개발과 배포를 하면서도 서비스 간의 영향을 줄일 수 있게 함</p>
+</li>
+<li>
+<p>마이크로서비스를 도입하게 되면 서로 독립적인 서비스를 구성할 수 있으며, 이를 통해서 개발이나 배포가 용이해지고 시스템의 확장이 용이해짐</p>
+<blockquote>
+<p>마이크로서비스로의 전환을 위해 워크로드의 특성에 맞는 적절한 데이터베이스 선택이 필요 -> 서비스 별로 목적에 맞는 데이터베이스를 잘 선택함으로써 탄력적인 확장성, 빠른 성능, 신뢰할 수 있는 가용성을 확보할 수 있음</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="목적별-데이터베이스-도입">목적별 데이터베이스 도입<a aria-hidden="true" class="anchor-heading icon-link" href="#목적별-데이터베이스-도입"></a></h2>
+<ul>
+<li>목적별 데이터베이스는 모놀리식 아키텍처의 통합된 데이터베이스의 한계의 현실적이고 효율적인 해결책이 될 수 있음
+<ul>
+<li>최근 데이터베이스 산업 군에서는 데이터를 특성에 따라 관계형,키-밸류, 다큐먼트, 인메모리, 그래프, 타임시리즈, 원장, 와이드 컬럼 등 8개의 카테고리로 분류</li>
+<li>각각의 데이터베이스 서비스들도 효율적으로 처리할 수 있는 데이터가 있고 그렇게 하지 못하는 데이터가 있음</li>
+<li>서비스 별로 목적에 맞는 데이터베이스를 잘 선택함으로써 탄력적인 확장성, 빠른 성능, 신뢰할 수 있는 가용성을 확보할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="목적별-데이터베이스-핸즈온-사례">목적별 데이터베이스 핸즈온 사례<a aria-hidden="true" class="anchor-heading icon-link" href="#목적별-데이터베이스-핸즈온-사례"></a></h2>
+<p>아래의 사례들은 기존의 모놀리식 애플리케이션에서 해당 서비스를 분리하고 서비스의 요구사항에 적합한 목적별 데이터베이스를 사용하여 해결 가능</p>
+<ul>
+<li>리포트
+<ul>
+<li>Oracle과 같은 RDBMS는 그 특성상 리포트나 Document 형식의 데이터를 처리하기 위해서 여러 table들을 조회하거나 조인을 해야 했음 </li>
+<li>-> 여러 테이블간의 Join은 DB 전체의 부하를 크게 증가시키고 개발과 운영의 난이도를 높이게 됨</li>
+</ul>
+</li>
+<li>리더보드
+<ul>
+<li>일반적으로 관계형 데이터베이스에서는 랭크 함수를 이용하여 리더보드 데이터를 만들게 됨</li>
+<li>-> 데이터가 많을 경우 리더보드를 생성하는 쿼리가 CPU, 디스크, 메모리 등의 많은 시스템 자원을 사용하기 때문에 이 쿼리를 실행할 경우 사용자로부터 유입되는 실시간 요청을 지연시키는 원인이 됨
+<ul>
+<li>그래서 보통은 별도의 서버에 원본 데이터를 복사하고 거기서 리더보드 데이터를 만든 다음 다시 원래 서버로 데이터를 복사하는 방식을 취함. 이런 이유로 실시간 리더보드 서비스를 제공하기가 쉽지 않음.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>한정 판매 이벤트
+<ul>
+<li>특히 한정 판매 이벤트나 주문 시스템 등은 동시에 수많은 사용자들의 요청을 받게 되고, 이에 따라 hot block이 발생할 가능성이 높아지게 됨</li>
+<li>데이터베이스에서 특정 데이터 블록에 대한 데이터 요청이 늘어나게 되면 hot block<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>이 발생할 수 있음 -> 사용자 요청 처리를 느리게 만드는 원인이 됨</li>
+</ul>
+</li>
+</ul>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">AWS의 목적별 데이터베이스</span></div>
+<a href="/pks-publish/notes/xwy3hs73m8qz50gruxt5ybs" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="aws의-목적별-데이터베이스">AWS의 목적별 데이터베이스<a aria-hidden="true" class="anchor-heading icon-link" href="#aws의-목적별-데이터베이스"></a></h2>
+<h3 id="관계형-데이터베이스">관계형 데이터베이스:<a aria-hidden="true" class="anchor-heading icon-link" href="#관계형-데이터베이스"></a></h3>
+<ul>
+<li>Aurora
+<ul>
+<li>대용량 트래픽을 빠른 성능으로 동시에 처리할 수 있는 분산 스토리지 </li>
+<li>데이터베이스로 MySQL 또는 PostreSQL을 선택할 수 있음</li>
+</ul>
+</li>
+<li>RDS
+<ul>
+<li>오라클, MS-SQL Server 등의 상용 데이터베이스와 MySQL, PostreSQL 등의 오픈소스 데이터베이스를 지원</li>
+<li>온프레미스에 있는 관계형 데이터베이스를 리프트앤시프로 전환하거나 금융 등 데이터 무결성과 트랜잭션을 보장해야 하는 경우 활용</li>
+</ul>
+</li>
+</ul>
+<h3 id="nosql">NoSQL<a aria-hidden="true" class="anchor-heading icon-link" href="#nosql"></a></h3>
+<ul>
+<li>DynamoDB
+<ul>
+<li>초당 수백만의 높은 요청 처리와 10밀리세컨드의 응답 성능을 일정하게 보장</li>
+<li>Key-value data store</li>
+<li>NoSQL 데이터베이스이지만 보조 인덱스 및 ACID 트랜잭션을 제공하여 온라인 쇼핑의 장바구니나 제품 카탈로그 등의 서비스에서 주로 사용될 수 있음</li>
+</ul>
+</li>
+<li>DocumentDB
+<ul>
+<li>문서형 데이터를 효율적으로 저장하고 모든 속성에 대해서 빠른 조회 성능을 제공할 수 있는 MongoDB와 호환성을 가지고 있음</li>
+<li>스키마리스 DB이므로 개발의 유연성을 최대한 활용할 수 있음</li>
+<li>초당 수백만의 요청량을 처리할 수 있고 밀리세컨드 수준의 응답시간 제공</li>
+</ul>
+</li>
+</ul>
+<h3 id="인메모리">인메모리<a aria-hidden="true" class="anchor-heading icon-link" href="#인메모리"></a></h3>
+<ul>
+<li>ElasticCache
+<ul>
+<li>Redis, Memcached와 호환되며 마이크로세컨드 수준의 응답시간을 제공</li>
+<li>자주 사용되는 데이터를 캐싱하는 용도로 많이 사용</li>
+<li>Redis의 경우 다양한 데이터 저장 방식을 제공하는데, Sorted Set를 사용하여 실시간 리더보드 서비스를 손쉽게 추가할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="그래프">그래프<a aria-hidden="true" class="anchor-heading icon-link" href="#그래프"></a></h3>
+<ul>
+<li>Neptune
+<ul>
+<li>수십억개의 관계를 저장하고 데이터 간의 관계를 손쉽게 쿼리할 수 있게 해줌</li>
+</ul>
+</li>
+</ul>
+<h3 id="시계열">시계열<a aria-hidden="true" class="anchor-heading icon-link" href="#시계열"></a></h3>
+<ul>
+<li>Timestream
+<ul>
+<li>IoT 디바이스에서 들어오는 데이터들을 시간 기준으로 빠르게 저장하고 조회할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="원장">원장<a aria-hidden="true" class="anchor-heading icon-link" href="#원장"></a></h3>
+<ul>
+<li>QLDB
+<pre><code>- 원장 데이터의 변조를 방지하고 모든 변경 이력을 체이닝 방식으로 관리
+</code></pre>
+3## 카산드라</li>
+<li>Keyspaces
+<ul>
+<li>카산드라와 호환성을 가짐</li>
+</ul>
+</li>
+</ul></div></div><p></p><p></p>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=R4-mC4D_JN4">일체형 데이터베이스, 목적에 맞게 MSA 구조로 전환하기 - 윤기원, AWS / 김윤섭 , AWS :: AWS Summit Korea 2022</a></li>
+</ul>
+<hr>
+<p><sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup> Hot block: 데이터베이스 시스템에서 자주 접근되는 데이터 블록</p>

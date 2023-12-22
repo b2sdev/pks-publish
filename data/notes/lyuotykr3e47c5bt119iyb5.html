@@ -1,0 +1,12 @@
+<h1 id="seaborn">Seaborn<a aria-hidden="true" class="anchor-heading icon-link" href="#seaborn"></a></h1>
+<h2 id="import">Import<a aria-hidden="true" class="anchor-heading icon-link" href="#import"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> seaborn <span class="token keyword">as</span> sns
+</code></pre>
+<h2 id="distribution-plot">Distribution plot<a aria-hidden="true" class="anchor-heading icon-link" href="#distribution-plot"></a></h2>
+<pre class="language-python"><code class="language-python">fig<span class="token punctuation">,</span> <span class="token punctuation">(</span>ax1<span class="token punctuation">,</span> ax2<span class="token punctuation">)</span> <span class="token operator">=</span> plt<span class="token punctuation">.</span>subplots<span class="token punctuation">(</span>ncols<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+fig<span class="token punctuation">.</span>set_size_inches<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>distplot<span class="token punctuation">(</span>y_train<span class="token punctuation">,</span> ax<span class="token operator">=</span>ax1<span class="token punctuation">,</span> bins<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+ax1<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'train'</span><span class="token punctuation">)</span>
+sns<span class="token punctuation">.</span>distplot<span class="token punctuation">(</span>pred<span class="token punctuation">,</span> ax<span class="token operator">=</span>ax2<span class="token punctuation">,</span> bind<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+ax2<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span>title<span class="token operator">=</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>

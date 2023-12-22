@@ -1,0 +1,12 @@
+<h1 id="pandas로-sql-쿼리">Pandas로 SQL 쿼리<a aria-hidden="true" class="anchor-heading icon-link" href="#pandas로-sql-쿼리"></a></h1>
+<h2 id="sql-query">SQL Query<a aria-hidden="true" class="anchor-heading icon-link" href="#sql-query"></a></h2>
+<pre class="language-python"><code class="language-python">user_id <span class="token operator">=</span> <span class="token string">"user001"</span>
+query <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"SELECT * FROM user_info WHERE id='</span><span class="token interpolation"><span class="token punctuation">{</span>user001<span class="token punctuation">}</span></span><span class="token string">'"</span></span>
+pd<span class="token punctuation">.</span>read_sql<span class="token punctuation">(</span>query<span class="token punctuation">,</span> cnxn<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="stored-procedure">Stored Procedure<a aria-hidden="true" class="anchor-heading icon-link" href="#stored-procedure"></a></h2>
+<p><a href="/pks-publish/notes/waxuyf1zmofwmcuej10vnyh">Stored Procedure</a>를 호출하려면 <code>read_sql_query</code>를 사용한다.</p>
+<pre class="language-python"><code class="language-python">user_id <span class="token operator">=</span> <span class="token string">"user001"</span>
+query <span class="token operator">=</span> <span class="token string">"EXEC dbo.sp_getUserInfo @id='{user_id}'"</span>
+pd<span class="token punctuation">.</span>read_sql_query<span class="token punctuation">(</span>query<span class="token punctuation">,</span> cnxn<span class="token punctuation">)</span>
+</code></pre>

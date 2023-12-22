@@ -1,0 +1,44 @@
+<h1 id="kubectl">Kubectl<a aria-hidden="true" class="anchor-heading icon-link" href="#kubectl"></a></h1>
+<ul>
+<li>Node 확인</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ kubectl get <span class="token function">node</span> -o wide
+</code></pre>
+<ul>
+<li>Pod 생성 및 실행</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">-- 하나만
+$ kubectl run nginx-pod --image<span class="token operator">=</span>ngnix
+
+-- 여러 개
+$ kubectl create deployment dpy-nginx1 --image<span class="token operator">=</span>nginx
+$ kubectl run my-first-nginx --image<span class="token operator">=</span>nginx --replicas<span class="token operator">=</span><span class="token number">2</span>
+</code></pre>
+<ul>
+<li>Pod 확인</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ kubectl get pods
+$ kubectl get pods -o wide
+$ kubectl get deployment
+$ kubectl get pod,deploy
+</code></pre>
+<ul>
+<li>Yaml 파일 실행</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ kubectl create -f dpy-nginx2.yaml
+$ kubectl apply -f dpy-nginx.yaml
+$ kubectl edit deploy dpy-nginx2
+</code></pre>
+<ul>
+<li>Pod 삭제</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ kubectl delete pod --all
+$ kubectl delete deployment --all
+$ kubectl delete svc --all
+$ kubectl delete deployment,pod,svc --all
+</code></pre>
+<ul>
+<li>모니터링</li>
+</ul>
+<pre class="language-shell"><code class="language-shell">$ <span class="token function">watch</span> kubectl get pods -o wide
+</code></pre>

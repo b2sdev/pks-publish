@@ -1,0 +1,20 @@
+<h1 id="corscross-origin-resource-sharing">CORS(Cross Origin Resource Sharing)<a aria-hidden="true" class="anchor-heading icon-link" href="#corscross-origin-resource-sharing"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<p>클라이언트 웹 애플리케이션이 다른 도메인에 있는 리소스와 상호 작용할 수 있도록 접속을 허용하는 것</p>
+<h2 id="why">Why<a aria-hidden="true" class="anchor-heading icon-link" href="#why"></a></h2>
+<p>현대의 모든 브라우저는 인터넷 초창기의 크로스 사이트 요청 위조(CSRF) 문제를 해결하기 위해 <em>동일 오리진 정책</em>을 구현함</p>
+<ul>
+<li>동일 오리진 정책: 클라이언트는 클라이언트의 URL과 동일한 오리진의 리소스로만 요청을 보낼 수 있음; 즉, 클라이언트 URL의 프로토콜, 포트 및 호스트 이름은 모두 클라이언트에서 요청하는 서버와 일치해야 함</li>
+</ul>
+<p>동일 오리진 정책은 매우 안전하지만 실제 사용 사례에는 유연하지 않음</p>
+<p>크로스 오리진 리소스 공유(CORS)는 동일 오리진 정책을 확장하여 외부의 서드 파티의 승인 하에 오리진 밖의 리소스를 공유하도록 함</p>
+<h2 id="how">How<a aria-hidden="true" class="anchor-heading icon-link" href="#how"></a></h2>
+<p>서버 측에서는 허용된 오리진 목록에 오리진을 추가하여 사용자에게 액세스 권한을 부여</p>
+<h3 id="프로세스">프로세스<a aria-hidden="true" class="anchor-heading icon-link" href="#프로세스"></a></h3>
+<ol>
+<li>브라우저는 요청에 오리진 헤더에 오리진을 추가</li>
+<li>서버는 오리진 헤더를 확인하고 응답시 요청된 데이터와 함께 Access-Control-Allow-Origin 헤더로 응답</li>
+<li>브라우저는 액세스 제어 요청 헤더를 확인한 후 반환된 데이터를 클라이언트 애플리케이션과 공유</li>
+</ol>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<p><a href="https://aws.amazon.com/ko/what-is/cross-origin-resource-sharing/">https://aws.amazon.com/ko/what-is/cross-origin-resource-sharing/</a></p>

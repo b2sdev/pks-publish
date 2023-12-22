@@ -1,0 +1,23 @@
+<h1 id="elastic-beanstalk">Elastic Beanstalk<a aria-hidden="true" class="anchor-heading icon-link" href="#elastic-beanstalk"></a></h1>
+<p>AWS의 일래스틱 빈스토크(Elastic Beanstalk)를 이용하면 서비스를 쉽게 VM으로 배포할 수 있음</p>
+<ul>
+<li>일래스틱 빈스토크는 실행 코드를 WAR 파일로 묶어 업로드하면, 서비스를 부하 분산된 하나 이상의 매니지드(managed) EC2 인스턴스로 배포</li>
+<li>자바, 루비, 닷넨 등 다양한 언어에 알맞은 다양한 패키징 포맷을 지원</li>
+<li>애플리케이션을 VM으로 배포하지만 AMI<a id="fnref-1" class="fnref" href="#fn-1">1</a>를 빌드하는 것이 아니라, 시동 시 애플리케이션을 설치하는 기초 이미지를 사용함</li>
+<li>쿠버네티스만큼 인기 있는 것은 아니지만, 마이크로서비스 애플리케이션을 EC2에 배포하는 간편한 방법 제공</li>
+<li>일래스틱 빈스토크는 도커 컨테이너로도 배포할 수 있음
+<ul>
+<li>각 EC2 인스턴스는 하나 이상의 컨테이너를 실행함</li>
+<li>단, 도커 오케스트레이션 프레임워크와 달리, 확장 단위는 컨테이너가 아니라 EC2 인스턴스임</li>
+</ul>
+</li>
+</ul>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li>크리스 리처드슨, 마이크로서비스 패턴, 길벗</li>
+</ul>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p>AMI(Amazon Machine Image)<a class="fn" href="#fnref-1">˄</a></p></li>
+</ol>

@@ -1,0 +1,47 @@
+<h1 id="4가지-상호-vpc-연결-방법">4가지 상호 VPC 연결 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#4가지-상호-vpc-연결-방법"></a></h1>
+<h2 id="aws-transit-gateway">AWS Transit Gateway<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-transit-gateway"></a></h2>
+<ul>
+<li><strong>Scenario</strong>: A multinational company has multiple VPCs across different regions and accounts, representing different departments and projects. They want a centralized way to manage connectivity among all these VPCs and their on-premises data centers.</li>
+<li><strong>Implementation</strong>:
+<ul>
+<li>Create a Transit Gateway in the desired region.</li>
+<li>Attach all the VPCs to the Transit Gateway.</li>
+<li>Update route tables in each VPC to point to the Transit Gateway for inter-VPC communication.</li>
+<li>Optionally, connect the Transit Gateway to a VPN or Direct Connect for on-premises connectivity.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-site-to-site-vpn">AWS Site-to-Site VPN<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-site-to-site-vpn"></a></h2>
+<ul>
+<li><strong>Scenario</strong>: A company has a VPC in the Asia Pacific (Tokyo) region and another VPC in the EU (Ireland) region. They want to establish secure communication between these VPCs.</li>
+<li><strong>Implementation</strong>:
+<ul>
+<li>Set up a Virtual Private Gateway (VGW) in each VPC.</li>
+<li>Establish a Site-to-Site VPN connection between the two VGWs.</li>
+<li>Update route tables in each VPC to route traffic for the other VPC through the VPN connection.</li>
+</ul>
+</li>
+</ul>
+<h2 id="vpc-peering">VPC Peering<a aria-hidden="true" class="anchor-heading icon-link" href="#vpc-peering"></a></h2>
+<ul>
+<li><strong>Scenario</strong>: A startup has two VPCs in the US West (Oregon) region: one for their development environment and one for production. They want to allow the development environment to access a database in the production VPC without exposing it to the internet.</li>
+<li><strong>Implementation</strong>:
+<ul>
+<li>Initiate a VPC peering connection from the development VPC to the production VPC.</li>
+<li>Accept the peering connection in the production VPC.</li>
+<li>Update route tables in both VPCs to allow traffic to and from each VPC over the peering connection.</li>
+</ul>
+</li>
+</ul>
+<h2 id="aws-direct-connect">AWS Direct Connect<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-direct-connect"></a></h2>
+<ul>
+<li><strong>Scenario</strong>: A financial institution with a data center in New York wants to have a dedicated, low-latency connection to their VPC in the US East (N. Virginia) region for high-frequency trading applications.</li>
+<li><strong>Implementation</strong>:
+<ul>
+<li>Work with an AWS Direct Connect partner to establish a dedicated line from their data center to an AWS Direct Connect location.</li>
+<li>Create a Direct Connect connection in the AWS Management Console.</li>
+<li>Set up a Virtual Interface (VIF) to connect to their VPC.</li>
+<li>Update the VPC route table to route traffic for the on-premises network over the Direct Connect connection.</li>
+</ul>
+</li>
+</ul>

@@ -1,0 +1,123 @@
+<h1 id="클라우드-aws-자격증으로-시작하기">클라우드 AWS 자격증으로 시작하기<a aria-hidden="true" class="anchor-heading icon-link" href="#클라우드-aws-자격증으로-시작하기"></a></h1>
+<p><img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788931558111.jpg"></p>
+<h1 id="01-클라우드-컴퓨팅과-aws">01. 클라우드 컴퓨팅과 AWS<a aria-hidden="true" class="anchor-heading icon-link" href="#01-클라우드-컴퓨팅과-aws"></a></h1>
+<h2 id="01-클라우드-컴퓨팅-개요">01. 클라우드 컴퓨팅 개요<a aria-hidden="true" class="anchor-heading icon-link" href="#01-클라우드-컴퓨팅-개요"></a></h2>
+<h3 id="1-클라우드-컴퓨팅">1. 클라우드 컴퓨팅<a aria-hidden="true" class="anchor-heading icon-link" href="#1-클라우드-컴퓨팅"></a></h3>
+<ul>
+<li>클라우드 컴퓨팅은 인터넷을 사용해서 자원(서버, 네트워크, 스토리지)을 사용할 수 있는 서비스</li>
+</ul>
+<h3 id="2-on-demand-서비스와-sla">2. On-demand 서비스와 SLA<a aria-hidden="true" class="anchor-heading icon-link" href="#2-on-demand-서비스와-sla"></a></h3>
+<ul>
+<li>주문형(On-demand) 서비스: 클라우드 컴퓨팅 사용자가 요청한 만큼 서비스를 제공하고 비용을 청구하는 모델</li>
+<li>SLA(Service Level Agreement)
+<ul>
+<li>on-demand 서비스를 사용할 때 클라우드 컴퓨팅 서비스 사용자와 서비스 제공자(예: AWS) 간의 서비스 수준에 대한 협약서</li>
+<li>SLA를 통해 사용자는 사용한 서비스만큼 비용을 지불</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-가상화virtualization">3. 가상화(Virtualization)<a aria-hidden="true" class="anchor-heading icon-link" href="#3-가상화virtualization"></a></h3>
+<ul>
+<li>여러 개의 물리적 자원을 하나로 통합해서 관리하거나 하나의 물리적 자원을 여러 개로 분할하여 사용하는 기술</li>
+<li>종류
+<ul>
+<li>호스트 가상화
+<ul>
+<li>Host OS<a id="fnref-1" class="fnref" href="#fn-1">1</a> 위에 guest OS<a id="fnref-2" class="fnref" href="#fn-2">2</a>가 실행되는 방식</li>
+<li>예: VM Workstation, VMServer, Virtual Box</li>
+<li>단점: Host OS 위에 다시 guest OS를 설치해서 사용하기 때문에 오버헤드가 큼</li>
+</ul>
+</li>
+<li>하이퍼바이저 가상화
+<ul>
+<li>Host OS가 없고 하드웨어에 하이퍼바이저라는 가상화 소프트웨어를 설치하여 사용하는 방식</li>
+<li>예: Xen, Microsoft Hyper-V, Citrix, KVM</li>
+<li>장점: Host OS가 없기 때문에 오버헤드가 적음</li>
+</ul>
+</li>
+<li>컨테이너 가상화
+<ul>
+<li>Host OS 위에 컨테이너 관리 소프트웨어를 설치하여 논리적인 컨테이너를 나누어서 사용</li>
+<li>예: Docker</li>
+<li>장점: 오버헤드가 적고 속도가 빠름</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="02-클라우드-컴퓨팅-모델">02. 클라우드 컴퓨팅 모델<a aria-hidden="true" class="anchor-heading icon-link" href="#02-클라우드-컴퓨팅-모델"></a></h2>
+<h3 id="1-on-premise">1. On-Premise<a aria-hidden="true" class="anchor-heading icon-link" href="#1-on-premise"></a></h3>
+<ul>
+<li>서버, 데이터베이스, 네트워크 장비 등을 모두 구매해서 구축하고 운영하는 서비스</li>
+<li>일반적으로 IDC(Internet Data Center)에 서버를 설치하고 전용 네트워크를 통해서 운영하는 시스템 형태</li>
+</ul>
+<h3 id="2-클라우드-컴퓨팅-종류">2. 클라우드 컴퓨팅 종류<a aria-hidden="true" class="anchor-heading icon-link" href="#2-클라우드-컴퓨팅-종류"></a></h3>
+<ul>
+<li>Private Cloud: 기업 내부에서 기업 내부 조직원들을 위한 서비스를 제공</li>
+<li>Public Cloud: 인터넷을 사용해서 제공하는 클라우드 컴퓨팅 형태로 AWS, Azure 등이 있음</li>
+<li>Hybrid Cloud: Private 및 Public Cloud를 모두 제공하는 형태</li>
+</ul>
+<h3 id="3-클라우드-컴퓨팅-모델">3. 클라우드 컴퓨팅 모델<a aria-hidden="true" class="anchor-heading icon-link" href="#3-클라우드-컴퓨팅-모델"></a></h3>
+<ul>
+<li>IaaS(Infrastructure as a Service)
+<ul>
+<li>인프라를 서비스 형태로 제공하는 것으로 서버, 스토리지, 네트워크 관련 각종 물리적 장비를 서비스 형태로 제공</li>
+<li>AWS에서는 EC2, S3, VPC 등의 서비스</li>
+</ul>
+</li>
+<li>PaaS(Platform as a Service)
+<ul>
+<li>인프라에 설치되는 운영체제, 미들웨어, 데이터베이스 관리 시스템 등의 소프트웨어를 제공</li>
+<li>AWS에서는 리눅스 및 윈도우 운영체제, Oracle, MySQL 등의 DBMS를 제공하는 것</li>
+</ul>
+</li>
+<li>SaaS(Software as a Service)
+<ul>
+<li>응용 프로그램을 서비스 형태로 제공하는 것</li>
+<li>구글 Office 365, 드롭박스 등의 응용 프로그램</li>
+</ul>
+</li>
+</ul>
+<h2 id="03-awsamazon-web-service">03. AWS(Amazon Web Service)<a aria-hidden="true" class="anchor-heading icon-link" href="#03-awsamazon-web-service"></a></h2>
+<h3 id="1-awsamazon-web-service">1. AWS(Amazon Web Service)<a aria-hidden="true" class="anchor-heading icon-link" href="#1-awsamazon-web-service"></a></h3>
+<p>AWS는 컴퓨팅, 네트워킹, 스토리지, 분석 플랫폼 등 다양한 서비스를 제공</p>
+<h4 id="컴퓨팅-서비스">컴퓨팅 서비스<a aria-hidden="true" class="anchor-heading icon-link" href="#컴퓨팅-서비스"></a></h4>
+<h4 id="네트워킹-서비스">네트워킹 서비스<a aria-hidden="true" class="anchor-heading icon-link" href="#네트워킹-서비스"></a></h4>
+<h4 id="스토리지-서비스">스토리지 서비스<a aria-hidden="true" class="anchor-heading icon-link" href="#스토리지-서비스"></a></h4>
+<h4 id="분석-플랫폼">분석 플랫폼<a aria-hidden="true" class="anchor-heading icon-link" href="#분석-플랫폼"></a></h4>
+<h4 id="기타">기타<a aria-hidden="true" class="anchor-heading icon-link" href="#기타"></a></h4>
+<h3 id="2-aws-장점">2. AWS 장점<a aria-hidden="true" class="anchor-heading icon-link" href="#2-aws-장점"></a></h3>
+<h3 id="3-aws-공동-책임-모델-및-규정-준수-프로그램">3. AWS 공동 책임 모델 및 규정 준수 프로그램<a aria-hidden="true" class="anchor-heading icon-link" href="#3-aws-공동-책임-모델-및-규정-준수-프로그램"></a></h3>
+<p>AWS 공동책임 모델이란 AWS와 클라우드 서비스 사용자(고객) 간에 책임을 정의한 모델</p>
+<h4 id="aws-책임">AWS 책임<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-책임"></a></h4>
+<ul>
+<li>AWS 클라우드에서 제공되는 모든 서비스에 대해서 인프라를 보호할 책임</li>
+<li>여기서 인프라란 하드웨어, 소프트웨어, 네트워킹 및 시설을 의미</li>
+</ul>
+<h4 id="고객-책임">고객 책임<a aria-hidden="true" class="anchor-heading icon-link" href="#고객-책임"></a></h4>
+<ul>
+<li>AWS 내에 저장 및 관리하는 고객 데이터 관리(암호화), 자산 분류, 적절한 허가를 위한 IAM 도구, AWS EC2 인스턴스에 설치한 모든 애플리케이션 등은 고객 책임</li>
+</ul>
+<h3 id="4-aws-사용-방법">4. AWS 사용 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#4-aws-사용-방법"></a></h3>
+<h4 id="aws-인터페이스-방법">AWS 인터페이스 방법<a aria-hidden="true" class="anchor-heading icon-link" href="#aws-인터페이스-방법"></a></h4>
+<ul>
+<li>AWS Management Console</li>
+<li>CLI(Command Line Interface)</li>
+<li>SDK(Software Development Kit)</li>
+</ul>
+<h3 id="5-리전과-가용-영역">5. 리전과 가용 영역<a aria-hidden="true" class="anchor-heading icon-link" href="#5-리전과-가용-영역"></a></h3>
+<ul>
+<li>리전(Region): 전 세계에 있는 AWS의 데이터 센터의 물리적 위치</li>
+<li>가용 영역(AZ; Availability Zone): 논리적 데이터 센터의 그룹</li>
+</ul>
+<h3 id="6-요금-정책">6. 요금 정책<a aria-hidden="true" class="anchor-heading icon-link" href="#6-요금-정책"></a></h3>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<ul>
+<li><a href="https://www.millie.co.kr/v3/bookDetail/179572928?referrer=searchRecent">클라우드 AWS 자격증으로 시작하기</a></li>
+</ul>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p>Host OS: 하드웨어 위에 설치된 운영체제<a class="fn" href="#fnref-1">˄</a></p></li>
+<li><span id="fn-2" style="width: 0; height: 0;"></span><p>Guest OS: 호스트 가상화 혹은 하이퍼바이저 위에 설치된 운영체제<a class="fn" href="#fnref-2">˄</a></p></li>
+</ol>

@@ -1,0 +1,22 @@
+<h1 id="ssltls">SSL/TLS<a aria-hidden="true" class="anchor-heading icon-link" href="#ssltls"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<p>SSL(Secure Sockets Layer)과 TLS(Transport Layer Security)는 데이터 전송 중 보안과 데이터 무결성을 확보하기 위해 설계된 암호화 프로토콜이다. 웹 브라우저와 서버 간에 전송되는 데이터를 암호화하여 중간자 공격(man-in-the-middle attack)이나 데이터 스니핑(eavesdropping) 같은 공격을 방지하게 된다.</p>
+<h2 id="how">How<a aria-hidden="true" class="anchor-heading icon-link" href="#how"></a></h2>
+<p>최초 연결 설정 시에 서버와 클라이언트 간에 '암호화 키 교환'이 이루어진다. 이 키는 세션 동안 데이터 암호화에 사용되며, 세션이 종료되면 폐기된다.</p>
+<ol>
+<li><strong>핸드쉐이크</strong>:
+이 과정에서 클라이언트와 서버는 암호화를 위한 파라미터를 교환하며, 통신에 사용할 암호화 방식을 결정한다.</li>
+<li><strong>서버 인증</strong>:
+핸드쉐이크 과정 중, 서버는 클라이언트에게 공개 키가 포함된 인증서를 제공한다. 이 인증서는 보통 신뢰할 수 있는 제3자인 인증기관(CA)<a id="fnref-1" class="fnref" href="#fn-1">1</a>에 의해 서명된다.</li>
+<li><strong>세션 키 생성</strong>:
+클라이언트는 이 공개 키를 사용하여 임의의 세션 키를 암호화하고 서버로 보낸다.</li>
+<li><strong>세션 키 복호화</strong>:
+서버는 자신만이 알고 있는 개인 키를 사용하여 암호화된 세션 키를 복호화한다. 이제 클라이언트와 서버 모두 동일한 세션 키를 갖게 된다.</li>
+<li><strong>암호화된 통신</strong>:
+이 세션 키는 후속 통신의 대칭키 암호화에 사용된다. 클라이언트와 서버는 이 키를 사용하여 데이터를 암호화 및 복호화한다.</li>
+</ol>
+<hr>
+<h2 id="footnotes">Footnotes<a aria-hidden="true" class="anchor-heading icon-link" href="#footnotes"></a></h2>
+<ol>
+<li><span id="fn-1" style="width: 0; height: 0;"></span><p>CA(Certificate Authority)는 디지털 인증서의 발급, 관리, 저장, 회수 그리고 만료 관리를 수행하는 신뢰할 수 있는 제3자 조직이다.<a class="fn" href="#fnref-1">˄</a></p></li>
+</ol>

@@ -1,0 +1,6 @@
+<h1 id="functools">Functools<a aria-hidden="true" class="anchor-heading icon-link" href="#functools"></a></h1>
+<h2 id="부분-적용">부분 적용<a aria-hidden="true" class="anchor-heading icon-link" href="#부분-적용"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">filterBy</span><span class="token punctuation">(</span>filter_fn<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> functools<span class="token punctuation">.</span>partial<span class="token punctuation">(</span><span class="token builtin">filter</span><span class="token punctuation">,</span> filter_fn<span class="token punctuation">)</span>
+</code></pre>
+<p><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@FunctionalProgramming (Private)</a></p>

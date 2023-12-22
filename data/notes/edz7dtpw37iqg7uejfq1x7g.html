@@ -1,0 +1,214 @@
+<h1 id="problem-solving-tips">Problem Solving Tips<a aria-hidden="true" class="anchor-heading icon-link" href="#problem-solving-tips"></a></h1>
+<h2 id="입력-처리">입력 처리<a aria-hidden="true" class="anchor-heading icon-link" href="#입력-처리"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 다음을 고할 것</span>
+<span class="token comment"># 숫자인지, 문자인지</span>
+<span class="token comment"># 음수</span>
+<span class="token comment"># 정수 여부</span>
+<span class="token comment"># 정렬 여부</span>
+<span class="token comment"># 입력 값이 없는 경우</span>
+<span class="token comment"># 입력 리스트 내부를 직접 조작해도 되는지 ~ immutable</span>
+<span class="token comment"># 대소문자 구분</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> strs<span class="token punctuation">:</span>
+<span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&#x3C;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+<span class="token keyword">if</span> s <span class="token operator">==</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</code></pre>
+<h2 id="리스트-초기화">리스트 초기화<a aria-hidden="true" class="anchor-heading icon-link" href="#리스트-초기화"></a></h2>
+<pre class="language-python"><code class="language-python">answer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token keyword">in</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="최댓값최솟값">최댓값/최솟값<a aria-hidden="true" class="anchor-heading icon-link" href="#최댓값최솟값"></a></h2>
+<pre class="language-python"><code class="language-python">mx <span class="token operator">=</span> <span class="token operator">-</span>sys<span class="token punctuation">.</span>maxsize
+mn <span class="token operator">=</span> sys<span class="token punctuation">.</span>maxsize
+
+mx <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'-inf'</span><span class="token punctuation">)</span>
+mn <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="문자">문자<a aria-hidden="true" class="anchor-heading icon-link" href="#문자"></a></h2>
+<pre class="language-python"><code class="language-python">char<span class="token punctuation">.</span>isalnum<span class="token punctuation">(</span><span class="token punctuation">)</span>
+char<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+char<span class="token punctuation">.</span>isdigit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+char<span class="token punctuation">.</span>isnumeric<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># isdecimal() ⊆ isdigit() ⊆ isnumeric()</span>
+<span class="token comment"># https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-python</span>
+</code></pre>
+<h2 id="문자열">문자열<a aria-hidden="true" class="anchor-heading icon-link" href="#문자열"></a></h2>
+<pre class="language-python"><code class="language-python">strs<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+strs<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">~</span> strs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> strs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+</code></pre>
+<h2 id="matrix">Matrix<a aria-hidden="true" class="anchor-heading icon-link" href="#matrix"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token builtin">any</span><span class="token punctuation">(</span>target <span class="token keyword">in</span> row <span class="token keyword">for</span> row <span class="token keyword">in</span> matrix<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="정규식">정규식<a aria-hidden="true" class="anchor-heading icon-link" href="#정규식"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> re
+
+s <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">'[^a-z0-9]'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+word <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r'[^\w]'</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">,</span> paragraph<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="counter">Counter<a aria-hidden="true" class="anchor-heading icon-link" href="#counter"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> collections
+
+counts <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>words<span class="token punctuation">)</span>
+
+<span class="token keyword">return</span> counts<span class="token punctuation">.</span>most_common<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+또는 <span class="token builtin">sorted</span><span class="token punctuation">(</span>counts<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="list--문자열">List ~ 문자열<a aria-hidden="true" class="anchor-heading icon-link" href="#list--문자열"></a></h2>
+<pre class="language-python"><code class="language-python">strs<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>  <span class="token comment"># O(n)</span>
+strs<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+lst<span class="token punctuation">.</span>index<span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+
+<span class="token builtin">max</span><span class="token punctuation">(</span>lst<span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token builtin">len</span><span class="token punctuation">)</span>
+
+result <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token keyword">for</span> e <span class="token keyword">in</span> a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+result <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+next_elements <span class="token operator">=</span> elements<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token comment"># 값을 참조가 아닌 복사</span>
+next_elements<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+
+path <span class="token operator">+</span> <span class="token punctuation">[</span>candidates<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+new_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span>copy
+</code></pre>
+<h2 id="deque">Deque<a aria-hidden="true" class="anchor-heading icon-link" href="#deque"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> collections
+
+strs<span class="token punctuation">:</span> Deque <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">)</span>
+strs<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># O(1)</span>
+</code></pre>
+<h2 id="two-pointers">Two pointers<a aria-hidden="true" class="anchor-heading icon-link" href="#two-pointers"></a></h2>
+<pre class="language-python"><code class="language-python">left<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token keyword">while</span> left <span class="token operator">&#x3C;</span> right<span class="token punctuation">:</span>
+  <span class="token comment"># do something</span>
+  s<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
+  left <span class="token operator">+=</span> <span class="token number">1</span>
+  right <span class="token operator">-=</span> <span class="token number">1</span>
+
+<span class="token comment"># 06 longest palindromic substring</span>
+<span class="token comment"># 08 trapping rain water</span>
+<span class="token comment"># 09 3sum</span>
+<span class="token comment"># 30 longest-substring-without-repeating-characters</span>
+<span class="token comment"># 63 sort-colors</span>
+<span class="token comment"># 67 intersection-of-two-arrays</span>
+<span class="token comment"># 76 minimum-window-substring</span>
+
+<span class="token comment"># Runner</span>
+slow <span class="token operator">=</span> fast <span class="token operator">=</span> head
+<span class="token keyword">while</span> fast <span class="token keyword">and</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">:</span>
+  fast <span class="token operator">=</span> fast<span class="token punctuation">.</span><span class="token builtin">next</span><span class="token punctuation">.</span><span class="token builtin">next</span>
+  slow <span class="token operator">=</span> slow<span class="token punctuation">.</span><span class="token builtin">next</span>
+
+<span class="token comment"># 13 palindrome-linked-list</span>
+<span class="token comment"># 58 sort-list</span>
+</code></pre>
+<h2 id="정렬">정렬<a aria-hidden="true" class="anchor-heading icon-link" href="#정렬"></a></h2>
+<pre class="language-python"><code class="language-python">s<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="dict">Dict<a aria-hidden="true" class="anchor-heading icon-link" href="#dict"></a></h2>
+<p>collections.defaultdict(int)
+collections.defaultdict(list)</p>
+<h2 id="예외-처리">예외 처리<a aria-hidden="true" class="anchor-heading icon-link" href="#예외-처리"></a></h2>
+<ul>
+<li>stack에서 pop 전에 stack이 비었는지 확인
+if not stack or table[char] != stack.pop(): return False</li>
+</ul>
+<h2 id="stack">Stack<a aria-hidden="true" class="anchor-heading icon-link" href="#stack"></a></h2>
+<pre class="language-python"><code class="language-python">stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+top <span class="token operator">=</span> stack<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+
+stack <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> stack<span class="token punctuation">:</span>
+  node <span class="token operator">=</span> stack<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> node<span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h2 id="queue">Queue<a aria-hidden="true" class="anchor-heading icon-link" href="#queue"></a></h2>
+<pre class="language-python"><code class="language-python">queue <span class="token operator">=</span> collections<span class="token punctuation">.</span>deque<span class="token punctuation">(</span><span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> queue<span class="token punctuation">:</span>
+  node <span class="token operator">=</span> queue<span class="token punctuation">.</span>popleft<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> node<span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h2 id="우선순위-큐">우선순위 큐<a aria-hidden="true" class="anchor-heading icon-link" href="#우선순위-큐"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> heapq
+
+heap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> lst <span class="token keyword">in</span> lists<span class="token punctuation">:</span>
+  heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>heap<span class="token punctuation">,</span> <span class="token punctuation">(</span>lst<span class="token punctuation">.</span>val<span class="token punctuation">,</span> lst<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> heap<span class="token punctuation">:</span>
+  elem <span class="token operator">=</span> heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>heap<span class="token punctuation">)</span>
+
+freqs <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+freqs_heap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> f <span class="token keyword">in</span> freqs<span class="token punctuation">:</span>
+  heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>freqs_heap<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>freqs<span class="token punctuation">[</span>f<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+topk <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  topk<span class="token punctuation">.</span>append<span class="token punctuation">(</span>heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span>freqs_heap<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">zip</span><span class="token punctuation">(</span><span class="token operator">*</span>collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">.</span>most_common<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+</code></pre>
+<h2 id="해시-테이블">해시 테이블<a aria-hidden="true" class="anchor-heading icon-link" href="#해시-테이블"></a></h2>
+<pre class="language-python"><code class="language-python">freqs <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+freqs<span class="token punctuation">[</span>char<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">if</span> char <span class="token keyword">in</span> freqs<span class="token punctuation">:</span>
+  count <span class="token operator">+=</span> freqs<span class="token punctuation">[</span>char<span class="token punctuation">]</span>
+
+freqs <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+
+freqs <span class="token operator">=</span> collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>S<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="set">Set<a aria-hidden="true" class="anchor-heading icon-link" href="#set"></a></h2>
+<pre class="language-python"><code class="language-python">s <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+s<span class="token punctuation">.</span>add<span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+<span class="token keyword">if</span> sth <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+</code></pre>
+<h2 id="sliding-window">Sliding Window<a aria-hidden="true" class="anchor-heading icon-link" href="#sliding-window"></a></h2>
+<p>06 longest-palindromic-substring
+30 longest-substring-without-repeating-characters</p>
+<h2 id="백트래킹">백트래킹<a aria-hidden="true" class="anchor-heading icon-link" href="#백트래킹"></a></h2>
+<pre class="language-python"><code class="language-python">results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">def</span> <span class="token function">dfs</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment"># 끝까지 탐색하면 백트래킹</span>
+  <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token builtin">len</span><span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+      dfs<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> path <span class="token operator">+</span> j<span class="token punctuation">)</span>
+    
+<span class="token comment"># 33 letter-combination-of-a-phone-number</span>
+<span class="token comment"># 34 permutations</span>
+<span class="token comment"># 35 combinations</span>
+<span class="token comment"># 44 longest-univalue-path</span>
+<span class="token comment"># 45 invert-binary-tree</span>
+<span class="token comment"># 46 merge-two-binary-trees</span>
+</code></pre>
+<h2 id="그래프">그래프<a aria-hidden="true" class="anchor-heading icon-link" href="#그래프"></a></h2>
+<pre class="language-python"><code class="language-python">graph <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> a<span class="token punctuation">,</span> b <span class="token keyword">in</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>tickets<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  graph<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="최단-거리">최단 거리<a aria-hidden="true" class="anchor-heading icon-link" href="#최단-거리"></a></h2>
+<h2 id="트리">트리<a aria-hidden="true" class="anchor-heading icon-link" href="#트리"></a></h2>
+<pre class="language-python"><code class="language-python">mid <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+node <span class="token operator">=</span> TreeNode<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
+left <span class="token operator">=</span> bst<span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token punctuation">:</span>mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
+right <span class="token operator">=</span> bst<span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="분할-정복">분할 정복<a aria-hidden="true" class="anchor-heading icon-link" href="#분할-정복"></a></h2>
+<p>50 convert-sorted-array-to-binary-search-tree
+54 construct-binary-tree
+58 sort-list</p>
+<h2 id="set-1">Set<a aria-hidden="true" class="anchor-heading icon-link" href="#set-1"></a></h2>
+<pre class="language-python"><code class="language-python">result <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+result<span class="token punctuation">.</span>add<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+</code></pre>

@@ -1,0 +1,45 @@
+<h1 id="delta-lake">Delta Lake<a aria-hidden="true" class="anchor-heading icon-link" href="#delta-lake"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<ul>
+<li>an open source ACID table storage layer over cloud object stores</li>
+<li>parquet 데이터 파일을 확장<br>
+ㄴ How? transaction log를 추가하여 <br>
+ㄴ So? <a href="/pks-publish/notes/i77f7bz5g58kgrwmzz5rf07">ACID 트랜잭션</a>을 제공하고, 확장 가능한 메타데이터를 처리</li>
+<li>Apache Spark API 와 완벽하게 호환되며 <a href="/pks-publish/notes/cmfutyhgtl88lr1sike6zta">Structured Streaming</a>과의 긴밀하게 통합됨
+<br>
+ㄴ So? 일괄 처리 및 스트리밍 작업 모두에 단일 데이터 복사본을 쉽게 사용하고, 대규모 증분 처리를 제공할 수 있음</li>
+<li>Databricks의 <a href="/pks-publish/notes/2b76tsb8q0aqabl8uww9at1">Data Lakehouse</a> 플랫폼에서는 데이터 및 테이블을 저장하기 위한 기반을 제공하는 최적화된 <code>스토리지 계층</code>으로 사용됨</li>
+</ul>
+<blockquote>
+<p>Delta Lake is an open source ACID table storage layer over cloud object stores initially
+developed at Databricks. Delta Lake uses a transaction log that is
+compacted into Apache Parquet format to provide ACID properties,
+time travel, and significantly faster metadata operations for large
+tabular datasets (e.g., the ability to quickly search billions of table
+partitions for those relevant to a query). It also leverages this design to provide high-level features such as automatic data layout
+optimization, upserts, caching, and audit logs.</p>
+</blockquote>
+<h2 id="why">WHY<a aria-hidden="true" class="anchor-heading icon-link" href="#why"></a></h2>
+<ul>
+<li><a href="/pks-publish/notes/eja9cwc6rjfx4zrkmvrp8az">Data Lake</a>는 Schema Enforcement, Data Quality, ACID Transaction 등을 지원하지 않음</li>
+<li>이러한 Data Lakes의 결점을 Delta Lake로 극복할 수 있음</li>
+</ul>
+<h2 id="z-ordering">Z-ordering<a aria-hidden="true" class="anchor-heading icon-link" href="#z-ordering"></a></h2>
+<ul>
+<li>Z-ordering is a technique to colocate related information in the same set of files. This co-locality is automatically used by Delta Lake on Databricks data-skipping algorithms. This behavior dramatically reduces the amount of data that Delta Lake on Databricks needs to read. </li>
+</ul>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">OPTIMIZE</span> events
+<span class="token keyword">WHERE</span> <span class="token keyword">date</span> <span class="token operator">>=</span> <span class="token keyword">current_timestamp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token keyword">INTERVAL</span> <span class="token number">1</span> <span class="token keyword">day</span>
+ZORDER <span class="token keyword">BY</span> <span class="token punctuation">(</span>eventType<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/databricks/delta/">https://learn.microsoft.com/en-us/azure/databricks/delta/</a></li>
+<li><a href="https://www.databricks.com/wp-content/uploads/2020/08/p975-armbrust.pdf">https://www.databricks.com/wp-content/uploads/2020/08/p975-armbrust.pdf</a></li>
+<li><a href="https://www.linkedin.com/pulse/delta-lake-tables-umair-yelurkar">https://www.linkedin.com/pulse/delta-lake-tables-umair-yelurkar</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/0wwj1byxg3uhkh6el05q2o9">Data+AI Summit 2022 키노트 주요 어나운스먼트 요약</a></li>
+</ul>

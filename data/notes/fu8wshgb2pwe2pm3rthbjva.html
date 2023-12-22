@@ -1,0 +1,71 @@
+<h1 id="oltp-vs-olap">OLTP vs OLAP<a aria-hidden="true" class="anchor-heading icon-link" href="#oltp-vs-olap"></a></h1>
+<h2 id="oltp-online-transactional-processing-온라인-트랜잭션-처리">OLTP (Online Transactional Processing; 온라인 트랜잭션 처리)<a aria-hidden="true" class="anchor-heading icon-link" href="#oltp-online-transactional-processing-온라인-트랜잭션-처리"></a></h2>
+<ul>
+<li><strong>트랜잭션 중심</strong>의 데이터 처리 시스템을 일컫는 용어<br>
+ㄴ 데이터베이스의 데이터를 수시로 갱신하는 프로세싱<br>
+ㄴ 호스트 컴퓨터가 데이터베이스를 액세스하고, 바로 처리 결과를 돌려주는 형태</li>
+<li>빠르고 효율적인 쿼리와 정확한 최신 정보를 필요로 하는 경우에 적합</li>
+<li>행 기반</li>
+<li>기존 DBMS</li>
+<li>Amazon RDS</li>
+</ul>
+<h2 id="olap-online-analytical-processing-온라인-분석-처리">OLAP (Online Analytical Processing; 온라인 분석 처리)<a aria-hidden="true" class="anchor-heading icon-link" href="#olap-online-analytical-processing-온라인-분석-처리"></a></h2>
+<ul>
+<li>성능 및 일상적인 사용보다는 데이터 분석 및 의사 결정에 초점을 맞춘 데이터 처리 시스템을 일컫는 용어<br>
+ㄴ 대용량 데이터 집합을 대상</li>
+<li>보통은 비즈니스 인텔리전스(BI) 솔루션과 연동</li>
+<li>컬럼 기반</li>
+<li>Amazon Redshift</li>
+</ul>
+<h2 id="summary">Summary<a aria-hidden="true" class="anchor-heading icon-link" href="#summary"></a></h2>
+<div class="table-responsive">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong>구분</strong></th><th><strong>OLTP</strong></th><th><strong>OLAP</strong></th></tr></thead><tbody><tr><td><strong>기초</strong></td><td>많은 수의 온라인 단기거래 관리</td><td>데이터 분석에 사용</td></tr><tr><td><strong>데이터베이스 타입</strong></td><td>기존 DBMS 사용</td><td>데이터 웨어하우스(DW) 사용</td></tr><tr><td><strong>데이터 수정</strong></td><td>모든 insert, update, delete transaction 관리</td><td>데이터 읽기에 사용</td></tr><tr><td><strong>응답시간</strong></td><td>밀리초 단위</td><td>처리가 조금 느림</td></tr><tr><td><strong>정규화</strong></td><td>정규화 O</td><td>정규화 X</td></tr><tr><td><strong>데이터 특성</strong></td><td>트랜잭션 중심</td><td>주제 중심</td></tr></tbody></table></div>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://simroot.tistory.com/24">https://simroot.tistory.com/24</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/i72er7p7yb3mfelrn45f3i4">Solutions Architect 인터뷰 준비 - 기본 개념</a></li>
+<li><a href="/pks-publish/notes/fgo90mmygqmiichus71qo88">Data Warehouse</a></li>
+</ul>

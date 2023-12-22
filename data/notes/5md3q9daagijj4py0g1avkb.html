@@ -1,0 +1,24 @@
+<h1 id="소인수분해">소인수분해<a aria-hidden="true" class="anchor-heading icon-link" href="#소인수분해"></a></h1>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">prime_factorization</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Return the prime factorization of a number."""</span>
+    factors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    divisor <span class="token operator">=</span> <span class="token number">2</span>  <span class="token comment"># 시작하는 소수</span>
+
+    <span class="token keyword">while</span> divisor <span class="token operator">&#x3C;=</span> n<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n <span class="token operator">%</span> divisor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment"># n이 divisor로 나누어 떨어지면</span>
+            factors<span class="token punctuation">.</span>append<span class="token punctuation">(</span>divisor<span class="token punctuation">)</span>
+            n <span class="token operator">//=</span> divisor   <span class="token comment"># n을 divisor로 나눈 몫을 새로운 n으로 설정</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            divisor <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token keyword">return</span> factors
+
+num <span class="token operator">=</span> <span class="token number">56</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>prime_factorization<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># [2, 2, 2, 7] 출력</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/1lxg6ehu6mdob71k50fz0um">약수의 개수가 n인 자연수 k(의 개수) 구하기</a></li>
+<li><a href="/pks-publish/notes/s66kv1tn9vjsl1sybm55rvv">소인수분해 후 각 소인수의 지수의 합 구하기</a></li>
+</ul>

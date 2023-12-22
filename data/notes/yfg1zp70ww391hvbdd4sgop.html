@@ -1,0 +1,126 @@
+<h1 id="databricks-sql">Databricks SQL<a aria-hidden="true" class="anchor-heading icon-link" href="#databricks-sql"></a></h1>
+<h2 id="databricks-sql-1">Databricks SQL<a aria-hidden="true" class="anchor-heading icon-link" href="#databricks-sql-1"></a></h2>
+<ul>
+<li>데이터 레이크에서 빠른 임시 SQL을 실행할 수 있음</li>
+<li>쿼리 결과에 대한 다양한 시각화를 지원</li>
+</ul>
+<h2 id="sql-엔드포인트">SQL 엔드포인트<a aria-hidden="true" class="anchor-heading icon-link" href="#sql-엔드포인트"></a></h2>
+<ul>
+<li>Databricks SQL 내의 데이터 개체에서 SQL 명령을 실행할 수 있는 계산 리소스
+<ul>
+<li>Azure Databricks 컴퓨팅 리소스의 한 유형</li>
+</ul>
+</li>
+</ul>
+<h2 id="overwriting-a-table-vs-deleting-and-recreating-a-table">Overwriting a table vs Deleting and Recreating a table<a aria-hidden="true" class="anchor-heading icon-link" href="#overwriting-a-table-vs-deleting-and-recreating-a-table"></a></h2>
+<ul>
+<li>Overwriting a table is eficient because no files need to be deleted.</li>
+<li>Overwriting a table maintains the old version of the table for Time Travel.</li>
+<li>Overwriting a table is an atomic operation and will not leave the table in an unfinished state.</li>
+<li>Overwriting a table allows for concurrent queries to be completed while in progress.</li>
+</ul>
+<h2 id="sql-reference">SQL Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#sql-reference"></a></h2>
+<h3 id="데이터베이스-생성">데이터베이스 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#데이터베이스-생성"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> customer360 LOCATION <span class="token string">'/customer/customer360'</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="테이블-생성">테이블 생성<a aria-hidden="true" class="anchor-heading icon-link" href="#테이블-생성"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> my_table <span class="token punctuation">(</span>id STRING<span class="token punctuation">,</span> <span class="token keyword">value</span> STRING<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token operator">OR</span> <span class="token keyword">REPLACE</span> <span class="token keyword">TABLE</span> table_name <span class="token punctuation">(</span>
+    id STRING<span class="token punctuation">,</span>
+    birthDate <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+    avgRating <span class="token keyword">FLOAT</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p><code>CREATE OR REPLACE TABLE</code></p>
+<ul>
+<li>테이블이 없으면 새로 생성</li>
+<li>테이블이 있으면 테이블을 리셋
+<blockquote>
+<p>Delta Lake Table을 dropping하고 re-creating하는 것보다 REPLACE 명령을 사용할 것</p>
+</blockquote>
+</li>
+</ul>
+<p><code>CREATE TABLE IF NOT EXISTS</code></p>
+<ul>
+<li>테이블이 있으면 테이블이 생성되지 않고 명령이 무시됨</li>
+</ul>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> customersPerCountry <span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> country<span class="token punctuation">,</span>
+       <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> customers
+<span class="token keyword">FROM</span> customerLocations
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> country<span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- Createa a CSV table from an external directory</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> student <span class="token keyword">USING</span> CSV LOCATION <span class="token string">'/mnt/csv_files'</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="사용자에게-권한-부여">사용자에게 권한 부여<a aria-hidden="true" class="anchor-heading icon-link" href="#사용자에게-권한-부여"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> PRIVILEAGES <span class="token keyword">ON</span> <span class="token keyword">TABLE</span> sales <span class="token keyword">TO</span> new<span class="token punctuation">.</span>engineer<span class="token variable">@company.com</span><span class="token punctuation">;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token keyword">TABLE</span> sales <span class="token keyword">TO</span> new<span class="token punctuation">.</span>engineer<span class="token variable">@company.com</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="중복-제거">중복 제거<a aria-hidden="true" class="anchor-heading icon-link" href="#중복-제거"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> my_table<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="upsert">Upsert<a aria-hidden="true" class="anchor-heading icon-link" href="#upsert"></a></h3>
+<p>To insert or update. If the item does not exist, add or insert it; if the item already exists, then update it with new information.</p>
+<ul>
+<li><code>MERGE SQL</code> operation : upsert data from a source table, view, or DataFrame into a target Delta table (supported only for Delta Lake tables)
+<ul>
+<li>만약 id가 있으면 -> to update rows</li>
+<li>id가 없으면 -> to insert new rows</li>
+</ul>
+</li>
+</ul>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">MERGE</span> <span class="token keyword">INTO</span> people10m
+<span class="token keyword">USING</span> people10mupdates
+<span class="token keyword">ON</span> people10m<span class="token punctuation">.</span>id <span class="token operator">=</span> People10mupdates<span class="token punctuation">.</span>id
+<span class="token keyword">WHEN</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+  <span class="token keyword">UPDATE</span> <span class="token keyword">SET</span>
+    id <span class="token operator">=</span> people10mupdates<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    firstName <span class="token operator">=</span> people10mupdates<span class="token punctuation">.</span>firstName<span class="token punctuation">,</span>
+    ssn <span class="token operator">=</span> people10mupdates<span class="token punctuation">.</span>ssn
+<span class="token keyword">WHEN</span> <span class="token operator">NOT</span> <span class="token keyword">MATCHED</span>
+  <span class="token keyword">THEN</span> <span class="token keyword">INSERT</span> <span class="token punctuation">(</span>
+    id<span class="token punctuation">,</span>
+    firstName<span class="token punctuation">,</span>
+    ssn
+  <span class="token punctuation">)</span>
+  <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>
+    people10mupdates<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    people10mupdates<span class="token punctuation">.</span>firstName<span class="token punctuation">,</span>
+    people10mupdates<span class="token punctuation">.</span>ssn
+  <span class="token punctuation">)</span>
+</code></pre>
+<h3 id="window-functions">Window functions<a aria-hidden="true" class="anchor-heading icon-link" href="#window-functions"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
+    name
+  <span class="token punctuation">,</span> dept
+  <span class="token punctuation">,</span> salary
+  <span class="token punctuation">,</span> RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> rank
+  <span class="token punctuation">,</span> DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> dense_rank
+  <span class="token punctuation">,</span> DENSE_RANK<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary
+                       <span class="token keyword">ROWS</span> <span class="token operator">BETWEEN</span> <span class="token keyword">UNBOUNDED</span> <span class="token keyword">PRECEDING</span> <span class="token operator">AND</span> <span class="token keyword">CURRENT</span> <span class="token keyword">ROW</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> dense_rank2
+  <span class="token punctuation">,</span> <span class="token function">MIN</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> min
+  <span class="token punctuation">,</span> LAG<span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> lag
+  <span class="token punctuation">,</span> LEAD<span class="token punctuation">(</span>salary<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">OVER</span> <span class="token punctuation">(</span><span class="token keyword">PARTITION</span> <span class="token keyword">BY</span> dept <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> salary<span class="token punctuation">)</span> <span class="token keyword">AS</span> lead
+<span class="token keyword">FROM</span> employees
+<span class="token punctuation">;</span>
+</code></pre>
+<p><img src="/pks-publish/assets/images/sql_result_window_functions.png"></p>
+<h3 id="tbd">TBD<a aria-hidden="true" class="anchor-heading icon-link" href="#tbd"></a></h3>
+<pre class="language-sql"><code class="language-sql"><span class="token comment">-- unnest</span>
+<span class="token comment">-- card_id STRING, items ARRAY&#x3C;item_id:STRING> --> card_id STRING, item_id STRING</span>
+<span class="token keyword">SELECT</span> cart_id<span class="token punctuation">,</span> explode<span class="token punctuation">(</span>items<span class="token punctuation">)</span> <span class="token keyword">AS</span> item_id <span class="token keyword">FROM</span> raw_table<span class="token punctuation">;</span>
+
+<span class="token comment">-- extract</span>
+<span class="token comment">-- transaction_id STRING, payload ARRAY&#x3C;customer_id:STRING, date:TIMESTAMP, store_id:STRING></span>
+<span class="token comment">-- --> transacction_id: STRING, date TIMESTAMP</span>
+<span class="token keyword">SELECT</span> transaction_id<span class="token punctuation">,</span> payload<span class="token punctuation">.</span><span class="token keyword">date</span> <span class="token keyword">FROM</span> raw_table<span class="token punctuation">;</span>
+</code></pre>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://docs.databricks.com/delta/merge.html">Upsert into a Delta Lake table using merge</a></li>
+<li><a href="https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-create-table-using.html">CREATE TABLE [USING]</a></li>
+<li><a href="https://docs.databricks.com/sql/language-manual/delta-merge-into.html">MERGE INTO</a></li>
+<li><a href="https://docs.databricks.com/sql/language-manual/sql-ref-window-functions.html">Window functions</a></li>
+</ul>

@@ -1,0 +1,64 @@
+<h1 id="약수의-개수가-n인-자연수-k의-개수-구하기">약수의 개수가 n인 자연수 k(의 개수) 구하기<a aria-hidden="true" class="anchor-heading icon-link" href="#약수의-개수가-n인-자연수-k의-개수-구하기"></a></h1>
+<h2 id="문제">문제<a aria-hidden="true" class="anchor-heading icon-link" href="#문제"></a></h2>
+<p>60보다 작은 자연수 <em>k</em>의 약수의 개수가 4일 때, <em>k</em>가 될 수 있는 수의 개수는?</p>
+<h2 id="풀이">풀이<a aria-hidden="true" class="anchor-heading icon-link" href="#풀이"></a></h2>
+<ul>
+<li>60보다 작은 모든 자연수의 소인수분해의 결과를 <code>Counter</code>를 사용하여 <strong>각 소수의 개수</strong>를 구한다.</li>
+<li>소수의 개수가 <code>약수의 개수가 4</code>라는 조건에 부합하면 count를 추가한다.
+<ul>
+<li>어떤 자연수의 <strong>약수의 개수가 4</strong>가 되려면, 그 자연수는 <strong><em>소인수 하나의 세제곱</em></strong>(조건1) 또는 <strong><em>소인수 두 개의 곱</em></strong>(조건2)의 꼴이어야 한다.</li>
+</ul>
+</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+
+<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">def</span> <span class="token function">cond1</span><span class="token punctuation">(</span>factors<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>factors<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">list</span><span class="token punctuation">(</span>factors<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">def</span> <span class="token function">cond2</span><span class="token punctuation">(</span>factors<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>factors<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>factors<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+    count <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        factors <span class="token operator">=</span> Counter<span class="token punctuation">(</span>prime_factorization<span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> cond1<span class="token punctuation">(</span>factors<span class="token punctuation">)</span> <span class="token keyword">or</span> cond2<span class="token punctuation">(</span>factors<span class="token punctuation">)</span><span class="token punctuation">:</span>
+          count <span class="token operator">+=</span> <span class="token number">1</span>
+    
+    <span class="token keyword">print</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>소인수분해 코드는 아래를 참고한다.
+</p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">소인수분해</span></div>
+<a href="/pks-publish/notes/5md3q9daagijj4py0g1avkb" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">prime_factorization</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Return the prime factorization of a number."""</span>
+    factors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    divisor <span class="token operator">=</span> <span class="token number">2</span>  <span class="token comment"># 시작하는 소수</span>
+
+    <span class="token keyword">while</span> divisor <span class="token operator">&#x3C;=</span> n<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> n <span class="token operator">%</span> divisor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>  <span class="token comment"># n이 divisor로 나누어 떨어지면</span>
+            factors<span class="token punctuation">.</span>append<span class="token punctuation">(</span>divisor<span class="token punctuation">)</span>
+            n <span class="token operator">//=</span> divisor   <span class="token comment"># n을 divisor로 나눈 몫을 새로운 n으로 설정</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            divisor <span class="token operator">+=</span> <span class="token number">1</span>
+
+    <span class="token keyword">return</span> factors
+
+num <span class="token operator">=</span> <span class="token number">56</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>prime_factorization<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># [2, 2, 2, 7] 출력</span>
+</code></pre></div></div><p></p><p></p>
+<h2 id="references">References<a aria-hidden="true" class="anchor-heading icon-link" href="#references"></a></h2>
+<p>문제 0127, 쎈 중등 수학 1-1, (주)좋은책신사고</p>

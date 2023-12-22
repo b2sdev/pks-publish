@@ -1,0 +1,11 @@
+<h1 id="authentication-vs-authorization">Authentication vs Authorization<a aria-hidden="true" class="anchor-heading icon-link" href="#authentication-vs-authorization"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<h3 id="인증authentication">인증(authentication)<a aria-hidden="true" class="anchor-heading icon-link" href="#인증authentication"></a></h3>
+<p>사용자가 누구인지 확인하는 단계 (예: 로그인)</p>
+<h3 id="인가authorization">인가(authorization)<a aria-hidden="true" class="anchor-heading icon-link" href="#인가authorization"></a></h3>
+<p>인증을 통해 검증된 사용자가 애플리케이션 내부의 리소스에 접근할 때 사용자가 해당 리소스에 접근할 권리가 있는지를 확인하는 과정 (예: 로그인한 사용자가 특정 게시판에 접근해서 글을 보려고 하는 경우 게시판 접근 등급을 확인해 접근을 허가하거나 거부하는 것)</p>
+<h2 id="how">How<a aria-hidden="true" class="anchor-heading icon-link" href="#how"></a></h2>
+<ul>
+<li>일반적으로 사용자가 인증 단계인 로그인에 성공하면 애플리케이션 서버는 응답으로 사용자에게 토큰(token)을 전달하는데, 이 토큰 안에는 인가 내용을 포함하고 있음</li>
+<li>사용자가 사용자가 리소스에 접근하면서 토큰을 함께 전달하면 애플리케이션 서버는 토큰을 통해 권한 유무 등을 확인해 인가를 수행</li>
+</ul>

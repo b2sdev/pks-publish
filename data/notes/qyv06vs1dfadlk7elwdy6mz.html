@@ -1,0 +1,74 @@
+<h1 id="dijkstra">Dijkstra<a aria-hidden="true" class="anchor-heading icon-link" href="#dijkstra"></a></h1>
+<h2 id="다익스트라-알고리즘의-수도코드">다익스트라 알고리즘의 수도코드<a aria-hidden="true" class="anchor-heading icon-link" href="#다익스트라-알고리즘의-수도코드"></a></h2>
+<pre class="language-python"><code class="language-python">function Dijkstra<span class="token punctuation">(</span>Graph<span class="token punctuation">,</span> soure<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	dist<span class="token punctuation">[</span>source<span class="token punctuation">]</span> ← <span class="token number">0</span>
+	
+	create vertex priority queue Q
+	
+	<span class="token keyword">for</span> each vertext v <span class="token keyword">in</span> Graph<span class="token punctuation">:</span>
+		<span class="token keyword">if</span> v ≠ source
+			dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> ← INFINITY
+			prev<span class="token punctuation">[</span>v<span class="token punctuation">]</span> ← UNDEFINED
+		
+		Q<span class="token punctuation">.</span>add_with_priority<span class="token punctuation">(</span>v<span class="token punctuation">,</span> dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>
+		
+	<span class="token keyword">while</span> Q <span class="token keyword">is</span> <span class="token keyword">not</span> empty<span class="token punctuation">:</span>
+		u ← Q<span class="token punctuation">.</span>extract_min<span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">for</span> each neighbor v of u<span class="token punctuation">:</span>
+			alt ← dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">+</span> length<span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span>
+			<span class="token keyword">if</span> alt <span class="token operator">&#x3C;</span> dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span>
+				dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> ← alt
+				prev<span class="token punctuation">[</span>v<span class="token punctuation">]</span> ← u
+				Q<span class="token punctuation">.</span>decrease_priority<span class="token punctuation">(</span>v<span class="token punctuation">,</span> alt<span class="token punctuation">)</span>
+				
+	<span class="token keyword">return</span> dist<span class="token punctuation">,</span> prev
+</code></pre>
+<h2 id="다익스트라-알고리즘-구현-python">다익스트라 알고리즘 구현 (Python)<a aria-hidden="true" class="anchor-heading icon-link" href="#다익스트라-알고리즘-구현-python"></a></h2>
+<pre class="language-python"><code class="language-python"><span class="token comment"># 그래프 인접 리스트 구성</span>
+graph <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> w <span class="token keyword">in</span> info<span class="token punctuation">:</span>
+	graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> w<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 큐 변수: [(거리, 정점)]</span>
+Q <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> K<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment"># 최단 거리 변수</span>
+dist <span class="token operator">=</span> collections<span class="token punctuation">.</span>defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 우선순위 큐 최솟값 기준으로 정점까지 최단 경로 삽입</span>
+<span class="token keyword">while</span> Q<span class="token punctuation">:</span>
+	d<span class="token punctuation">,</span> u <span class="token operator">=</span> heapq<span class="token punctuation">.</span>heappop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> node <span class="token keyword">not</span> <span class="token keyword">in</span> dist<span class="token punctuation">:</span>
+		dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> d
+		<span class="token keyword">for</span> v<span class="token punctuation">,</span> w <span class="token keyword">in</span> graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">:</span>
+			alt <span class="token operator">=</span> d <span class="token operator">+</span> w
+			heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>Q<span class="token punctuation">,</span> <span class="token punctuation">(</span>alt<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span>	
+</code></pre>
+<h2 id="다익스트라-알고리즘-구현-java">다익스트라 알고리즘 구현 (Java)<a aria-hidden="true" class="anchor-heading icon-link" href="#다익스트라-알고리즘-구현-java"></a></h2>
+<pre class="language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token class-name">Graph</span> <span class="token class-name">G</span><span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dist <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> pred <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&#x3C;</span>dist<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    dist<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span>
+    pred<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">final</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token punctuation">]</span> visited <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">boolean</span><span class="token punctuation">[</span><span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  dist<span class="token punctuation">[</span>s<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&#x3C;</span>dist<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span> u <span class="token operator">=</span> <span class="token function">extractMin</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> visited<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    visited<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> n <span class="token operator">=</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">neighbors</span><span class="token punctuation">(</span>u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">&#x3C;</span>n<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">final</span> <span class="token keyword">int</span> d <span class="token operator">=</span>  dist<span class="token punctuation">[</span>u<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token class-name">G</span><span class="token punctuation">.</span><span class="token function">weight</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">></span> d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        dist<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">;</span>
+        pred<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> u<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> pred<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>

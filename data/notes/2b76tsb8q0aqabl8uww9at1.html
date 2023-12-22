@@ -1,0 +1,86 @@
+<h1 id="data-lakehouse">Data Lakehouse<a aria-hidden="true" class="anchor-heading icon-link" href="#data-lakehouse"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<ul>
+<li>In short, a Data Lakehouse is an architecture that enables efficient and secure Artificial Intelligence (AI) and Business Intelligence (BI) directly on vast amounts of data stored in Data Lakes.</li>
+<li>The Data Lakehouse enables storing all your data once in a <a href="/pks-publish/notes/eja9cwc6rjfx4zrkmvrp8az">Data Lake</a> and doing AI and BI on that data directly. </li>
+</ul>
+<blockquote>
+<p>We define a <a href="https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf?utm_source=microsoft&#x26;utm_medium=web&#x26;utm_campaign=7013f000000Tx4QAAS">Lakehouse</a> as a data management system based on lowcost and directly-accessible storage that also provides traditional analytical DBMS management and performance features such as ACID transactions, data versioning, auditing, indexing, caching, and query optimization. Lakehouses thus combine the key benefits of data lakes and data warehouses: low-cost storage in an open format accessible by a variety of systems from the former, and powerful management and optimization features from the latter. - Michael Armbrust, Ali Ghodsi, Reynold Xin, Matei Zaharia</p>
+</blockquote>
+<p><img src="https://www.databricks.com/wp-content/uploads/2020/01/data-lakehouse-new.png"></p>
+<ul>
+<li>
+<p>Lakehouses는 데이터 레이크의 저비용 및 유연성과 데이터 웨어하우스의 안정성 및 성능을 결합</p>
+</li>
+<li>
+<p>Lakehouse 아키텍처는 다음과 같은 몇 가지 주요 기능을 제공</p>
+<ul>
+<li>
+<p>개방형 형식의 안정적이고 확장 가능하며 저렴한 스토리지</p>
+</li>
+<li>
+<p><a href="/pks-publish/notes/i77f7bz5g58kgrwmzz5rf07">ACID 트랜잭션</a>을 사용한 ETL 및 스트림 처리</p>
+</li>
+<li>
+<p>쿼리 시 관리 용이성과 성능을 보장하기 위한 메타데이터, 버전 관리, 캐싱 및 인덱싱</p>
+</li>
+<li>
+<p>데이터 과학 및 기계 학습을 위한 선언적 DataFrame API와 함께 BI 및 보고용 SQL API</p>
+<p><img src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/243936iECABC2CB42BE68E3/image-size/medium?v=v2&#x26;px=400"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Lakehouse instead adds traditional data warehousing capabilities to existing data lakes, including ACID transactions, fine-grained data security, low-cost updates and deletes, first-class SQL support, optimized performance for SQL queries, and BI style reporting. By building on top of a data lake, the Lakehouse stores and manages all existing data in a data lake, including all varieties of data, such as text, audio and video, in addition to structured data in tables. Lakehouse also natively supports data science and machine learning use cases by providing direct access to data using open APIs and supporting various ML and Python/R libraries, such as PyTorch, Tensorflow or <a href="/pks-publish/notes/ulkhzg050nk603kpq0j4fvf">XGBoost</a>, unlike data warehouses. Thus, Lakehouse provides a single system to manage all of an enterprise’s data while supporting the range of analytics from BI and AI.</li>
+</ul>
+<h3 id="lakehouse의-3가지-핵심-원칙과-구성-요소">Lakehouse의 3가지 핵심 원칙과 구성 요소<a aria-hidden="true" class="anchor-heading icon-link" href="#lakehouse의-3가지-핵심-원칙과-구성-요소"></a></h3>
+<p><img src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/244539i02EE86FA40EC52EF/image-dimensions/671x329?v=v2"></p>
+<ol>
+<li>오픈 소스 형식의 선별된 레이어와 함께 모든 데이터를 저장하는 <a href="/pks-publish/notes/eja9cwc6rjfx4zrkmvrp8az">Data Lake</a>
+<ul>
+<li>데이터 레이크는 모든 유형, 크기 및 속도의 데이터를 수용할 수 있어야 합니다. 레이크에서 선별된 데이터의 형식은 개방형이어야 하고 클라우드 네이티브 보안 서비스와 통합되어야 하며 ACID 트랜잭션을 지원해야 합니다.</li>
+</ul>
+</li>
+<li>개방형 표준을 기반으로 구축된 기본 컴퓨팅 계층
+<ul>
+<li>데이터 레이크 큐레이팅(ETL 및 스트림 처리), 데이터 과학 및 기계 학습, 데이터 레이크에 대한 SQL 분석을 포함한 모든 핵심 레이크하우스 사용 사례를 지원하는 기본 컴퓨팅 계층이 있어야 합니다.</li>
+</ul>
+</li>
+<li>추가 및/또는 새로운 사용 사례를 위한 손쉬운 통합
+<ul>
+<li>단일 서비스가 모든 것을 할 수는 없습니다. 핵심 Lakehouse 사용 사례의 일부가 아닌 새로운 또는 추가 사용 사례가 항상 있을 것입니다. 이러한 신규 또는 추가 사용 사례에는 전문 서비스나 도구가 필요한 경우가 많습니다. 이것이 바로 선별된 데이터 레이크, 기본 컴퓨팅 계층, 기타 서비스 및 도구 간의 손쉬운 통합이 핵심 요구 사항인 이유입니다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="data-lakehouse의-장점">Data Lakehouse의 장점<a aria-hidden="true" class="anchor-heading icon-link" href="#data-lakehouse의-장점"></a></h2>
+<ul>
+<li>A data lakehouse enables both batch and streaming analytrics.</li>
+<li>A data lakehouse stores unstructured data and is ACID-compliant.</li>
+</ul>
+<h2 id="databricks-lakehouse의-구성-요소">Databricks Lakehouse의 구성 요소<a aria-hidden="true" class="anchor-heading icon-link" href="#databricks-lakehouse의-구성-요소"></a></h2>
+<h3 id="delta-table"><a href="/pks-publish/notes/es7fyakczjuyvb0u7k9g8xg">Delta Table</a><a aria-hidden="true" class="anchor-heading icon-link" href="#delta-table"></a></h3>
+<h3 id="unity-catalog">Unity Catalog<a aria-hidden="true" class="anchor-heading icon-link" href="#unity-catalog"></a></h3>
+<h2 id="incremental-multi-hop-in-the-lakehouse">Incremental Multi-Hop in the Lakehouse<a aria-hidden="true" class="anchor-heading icon-link" href="#incremental-multi-hop-in-the-lakehouse"></a></h2>
+<p><img src="/pks-publish/assets/images/databricks-multi-hop.png"></p>
+<p>파이프라인의 각 Bronze, Silver, Gold 데이터 단계별로 프로세싱되는 과정을 거치면서 가장 최신의 데이터를 준실시간성(near-real time)으로 처리하여 분석가에게 제공됨</p>
+<ul>
+<li>Bronze 테이블은 다양한 소스(JSON files, RDBMS data, IoT data등)에서 수집한 원본 데이터를 저장</li>
+<li>Silver 테이블은 우리 데이터에 좀더 정제된 view를 제공. 다양한 bronze 테이블과 조인하거나 불필요한 정보의 제거, 업데이트 등을 수행</li>
+<li>Gold 테이블은 주로 리포트나 대시보드에서 사용되는 비지니스 수준의 aggregation을 수행한 뷰를 제공 (예: 일간 사용자수나 상품별 매출 등의 뷰)</li>
+</ul>
+<h2 id="lakehouse-architecture-도입-사례">Lakehouse Architecture 도입 사례<a aria-hidden="true" class="anchor-heading icon-link" href="#lakehouse-architecture-도입-사례"></a></h2>
+<ul>
+<li><a href="/pks-publish/notes/k5czowo3tsy1kbggabfgzsa">AWS Lake House</a></li>
+</ul>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html">https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html</a></li>
+<li><a href="https://www.databricks.com/blog/2021/08/30/frequently-asked-questions-about-the-data-lakehouse.html">https://www.databricks.com/blog/2021/08/30/frequently-asked-questions-about-the-data-lakehouse.html</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/simplify-your-lakehouse-architecture-with-azure-databricks-delta/ba-p/2027272">https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/simplify-your-lakehouse-architecture-with-azure-databricks-delta/ba-p/2027272</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/f5ta5qp6kvcp8x23oxfjwi2">Delta Lake</a></li>
+</ul>

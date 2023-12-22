@@ -1,0 +1,66 @@
+<h1 id="structured-streaming">Structured Streaming<a aria-hidden="true" class="anchor-heading icon-link" href="#structured-streaming"></a></h1>
+<h2 id="what">What<a aria-hidden="true" class="anchor-heading icon-link" href="#what"></a></h2>
+<ul>
+<li>Structured stream에서 data stream은 계속해서 append되는 테이블로 간주됨</li>
+</ul>
+<p><img src="https://learn.microsoft.com/en-us/azure/databricks/_static/images/getting-started/gsasg-spark-streaming-workflow.png"></p>
+<h2 id="why">Why<a aria-hidden="true" class="anchor-heading icon-link" href="#why"></a></h2>
+<ul>
+<li>이렇게 하면 stream processing model을 batch processing model처럼 처리할 수 있음</li>
+</ul>
+<p><img src="https://learn.microsoft.com/en-us/azure/databricks/_static/images/getting-started/gsasg-spark-streaming-model.png"></p>
+<ul>
+<li>시간이 지날수록 새로운 row가 입력 테이블에 append되는 꼴이 되며 (Input), 이 테이블을 query하면 (Query), 결과 테이블도 계속 업데이트됨 (Output)</li>
+</ul>
+<h2 id="how">How<a aria-hidden="true" class="anchor-heading icon-link" href="#how"></a></h2>
+<h3 id="initialize-the-stream">Initialize the stream<a aria-hidden="true" class="anchor-heading icon-link" href="#initialize-the-stream"></a></h3>
+<pre class="language-python"><code class="language-python">streamingInputDF <span class="token operator">=</span> <span class="token punctuation">(</span>
+  spark
+    <span class="token punctuation">.</span>readStream
+    <span class="token punctuation">.</span>schema<span class="token punctuation">(</span>jsonSchema<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>option<span class="token punctuation">(</span><span class="token string">"maxFilesPerTrigger"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"json"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>load<span class="token punctuation">(</span>inputPath<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+streamCountsDF <span class="token operator">=</span> <span class="token punctuation">(</span>
+  streamingInputDF
+    <span class="token punctuation">.</span>groupBy<span class="token punctuation">(</span>
+      streamingInputDF<span class="token punctuation">.</span>action<span class="token punctuation">,</span>
+      window<span class="token punctuation">(</span>streamingInputDF<span class="token punctuation">.</span>time<span class="token punctuation">,</span> <span class="token string">"1 hour"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="start-the-streaming-job">Start the streaming job<a aria-hidden="true" class="anchor-heading icon-link" href="#start-the-streaming-job"></a></h3>
+<pre class="language-python"><code class="language-python">query <span class="token operator">=</span> <span class="token punctuation">(</span>
+  streamingCountsDF
+    <span class="token punctuation">.</span>writeStream
+    <span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"memory"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>queryName<span class="token punctuation">(</span><span class="token string">"counts"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>outputMode<span class="token punctuation">(</span><span class="token string">"complete"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="trigger">Trigger<a aria-hidden="true" class="anchor-heading icon-link" href="#trigger"></a></h2>
+<h3 id="시간-기반-트리거-간격-지정">시간 기반 트리거 간격 지정<a aria-hidden="true" class="anchor-heading icon-link" href="#시간-기반-트리거-간격-지정"></a></h3>
+<ul>
+<li>Structured Streaming의 시간 기반 trigger는 기본적으로 500ms의 고정 간격 micro-batches</li>
+<li><code>processTime</code> 키워드를 사용하여 기간(예: <code>.trigger(processingTime='10 seconds'))</code>을 문자열로 지정</li>
+</ul>
+<h2 id="증분-일괄-처리-구성">증분 일괄 처리 구성<a aria-hidden="true" class="anchor-heading icon-link" href="#증분-일괄-처리-구성"></a></h2>
+<ul>
+<li>원본 디렉터리의 모든 새 데이터를 단일 micro-batch로 처리하려면 <code>.trigger(once=True)</code> 옵션을 사용</li>
+<li>스트리밍 입력 크기가 큰 경우 <code>.trigger(availableNow=True)</code> 옵션 사용</li>
+</ul>
+<h2 id="reference">Reference<a aria-hidden="true" class="anchor-heading icon-link" href="#reference"></a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/databricks/getting-started/streaming">https://learn.microsoft.com/en-us/azure/databricks/getting-started/streaming</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/triggers">https://learn.microsoft.com/en-us/azure/databricks/structured-streaming/triggers</a></li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pks-publish/notes/0wwj1byxg3uhkh6el05q2o9">Data+AI Summit 2022 키노트 주요 어나운스먼트 요약</a></li>
+<li><a href="/pks-publish/notes/f5ta5qp6kvcp8x23oxfjwi2">Delta Lake</a></li>
+<li><a href="/pks-publish/notes/hvd8818q6qo5xxfok5lhye7">Delta Live Tables</a></li>
+</ul>
